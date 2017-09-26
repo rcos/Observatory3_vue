@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/rcos/Observatory3.svg?branch=master)](https://travis-ci.org/rcos/Observatory3)
 
-#In a progress of refactoring...
+# In a progress of refactoring...
 A project tracking dashboard for Rensselaer Center for Open Source. A ground up rewrite.
 
 Working to replace a system with these [features](docs/Legacy_Features.md).
