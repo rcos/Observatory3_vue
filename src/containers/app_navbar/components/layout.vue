@@ -11,6 +11,10 @@
 	        <a class="nav-link" href="/#/projects">Projects</a>
 	      </li>
 
+        <li class="nav-item">
+          <a class="nav-link" href="/#/users">Users</a>
+        </li>
+
 	    </ul>
 
 	    <ul class="navbar-nav ml-auto">
