@@ -7,6 +7,9 @@ import Router from 'vue-router'
 // Main Containers
 import MainHome from '@/containers/main_home'
 
+// Achievement Containers
+import AchievementList from '@/containers/achievement_list'
+
 // Project Containers
 import ProjectList from '@/containers/project_list'
 import ProjectNew from '@/containers/project_new'
@@ -36,6 +39,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: MainHome
+    },
+    {
+      path: '/achievements',
+      name: 'Achievements',
+      component: AchievementList
     },
     {
       path: '/projects',
