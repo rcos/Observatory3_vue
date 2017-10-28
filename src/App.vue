@@ -24,7 +24,7 @@ export default {
   // Top-Level page Meta
   metaInfo: {
     title: 'Home', // set a title
-    titleTemplate: 'EB - %s', // title is now "RCOS - Loading..."
+    titleTemplate: 'RCOS - %s', // title is now "RCOS - Loading..."
     htmlAttrs: {
       lang: 'en'
     }
