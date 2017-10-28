@@ -10,7 +10,6 @@
 import LayoutView from './components/layout.vue'
 
 export default {
-  name: 'project_list',
   components: {
     LayoutView
   },
