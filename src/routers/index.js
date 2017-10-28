@@ -21,6 +21,9 @@ import AuthRegister from '@/containers/auth_register'
 import UserList from '@/containers/user_list'
 import UserShow from '@/containers/user_show'
 
+// Blog Containers
+import BlogList from '@/containers/blog_list'
+
 // TODO - Achievements
 // TODO - User List
 // TODO - User Show
@@ -78,6 +81,11 @@ export default new Router({
       path: '/users/:id',
       name: 'User Show',
       component: UserShow
+    },
+    {
+      path: '/blogs',
+      name: 'Blog List',
+      component: BlogList
     }
   ]
 })
