@@ -32,6 +32,9 @@ import MentorSmallGroup from '@/containers/mentor_small_group'
 
 // Blog Containers
 import BlogList from '@/containers/blog_list'
+import BlogNew from '@/containers/blog_new'
+import BlogEdit from '@/containers/blog_edit'
+import BlogShow from '@/containers/blog_show'
 
 // TODO - Achievements
 // TODO - User List
@@ -120,6 +123,21 @@ export default new Router({
       path: '/blogs',
       name: 'Blog List',
       component: BlogList
+    },
+    {
+      path: '/blogs/new',
+      name: 'Blog New',
+      component: BlogNew
+    },
+    {
+      path: '/blogs/edit',
+      name: 'Blog Edit',
+      component: BlogEdit
+    },
+    {
+      path: '/blogs/show',
+      name: 'Blog Show',
+      component: BlogShow
     }
   ]
 })
