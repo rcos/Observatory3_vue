@@ -27,6 +27,10 @@
           <a class="nav-link" href="/#/mentor/verify">Verify</a>
         </li>
 
+        <li>
+          <a class="nav-link" href="/#/mentor/small_group">Small Group</a>
+        </li>
+
 	    </ul>
 
 	    <ul class="navbar-nav ml-auto">

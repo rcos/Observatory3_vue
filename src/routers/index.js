@@ -26,6 +26,7 @@ import UserShow from '@/containers/user_show'
 
 // Mentor Containers
 import MentorVerify from '@/containers/mentor_verify'
+import MentorSmallGroup from '@/containers/mentor_small_group'
 
 // Blog Containers
 import BlogList from '@/containers/blog_list'
@@ -97,6 +98,11 @@ export default new Router({
       path: '/mentor/verify',
       name: 'Mentor Verify',
       component: MentorVerify
+    },
+    {
+      path: '/mentor/small_group',
+      name: 'Mentor Small Group',
+      component: MentorSmallGroup
     },
     {
       path: '/blogs',
