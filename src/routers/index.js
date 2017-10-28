@@ -31,6 +31,7 @@ import MentorVerify from '@/containers/mentor_verify'
 import BlogList from '@/containers/blog_list'
 import BlogNew from '@/containers/blog_new'
 import BlogEdit from '@/containers/blog_edit'
+import BlogShow from '@/containers/blog_show'
 
 // TODO - Achievements
 // TODO - User List
@@ -114,6 +115,11 @@ export default new Router({
       path: '/blogs/edit',
       name: 'Blog Edit',
       component: BlogEdit
+    },
+    {
+      path: '/blogs/show',
+      name: 'Blog Show',
+      component: BlogShow
     }
   ]
 })
