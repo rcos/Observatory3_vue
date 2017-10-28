@@ -17,6 +17,9 @@ import ProjectEdit from '@/containers/project_edit'
 import AuthLogin from '@/containers/auth_login'
 import AuthRegister from '@/containers/auth_register'
 
+// User Containers
+import UserList from '@/containers/user_list'
+
 // TODO - Achievements
 // TODO - User List
 // TODO - User Show
@@ -64,6 +67,11 @@ export default new Router({
       path: '/auth/register',
       name: 'Login',
       component: AuthRegister
+    },
+    {
+      path: '/users',
+      name: 'User List',
+      component: UserList
     }
   ]
 })
