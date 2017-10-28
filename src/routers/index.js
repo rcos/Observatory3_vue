@@ -24,6 +24,9 @@ import AuthRegister from '@/containers/auth_register'
 import UserList from '@/containers/user_list'
 import UserShow from '@/containers/user_show'
 
+// Mentor Containers
+import MentorVerify from '@/containers/mentor_verify'
+
 // TODO - Achievements
 // TODO - User List
 // TODO - User Show
@@ -86,6 +89,11 @@ export default new Router({
       path: '/users/:id',
       name: 'User Show',
       component: UserShow
+    },
+    {
+      path: '/mentor/verify',
+      name: 'Mentor Verify',
+      component: MentorVerify
     }
   ]
 })
