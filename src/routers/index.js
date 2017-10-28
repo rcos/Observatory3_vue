@@ -24,6 +24,7 @@ import AuthRegister from '@/containers/auth_register'
 // User Containers
 import UserList from '@/containers/user_list'
 import UserShow from '@/containers/user_show'
+import UserSettings from '@/containers/user_settings'
 
 // Mentor Containers
 import MentorVerify from '@/containers/mentor_verify'
@@ -99,6 +100,11 @@ export default new Router({
       path: '/users/:id',
       name: 'User Show',
       component: UserShow
+    },
+    {
+      path: '/profile',
+      name: 'User Settings',
+      component: UserSettings
     },
     {
       path: '/mentor/verify',
