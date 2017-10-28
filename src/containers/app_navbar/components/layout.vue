@@ -19,6 +19,14 @@
           <a class="nav-link" href="/#/achievements">Achievements</a>
         </li>
 
+        <li>
+          <a class="nav-link" href="/#/blogs">Blogs</a>
+        </li>
+
+        <li>
+          <a class="nav-link" href="/#/mentor/verify">Verify</a>
+        </li>
+
 	    </ul>
 
 	    <ul class="navbar-nav ml-auto">

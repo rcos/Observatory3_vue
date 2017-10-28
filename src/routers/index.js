@@ -27,6 +27,9 @@ import UserShow from '@/containers/user_show'
 // Mentor Containers
 import MentorVerify from '@/containers/mentor_verify'
 
+// Blog Containers
+import BlogList from '@/containers/blog_list'
+
 // TODO - Achievements
 // TODO - User List
 // TODO - User Show
@@ -94,6 +97,11 @@ export default new Router({
       path: '/mentor/verify',
       name: 'Mentor Verify',
       component: MentorVerify
+    },
+    {
+      path: '/blogs',
+      name: 'Blog List',
+      component: BlogList
     }
   ]
 })
