@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row pb-4">
     <ExploreChild/>
     <ExploreChild/>
     <ExploreChild/>
