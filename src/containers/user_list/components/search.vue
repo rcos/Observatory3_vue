@@ -12,7 +12,7 @@
           <button type="button" class="btn btn-secondary"></button>
         </div>
         <div class="btn-group" role="group" aria-label="Current/Past Users">
-          <button type="button" class="btn btn-secondary">Past</button>
+          <button type="button" class="btn btn-secondary">Past </button>
         </div>
       </div>
     </div>
