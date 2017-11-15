@@ -3,28 +3,30 @@
   <div id="app">
     <Navbar/>
     <router-view/>
-    <!-- MODAL-COMPONENT -->
-    <!-- FLASH-COMPONENT -->
-    <!-- BREADCRUMB-COMPONENT -->
-    <!-- FOOTER-COMPONENT -->
+    <Footer/>
+    <Notification/>
   </div>
 </template>
 
 <script>
 import Navbar from './containers/app_navbar'
+import Footer from './containers/app_footer'
+import Notification from './containers/app_notification'
 
 export default {
   name: 'app',
 
   // Top-Level Application Components
   components: {
-    Navbar
+    Navbar,
+    Notification,
+    Footer
   },
 
   // Top-Level page Meta
   metaInfo: {
     title: 'Home', // set a title
-    titleTemplate: 'RCOS - %s', // title is now "RCOS - Loading..."
+    titleTemplate: 'RCOS - %s', // title will always be "RCOS - ..."
     htmlAttrs: {
       lang: 'en'
     }
