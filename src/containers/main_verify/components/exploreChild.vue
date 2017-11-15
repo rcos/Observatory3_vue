@@ -1,11 +1,11 @@
 <template>
-  <div class="row">
-    <div class="col-md-2">Sep 12</div>
-    <div class="col-md-2">Regular</div>
-    <div class="col-md-2">Full</div>
-    <div class="col-md-3">No</div>
-    <div class="col-md-3">Absent</div>
-  </div>
+  <tr>
+    <td>Sep 12</td>
+    <td>Regular</td>
+    <td>Full</td>
+    <td>No</td>
+    <td>Absent</td>
+  </tr>
 </template>
 
 <script>

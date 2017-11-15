@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <ExploreChild/>
-  </div>
+  <table class="table table-hover">
+    <tbody>
+      <exploreChild/>
+    </tbody>
+  </table>
 </template>
 
 <script>
