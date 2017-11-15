@@ -16,7 +16,7 @@
         <span class="sr-only">Next</span>
       </a>
     </li>
-    <li class="page-item">
+    <li class="page-item pl-2">
       <button type="button" class="btn btn-outline-primary">View All</button>
     </li>
   </ul>
