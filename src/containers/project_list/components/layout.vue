@@ -1,7 +1,14 @@
 <template>
   <div class="container pt-4">
+
     <h3>Active Projects</h3>
-    <ProjectSearch/>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <ProjectSearch/>
+      </div>
+    </div>
+
   	<div class="row">
       <div class="col-lg-9">
 
@@ -9,13 +16,12 @@
   				<a class="list-group-item" href="/#/projects/new">NEW</a>
   			</ul>
 
-  			<ListView :todos="todos"></ListView>
+  			<ListView :collection="collection"/>
 
-        <p>{{ count }}</p>
-        <button @click="increment()" class="btn btn-outline-primary">Increment</button>
-        <button @click="decrement()" class="btn btn-outline-primary">Decrement</button>
   		</div>
+
       <ProjectPinned/>
+
   	</div>
   </div>
 </template>
@@ -23,30 +29,16 @@
 <!-- // // // //  -->
 
 <script>
-import ListView from './list.vue'
 import store from '@/store'
+import ListView from './list.vue'
 import ProjectSearch from './search.vue'
 import ProjectPinned from './pinned.vue'
 
 export default {
-  name: 'layout',
+  props: ['collection'],
   computed: {
-    count: () => {
-      return store.getters['project/count']
-    },
-
-    todos: () => {
-      console.log(store)
-      return store.getters['project/todos']
-    }
-  },
-  methods: {
-    increment: () => {
-      // return store.commit('project/increment')
-      return store.dispatch('project/incrementAsync')
-    },
-    decrement: () => {
-      return store.commit('project/decrement')
+    fetching () {
+      return store.getters['project/fetching']
     }
   },
   components: {
