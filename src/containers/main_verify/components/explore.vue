@@ -1,16 +1,16 @@
 <template>
-  <div class="row pb-12">
-    <ExploreChild/>
-    <ExploreChild/>
-    <ExploreChild/>
-  </div>
+  <table class="table table-hover">
+    <tbody>
+      <exploreChild/>
+    </tbody>
+  </table>
 </template>
 
 <script>
   import ExploreChild from './exploreChild.vue'
 
   export default {
-    name: 'main_developers',
+    name: 'main_past_attendance',
     components: {
       ExploreChild
     }

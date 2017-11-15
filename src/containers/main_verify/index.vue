@@ -6,7 +6,6 @@
 <!-- // // // //  -->
 
 <script>
-
 import LayoutView from './components/layout.vue'
 
 export default {
@@ -14,7 +13,7 @@ export default {
     LayoutView
   },
   metaInfo: {
-    title: 'User - List'
+    title: 'Attendance'
   }
 }
 </script>
