@@ -5,7 +5,7 @@
         <input class="form-control mr-sm-" type="search" placeholder="Search for a developer">
       </form>
     </div>
-    <div class="col-lg-6" align="right">
+    <div class="col-lg-6">
       <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
         <div class="btn-group" role="group" aria-label="Sort A-Z">
           <button type="button"></button>
