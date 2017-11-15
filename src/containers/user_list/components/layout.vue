@@ -2,9 +2,9 @@
 <template>
   <div class="container pt-3">
   	<h3>RCOS Developers</h3>
-    <Search/>
-    <Pages/>
-    <Explore/>
+    <Search :collection="collection"/>
+    <Pagination :collection="collection"/>
+    <List :collection="collection"/>
   </div>
 </template>
 
@@ -13,15 +13,15 @@
 <script>
 
 import Search from './search.vue'
-import Pages from './pages.vue'
-import Explore from './explore.vue'
+import Pagination from './pagination.vue'
+import List from './list.vue'
 
 export default {
-  name: 'layout',
+  props: ['collection'],
   components: {
     Search,
-    Pages,
-    Explore
+    Pagination,
+    List
   }
 }
 </script>

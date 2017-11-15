@@ -3,14 +3,14 @@
     <div class="card">
       <img class="card-img-top">
       <div class="card-footer">
-        <small class="text-muted">First Last</small>
+        <small class="text-muted">{{model.name}}</small>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'main_developers'
-  }
+export default {
+  props: ['model']
+}
 </script>

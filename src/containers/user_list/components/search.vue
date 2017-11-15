@@ -17,7 +17,5 @@
 </template>
 
 <script>
-  export default {
-    name: 'user_search'
-  }
+export default {}
 </script>
