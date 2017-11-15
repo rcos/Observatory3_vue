@@ -6,11 +6,9 @@
       </form>
     </div>
     <div class="col-lg-6">
-      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-toolbar" role="toolbar">
         <div class="btn-group" role="group" aria-label="Sort A-Z">
           <button type="button"></button>
-        </div>
-        <div class="btn-group" role="group" aria-label="Current/Past Users">
           <button type="button">Past</button>
         </div>
       </div>
