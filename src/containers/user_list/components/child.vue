@@ -1,9 +1,12 @@
 <template>
   <div class="col-sm-2">
     <div class="card">
-      <img class="card-img-top">
-      <div class="card-footer">
-        <small class="text-muted">{{model.name}}</small>
+      <div class="card-body">
+        <small class="text-muted">
+          <a :href="'/#/users/' + model._id">
+            {{model.name}}
+          </a>
+        </small>
       </div>
     </div>
   </div>
