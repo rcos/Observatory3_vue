@@ -21,7 +21,7 @@
           <p class="card-text">
             <dl class="dl-horizontal">
               <dt>Tuesday (4:00-5:15)</dt>
-              <dd>Small group meetings in these rooms</a></dd>
+              <dd>Small group meetings in these rooms</dd>
               <dt>Friday (4:00-5:15)</dt>
               <dd>Large group meetings in DCC 318</dd>
             </dl>

@@ -2,28 +2,22 @@
   <div class="col-lg-3">
     <div class="row-grid">
       <div class="card">
-        <h6 class="card-header">Statistics</h6>
+        <h6 class="card-header">My projects</h6>
         <div class="card-body pt-1 pb-1">
           <p class="card-text">
             <dl class="dl-horizontal">
-              <dt>Active Projects</dt>
-              <dt>Past Projects</dt>
-              <dt>Active Developers</dt>
-              <dt>Past Developers</dt>
+              <dd>Observatory</dd>
+              <dd>AstroKey</dd>
             </dl>
           </p>
         </div>
       </div>
-
       <div class="card mt-3">
-        <h6 class="card-header">Meeting Times</h6>
+        <h6 class="card-header">Favorite Projects</h6>
         <div class="card-body pt-1 pb-1">
           <p class="card-text">
             <dl class="dl-horizontal">
-              <dt>Tuesday (4:00-5:15)</dt>
-              <dd>Small group meetings in these rooms</a></dd>
-              <dt>Friday (4:00-5:15)</dt>
-              <dd>Large group meetings in DCC 318</dd>
+              <dd>Observatory</dd>
             </dl>
           </p>
         </div>
