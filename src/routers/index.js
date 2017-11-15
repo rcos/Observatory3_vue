@@ -24,9 +24,11 @@ import AuthRegister from '@/containers/auth_register'
 // User Containers
 import UserList from '@/containers/user_list'
 import UserShow from '@/containers/user_show'
+import UserSettings from '@/containers/user_settings'
 
 // Mentor Containers
 import MentorVerify from '@/containers/mentor_verify'
+import MentorSmallGroup from '@/containers/mentor_small_group'
 
 // Blog Containers
 import BlogList from '@/containers/blog_list'
@@ -49,6 +51,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: MainHome
+    },
+    {
+      path: '/attend',
+      name: 'Attend',
+      component: MainAttend
     },
     {
       path: '/achievements',
@@ -98,9 +105,19 @@ export default new Router({
       component: UserShow
     },
     {
+      path: '/profile',
+      name: 'User Settings',
+      component: UserSettings
+    },
+    {
       path: '/mentor/verify',
       name: 'Mentor Verify',
       component: MentorVerify
+    },
+    {
+      path: '/mentor/small_group',
+      name: 'Mentor Small Group',
+      component: MentorSmallGroup
     },
     {
       path: '/blogs',
