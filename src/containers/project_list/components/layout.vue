@@ -1,11 +1,9 @@
 <template>
   <div class="container pt-4">
+    <h3>Active Projects</h3>
+    <ProjectSearch/>
   	<div class="row">
-  		<div class="col-lg-12">
-
-  			<h3>Active Projects</h3>
-
-  			<ProjectSearch/>
+      <div class="col-lg-9">
 
   			<ul class="list-group mt-2 mb-4 text-center">
   				<a class="list-group-item" href="/#/projects/new">NEW</a>
@@ -16,8 +14,8 @@
         <p>{{ count }}</p>
         <button @click="increment()" class="btn btn-outline-primary">Increment</button>
         <button @click="decrement()" class="btn btn-outline-primary">Decrement</button>
-
   		</div>
+      <ProjectPinned/>
   	</div>
   </div>
 </template>
@@ -28,6 +26,7 @@
 import ListView from './list.vue'
 import store from '@/store'
 import ProjectSearch from './search.vue'
+import ProjectPinned from './pinned.vue'
 
 export default {
   name: 'layout',
@@ -52,7 +51,8 @@ export default {
   },
   components: {
     ListView,
-    ProjectSearch
+    ProjectSearch,
+    ProjectPinned
   }
 }
 </script>
