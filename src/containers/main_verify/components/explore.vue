@@ -1,7 +1,5 @@
 <template>
-  <div class="row pb-12">
-    <ExploreChild/>
-    <ExploreChild/>
+  <div>
     <ExploreChild/>
   </div>
 </template>
@@ -10,7 +8,7 @@
   import ExploreChild from './exploreChild.vue'
 
   export default {
-    name: 'main_developers',
+    name: 'main_past_attendance',
     components: {
       ExploreChild
     }

@@ -6,6 +6,7 @@
       </div>
     <h4>Previoud Attendance:</h4>
     <AttendanceList/>
+    <Explore/>
   </div>
 </template>
 
@@ -14,12 +15,14 @@
 <script>
 import CodeInput from './input.vue'
 import AttendanceList from './main_list'
+import Explore from './explore.vue'
 
 export default {
   name: 'layout',
   components: {
     CodeInput,
-    AttendanceList
+    AttendanceList,
+    Explore
   }
 }
 </script>
