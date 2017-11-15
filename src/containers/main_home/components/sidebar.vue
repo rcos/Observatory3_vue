@@ -14,7 +14,6 @@
           </p>
         </div>
       </div>
-
       <div class="card mt-3">
         <h6 class="card-header">Meeting Times</h6>
         <div class="card-body pt-1 pb-1">
