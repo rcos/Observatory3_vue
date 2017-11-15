@@ -9,7 +9,7 @@
       <div class="btn-toolbar" role="toolbar">
         <button type="button"></button>
         <button type="button">Past</button>
-        <button type="button">Add a Project</button>
+        <button type="button" class="btn btn-danger">Add a Project</button>
       </div>
     </div>
   </div>
