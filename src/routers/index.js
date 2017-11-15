@@ -6,6 +6,7 @@ import Router from 'vue-router'
 
 // Main Containers
 import MainHome from '@/containers/main_home'
+import MainVerify from '@/containers/main_verify'
 
 // Achievement Containers
 import AchievementList from '@/containers/achievement_list'
@@ -120,6 +121,11 @@ export default new Router({
       path: '/blogs/show',
       name: 'Blog Show',
       component: BlogShow
+    },
+    {
+      path: '/attend',
+      name: 'Main Verify',
+      component: MainVerify
     }
   ]
 })
