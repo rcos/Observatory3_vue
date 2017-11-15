@@ -1,24 +1,77 @@
 <template>
+  <!--
   <div class="card-deck">
     <div class="card">
       <img class="card-img-top">
-      <div class="card-block">
-        <h4 class="card-title">Card title</h4>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <div class="card-footer">
+      <small class="text-muted">Aaron Gunderson</small>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top">
+      <div class="card-footer">
+      <small class="text-muted">Aaron Perl</small>
       </div>
     </div>
     <div class="card">
       <img class="card-img-top">
       <div class="card-block">
-        <h4 class="card-title">Card title</h4>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        <div class="card-footer">
+      <small class="text-muted">Aaron Taylor</small>
+      </div>
       </div>
     </div>
-    <div class="card">
-      <img class="card-img-top">
-      <div class="card-block">
-        <h4 class="card-title">Card title</h4>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+  </div>
+-->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="card">
+          <img class="card-img-top">
+          <div class="card-footer">
+            <small class="text-muted">Aaron Gunderson</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="card">
+          <img class="card-img-top">
+          <div class="card-footer">
+            <small class="text-muted">Aaron Perl</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="card">
+          <img class="card-img-top">
+          <div class="card-footer">
+            <small class="text-muted">Aaron Taylor</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="card">
+          <img class="card-img-top">
+          <div class="card-footer">
+            <small class="text-muted">Abdul-Muiz Yussuf</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="card">
+          <img class="card-img-top">
+          <div class="card-footer">
+            <small class="text-muted">Adam Lawrence</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="card">
+          <img class="card-img-top">
+          <div class="card-footer">
+            <small class="text-muted">Adeet Phanse</small>
+          </div>
+        </div>
       </div>
     </div>
   </div>
