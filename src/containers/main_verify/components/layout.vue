@@ -1,17 +1,20 @@
-
 <template>
-  <div class="container">
-  	<h2>Attendance</h2>
-  	<hr>
-  	<p class="lead">TODO</p>
+  <div class="container pt-3">
+  	<h4>Attendance</h4>
+    <CodeInput/>
   </div>
 </template>
 
 <!-- // // // //  -->
 
 <script>
+import CodeInput from './input.vue'
+
 export default {
-  name: 'layout'
+  name: 'layout',
+  components: {
+    CodeInput
+  }
 }
 </script>
 
