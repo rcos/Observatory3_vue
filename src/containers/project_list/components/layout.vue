@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
+  <div class="container pt-4">
   	<div class="row">
   		<div class="col-lg-12">
 
-  			<h2>Project List</h2>
+  			<h3>Active Projects</h3>
 
-  			<hr>
+  			<ProjectSearch/>
 
   			<ul class="list-group mt-2 mb-4 text-center">
   				<a class="list-group-item" href="/#/projects/new">NEW</a>
@@ -27,6 +27,7 @@
 <script>
 import ListView from './list.vue'
 import store from '@/store'
+import ProjectSearch from './search.vue'
 
 export default {
   name: 'layout',
@@ -50,7 +51,8 @@ export default {
     }
   },
   components: {
-    ListView
+    ListView,
+    ProjectSearch
   }
 }
 </script>
