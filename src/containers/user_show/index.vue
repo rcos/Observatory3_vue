@@ -15,7 +15,7 @@ export default {
     LayoutView
   },
   metaInfo: {
-    title: 'Users - Show' // title is now "RCOS - Loading..."
+    title: 'User Show' // title is now "RCOS - User Show..."
   },
   created () {
     this.fetch()
