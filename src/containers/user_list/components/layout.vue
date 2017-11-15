@@ -4,7 +4,7 @@
   	<h3>RCOS Developers</h3>
     <Search/>
     <Pages/>
-    <List/>
+    <Explore/>
   </div>
 </template>
 
@@ -14,14 +14,14 @@
 
 import Search from './search.vue'
 import Pages from './pages.vue'
-import List from './list.vue'
+import Explore from './explore.vue'
 
 export default {
   name: 'layout',
   components: {
     Search,
     Pages,
-    List
+    Explore
   }
 }
 </script>
