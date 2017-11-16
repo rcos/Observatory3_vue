@@ -24,7 +24,5 @@
 </template>
 
 <script>
-  export default {
-    name: 'user_pages'
-  }
+export default {}
 </script>

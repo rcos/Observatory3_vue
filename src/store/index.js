@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import project from './project_module'
+import achievement from './achievement'
+import project from './project'
+import post from './post'
+import user from './user'
+import notification from './notification'
 
 Vue.use(Vuex)
 
@@ -8,6 +12,10 @@ Vue.use(Vuex)
 // and getters.
 export default new Vuex.Store({
   modules: {
-    project
+    achievement,
+    project,
+    post,
+    user,
+    notification
   }
 })

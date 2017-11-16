@@ -6,7 +6,7 @@ import Router from 'vue-router'
 
 // Main Containers
 import MainHome from '@/containers/main_home'
-import MainVerify from '@/containers/main_verify'
+import MainAttend from '@/containers/main_attend'
 
 // Achievement Containers
 import AchievementList from '@/containers/achievement_list'
@@ -54,7 +54,7 @@ export default new Router({
     },
     {
       path: '/attend',
-      name: 'Attend',
+      name: 'Main Verify',
       component: MainAttend
     },
     {
@@ -75,13 +75,15 @@ export default new Router({
     },
     {
       path: '/projects/:id',
-      name: 'Project List',
-      component: ProjectShow
+      name: 'Project Show',
+      component: ProjectShow,
+      props: true
     },
     {
       path: '/projects/:id/edit',
       name: 'Project Edit',
-      component: ProjectEdit
+      component: ProjectEdit,
+      props: true
       // beforeEnter: Middleware.requireAuth
     },
     {
@@ -102,7 +104,8 @@ export default new Router({
     {
       path: '/users/:id',
       name: 'User Show',
-      component: UserShow
+      component: UserShow,
+      props: true
     },
     {
       path: '/profile',
@@ -130,19 +133,16 @@ export default new Router({
       component: BlogNew
     },
     {
-      path: '/blogs/edit',
+      path: '/blogs/:id/edit',
       name: 'Blog Edit',
-      component: BlogEdit
+      component: BlogEdit,
+      props: true
     },
     {
-      path: '/blogs/show',
+      path: '/blogs/:id',
       name: 'Blog Show',
-      component: BlogShow
-    },
-    {
-      path: '/attend',
-      name: 'Main Verify',
-      component: MainVerify
+      component: BlogShow,
+      props: true
     }
   ]
 })
