@@ -13,7 +13,7 @@ export default {
     LayoutView
   },
   metaInfo: {
-    title: 'Attend'
+    title: 'Attendance'
   }
 }
 </script>

@@ -1,9 +1,10 @@
 
 <template>
   <div class="container">
-  	<h2>User Show</h2>
-  	<hr>
-  	<p class="lead">TODO</p>
+    <a href="/#/users">Back</a>
+    <h2>User Show - {{model.name}}</h2>
+    <hr>
+
   </div>
 </template>
 
@@ -11,7 +12,7 @@
 
 <script>
 export default {
-  name: 'layout'
+  props: ['model']
 }
 </script>
 
