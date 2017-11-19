@@ -12,7 +12,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/#/users">Users</a>
+          <a class="nav-link" href="/#/users">Developers</a>
         </li>
 
         <li>
