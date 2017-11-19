@@ -34,3 +34,9 @@ export default {
 
 }
 </script>
+
+<style type="text/css">
+  body {
+    background-color: #f3f3f3;
+  }
+</style>
