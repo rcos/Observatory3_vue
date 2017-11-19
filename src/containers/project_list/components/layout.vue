@@ -11,13 +11,7 @@
 
   	<div class="row">
       <div class="col-lg-9">
-
-  			<ul class="list-group mt-2 mb-4 text-center">
-  				<a class="list-group-item" href="/#/projects/new">NEW</a>
-  			</ul>
-
   			<ListView :collection="collection"/>
-
   		</div>
 
       <ProjectPinned/>
