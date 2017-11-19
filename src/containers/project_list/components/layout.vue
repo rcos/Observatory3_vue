@@ -1,7 +1,9 @@
 <template>
-  <div class="container pt-4">
+  <div class="container mt-2">
 
-    <h3>Active Projects</h3>
+    <h3>Projects</h3>
+
+    <hr>
 
     <div class="row">
       <div class="col-lg-12">

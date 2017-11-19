@@ -1,6 +1,8 @@
 <template>
   <div class="col-lg-3">
     <div class="row-grid">
+
+
       <div class="card">
         <h6 class="card-header">My projects</h6>
         <div class="card-body pt-1 pb-1">
@@ -12,6 +14,7 @@
           </p>
         </div>
       </div>
+
       <div class="card mt-3">
         <h6 class="card-header">Favorite Projects</h6>
         <div class="card-body pt-1 pb-1">
@@ -22,6 +25,9 @@
           </p>
         </div>
       </div>
+
+      <button type="button" class='btn btn-outline-secondary w-100 mt-3'>Past Projects</button>
+
     </div>
   </div>
 </template>
