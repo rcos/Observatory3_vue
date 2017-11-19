@@ -32,6 +32,12 @@
           <b-dropdown-item href="/#/mentor/small_group">Small Group</b-dropdown-item>
         </b-nav-item-dropdown>
 
+        <b-nav-item-dropdown text="Admin" right>
+          <b-dropdown-item href="/#/admin/attendance">Attendance</b-dropdown-item>
+          <b-dropdown-item href="/#/admin/users">Users</b-dropdown-item>
+          <b-dropdown-item href="/#/admin/settings">Settings</b-dropdown-item>
+        </b-nav-item-dropdown>
+
 	    </ul>
 
 	    <ul class="navbar-nav ml-auto">
