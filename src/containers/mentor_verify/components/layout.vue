@@ -1,4 +1,3 @@
-
 <template>
   <div class="container">
   	<h2>Mentor - Verify</h2>
