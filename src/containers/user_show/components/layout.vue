@@ -10,6 +10,7 @@
       </div>
 
       <div class="col-lg-9">
+        <Tech :model="model"/>
         <Bio :model="model"/>
         <Projects :model="model"/>
       </div>
@@ -23,11 +24,12 @@
 
 <script>
 import Sidebar from './sidebar'
+import Tech from './tech'
 import Bio from './bio'
 import Projects from './projects'
 
 export default {
   props: ['model'],
-  components: { Sidebar, Projects, Bio }
+  components: { Sidebar, Tech, Bio, Projects }
 }
 </script>

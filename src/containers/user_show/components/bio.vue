@@ -1,6 +1,6 @@
 
 <template>
-  <div class="card">
+  <div class="card mt-3">
     <div class="card-body">
       <h4 class="card-title">
         Bio
