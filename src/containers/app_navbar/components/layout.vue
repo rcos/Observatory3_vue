@@ -1,5 +1,5 @@
 <template>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg navbar-light">
 	  <a class="navbar-brand" href="/#/">RCOS</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
@@ -27,13 +27,16 @@
           <a class="nav-link" href="/#/attend">Attend</a>
         </li>
 
-        <li>
-          <a class="nav-link" href="/#/mentor/verify">Verify</a>
-        </li>
+        <b-nav-item-dropdown text="Mentor" right>
+          <b-dropdown-item href="/#/mentor/verify">Verify</b-dropdown-item>
+          <b-dropdown-item href="/#/mentor/small_group">Small Group</b-dropdown-item>
+        </b-nav-item-dropdown>
 
-        <li>
-          <a class="nav-link" href="/#/mentor/small_group">Small Group</a>
-        </li>
+        <b-nav-item-dropdown text="Admin" right>
+          <b-dropdown-item href="/#/admin/attendance">Attendance</b-dropdown-item>
+          <b-dropdown-item href="/#/admin/users">Users</b-dropdown-item>
+          <b-dropdown-item href="/#/admin/settings">Settings</b-dropdown-item>
+        </b-nav-item-dropdown>
 
 	    </ul>
 
@@ -55,3 +58,9 @@ export default {
   name: 'Navbar'
 }
 </script>
+
+<style type="text/css">
+  .navbar {
+    background-color: #f3f3f3;
+  }
+</style>
