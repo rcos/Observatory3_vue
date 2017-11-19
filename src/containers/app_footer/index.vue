@@ -1,19 +1,16 @@
 
 <template>
-  	<Navbar></Navbar>
+  	<AppFooter/>
 </template>
 
 <!-- // // // //  -->
 
 <script>
-import Navbar from './components/layout.vue'
+import AppFooter from './components/layout.vue'
 
 export default {
-  name: 'app_navbar',
   components: {
-    Navbar
+    AppFooter
   }
 }
 </script>
-
-
