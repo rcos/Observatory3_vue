@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2>Mentor - Verify</h2>
+    <h2>Admin - Attendance</h2>
     <hr>
     <p class="lead">TODO</p>
   </div>
