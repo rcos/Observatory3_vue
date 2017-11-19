@@ -7,7 +7,7 @@
     </div>
     <div class="col-lg-3 text-right">
 
-      <a href='/#/projects/new' class="btn btn-lg btn-primary w-100">
+      <a href='/#/projects/new' class="btn btn-lg btn-primary btn-block">
         <i class="fa fa-fw fa-plus mr-1"></i>
         Add Project
       </a>

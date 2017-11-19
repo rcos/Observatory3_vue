@@ -38,7 +38,7 @@
         </div>
       </div>
 
-      <button type="button" class='btn btn-outline-secondary w-100 mt-3'>
+      <button type="button" class='btn btn-outline-secondary btn-block mt-3'>
         <i class="fa fa-fw fa-backward mr-1"></i>
         Past Projects
       </button>
