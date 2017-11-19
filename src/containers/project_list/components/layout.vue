@@ -16,7 +16,9 @@
   			<ListView :collection="collection"/>
   		</div>
 
-      <ProjectPinned/>
+      <div class="col-lg-3">
+        <ProjectPinned/>
+      </div>
 
   	</div>
   </div>
