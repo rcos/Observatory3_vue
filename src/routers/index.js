@@ -6,7 +6,6 @@ import Router from 'vue-router'
 
 // Main Containers
 import MainHome from '@/containers/main_home'
-import MainAttend from '@/containers/main_attend'
 
 // Achievement Containers
 import AchievementList from '@/containers/achievement_list'
@@ -51,11 +50,6 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: MainHome
-    },
-    {
-      path: '/attend',
-      name: 'Main Verify',
-      component: MainAttend
     },
     {
       path: '/achievements',
