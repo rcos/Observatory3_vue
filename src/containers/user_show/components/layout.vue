@@ -29,19 +29,8 @@
       </div>
 
       <div class="col-lg-9">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">
-              Bio
-            </h4>
-            <p class="card-text">
-              An awesome RCOS developer!
-            </p>
-          </div>
-        </div>
-
+        <Bio :model="model"/>
         <Projects :model="model"/>
-
       </div>
 
     </div>
@@ -52,11 +41,12 @@
 <!-- // // // //  -->
 
 <script>
+import Bio from './bio'
 import Projects from './projects'
 
 export default {
   props: ['model'],
-  components: { Projects }
+  components: { Projects, Bio }
 }
 </script>
 
