@@ -16,6 +16,9 @@ import ProjectNew from '@/containers/project_new'
 import ProjectShow from '@/containers/project_show'
 import ProjectEdit from '@/containers/project_edit'
 
+// Admin Containers
+import AdminAttendance from '@/containers/admin_attendance'
+
 // Auth Containers
 import AuthLogin from '@/containers/auth_login'
 import AuthRegister from '@/containers/auth_register'
@@ -137,6 +140,11 @@ export default new Router({
       name: 'Blog Show',
       component: BlogShow,
       props: true
+    },
+    {
+      path: '/admin/attendance',
+      name: 'Admin Attendance',
+      component: AdminAttendance
     }
   ]
 })
