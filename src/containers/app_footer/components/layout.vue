@@ -11,9 +11,9 @@ export default {
 
 <style type="text/css">
   .footer {
-    /*position: fixed;*/
-    /*width: 100%;*/
-    /*bottom: 0;*/
+    position: relative;
+    width: 100%;
+    bottom: 0;
     display: flex;
     justify-content: center;
   }
