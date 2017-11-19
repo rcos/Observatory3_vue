@@ -1,8 +1,8 @@
 
 <template>
   <div class='row'>
-    <div v-for="m in collection" class='col-lg-12'>
-      <div class="card card-body bg-light mb-3">
+    <div v-for="m in collection" :key="m._id" class='col-lg-12'>
+      <div class="card card-body project-card mb-3" >
 
         <div class="row">
           <div class="col-lg-8">
@@ -48,3 +48,9 @@ export default {
   props: ['collection']
 }
 </script>
+
+<style type="text/css">
+  .project-card {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  }
+</style>
