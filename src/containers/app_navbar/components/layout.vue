@@ -15,12 +15,12 @@
           <a class="nav-link" href="/#/users">Users</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/#/achievements">Achievements</a>
-        </li>
-
         <li>
           <a class="nav-link" href="/#/blogs">Blogs</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#/achievements">Achievements</a>
         </li>
 
         <li>
