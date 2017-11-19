@@ -1,10 +1,29 @@
 
 <template>
-  <div class="container pt-3">
-  	<h3>RCOS Developers</h3>
-    <Search :collection="collection"/>
-    <Pagination :collection="collection"/>
-    <List :collection="collection"/>
+  <div class="container pt-2">
+
+    <h3>Developers</h3>
+    <hr>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <Search :collection="collection"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <Pagination :collection="collection"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <List :collection="collection"/>
+      </div>
+    </div>
+
+
   </div>
 </template>
 

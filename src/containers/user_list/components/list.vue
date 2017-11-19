@@ -1,8 +1,8 @@
 
 <template>
-  <div class="container-fluid">
-    <div class="row">
-      <Child v-for="model in collection" :key="model._id" :model="model" />
+  <div class="row">
+    <div class='col-lg-2 mb-4' v-for="model in collection" :key="model._id">
+      <Child :model="model" />
     </div>
   </div>
 </template>
