@@ -1,7 +1,7 @@
 
 <template>
   <div class="container">
-    <h3>User Show - {{model.name}}</h3>
+    <h3>{{model.name}}</h3>
     <hr>
     <div class="row">
 
@@ -13,7 +13,7 @@
             <h4 class='card-title text-center pt-3 mb-0'>{{model.name}}</h4>
           </div>
 
-          <ul class="list-group">
+          <ul class="list-group list-group-flush">
             <a class='list-group-item' :href=" 'https://github.com/' + model.githubProfile ">
               <i class="fa fa-fw fa-github"></i>
               {{model.githubProfile}}
@@ -30,12 +30,32 @@
 
       <div class="col-lg-9">
         <div class="card">
-          <div class="card-body text-center py-2 px-2">
-            <a :href="'/#/users/' + model._id">
-              {{model.name}}
-            </a>
+          <div class="card-body">
+            <h4 class="card-title">
+              Bio
+            </h4>
+            <p class="card-text">
+              An awesome RCOS developer!
+            </p>
           </div>
         </div>
+
+        <div class="card mt-3">
+          <div class="card-body">
+            <h4 class="card-title mb-0">
+              Projects
+            </h4>
+          </div>
+
+          <ul class="list-group list-group-flush">
+            <a class='list-group-item' href="/#/projects">Project A</a>
+            <a class='list-group-item' href="/#/projects">Project B</a>
+            <a class='list-group-item' href="/#/projects">Project C</a>
+            <a class='list-group-item' href="/#/projects">Project D</a>
+          </ul>
+
+        </div>
+
       </div>
 
     </div>
