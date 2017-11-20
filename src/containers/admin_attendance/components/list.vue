@@ -1,3 +1,4 @@
+
 <template>
   <table class="table table-hover table-striped">
     <thead>
