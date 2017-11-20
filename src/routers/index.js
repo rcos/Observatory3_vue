@@ -6,7 +6,6 @@ import Router from 'vue-router'
 
 // Main Containers
 import MainHome from '@/containers/main_home'
-import MainAttend from '@/containers/main_attend'
 
 // Achievement Containers
 import AchievementList from '@/containers/achievement_list'
@@ -16,6 +15,9 @@ import ProjectList from '@/containers/project_list'
 import ProjectNew from '@/containers/project_new'
 import ProjectShow from '@/containers/project_show'
 import ProjectEdit from '@/containers/project_edit'
+
+// Admin Containers
+import AdminAttendance from '@/containers/admin_attendance'
 
 // Auth Containers
 import AuthLogin from '@/containers/auth_login'
@@ -51,11 +53,6 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: MainHome
-    },
-    {
-      path: '/attend',
-      name: 'Main Verify',
-      component: MainAttend
     },
     {
       path: '/achievements',
@@ -143,6 +140,11 @@ export default new Router({
       name: 'Blog Show',
       component: BlogShow,
       props: true
+    },
+    {
+      path: '/admin/attendance',
+      name: 'Admin Attendance',
+      component: AdminAttendance
     }
   ]
 })
