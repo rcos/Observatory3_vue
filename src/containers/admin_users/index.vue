@@ -13,7 +13,7 @@ export default {
     LayoutView
   },
   metaInfo: {
-    title: 'Blog - New'
+    title: 'Admin - Users'
   }
 }
 </script>

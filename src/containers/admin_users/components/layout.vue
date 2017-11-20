@@ -1,18 +1,21 @@
 
 <template>
   <div class="container">
-  	<h2>Blog New</h2>
-  	<hr>
-  	<p class="lead">TODO</p>
+    <h2>Admin - Users</h2>
+    <List/>
   </div>
 </template>
 
 <!-- // // // //  -->
 
 <script>
+
+import List from './list.vue'
+
 export default {
-  name: 'layout'
+  name: 'layout',
+  components: {
+    List
+  }
 }
 </script>
-
-
