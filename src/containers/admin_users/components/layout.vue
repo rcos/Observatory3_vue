@@ -1,7 +1,7 @@
 
 <template>
   <div class="container">
-    <h2>Admin - Users</h2>
+    <h2>RCOS Developers</h2>
     <List/>
   </div>
 </template>
