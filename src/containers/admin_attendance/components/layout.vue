@@ -13,11 +13,13 @@
 <script>
 
 import List from './list.vue'
+import GenerateAttendance from './generate_attendance.vue'
 
 export default {
   name: 'layout',
   components: {
-    List
+    List,
+    GenerateAttendance
   }
 }
 </script>
