@@ -15,6 +15,7 @@ export default {
   methods: {
     // Proxies the
     updateValue (value) {
+      // TODO - handle different types of inputs
       // If the value was not already normalized,
       // manually override it to conform
       this.$refs.input.value = value

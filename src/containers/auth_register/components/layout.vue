@@ -7,12 +7,16 @@
                     <h4 class="card-title">Register</h4>
                     <p class="card-text" v-if="$route.query.redirect">You need to login first.</p>
 
-                      <form @submit.prevent="login">
+                      <form @submit.prevent="register">
                           <fieldset>
 
-                              <FormInput></FormInput>
+                              <FormInput v-model="name" name='name' label='Name' placeholder='Name'/>
+                              <FormInput v-model="email" name='email' label='Email' placeholder='Email'/>
+                              <FormInput v-model="github" name='github'  label='GitHub Username' placeholder='GitHub Username'/>
+                              <FormInput v-model="password" name='password' label='Password' placeholder='Password' type='password'/>
+                              <FormInput v-model="passwordverify" name='passwordverify' label='Confirm Password' placeholder='Confirm Password' type='password'/>
 
-                              <FormSubmit></FormSubmit>
+                              <FormSubmit :props="{ label: 'Sign Up', css: 'btn-success btn-block' }"/>
 
                               <p v-if="error" class="error">Bad registration information</p>
 
@@ -34,6 +38,11 @@
   export default {
     data () {
       return {
+        name: 'Name Namerson',
+        email: 'foo@bar.com',
+        github: 'boofar',
+        password: 'abc123',
+        passwordverify: 'abc123',
         loading: false,
         error: false
       }
@@ -46,6 +55,7 @@
 
     methods: {
       isValid () {
+        console.log(this)
         return !(this.email === '' || this.password === '')
       },
       register () {
