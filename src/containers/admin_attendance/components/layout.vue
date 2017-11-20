@@ -1,8 +1,9 @@
 
 <template>
   <div class="container">
-    <h2>Mentor - Verify</h2>
+    <h2>Full Group Attendance</h2>
     <hr>
+    <h3>Attendance Days:</h3>
     <List/>
   </div>
 </template>
