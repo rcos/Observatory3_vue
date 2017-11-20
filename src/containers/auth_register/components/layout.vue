@@ -31,7 +31,6 @@
 </template>
 
 <script>
-  // import auth from '../../../services/auth.js'
   import FormInput from '@/components/FormInput'
   import FormSubmit from '@/components/FormSubmit'
 
@@ -43,8 +42,8 @@
         github: 'boofar',
         password: 'abc123',
         passwordverify: 'abc123',
-        loading: false,
-        error: false
+        error: false,
+        loading: false
       }
     },
 
@@ -55,23 +54,19 @@
 
     methods: {
       isValid () {
-        console.log(this)
-        return !(this.email === '' || this.password === '')
+        return !(this.name === '' || this.email === '' || this.github === '' || this.password === '' || this.passwordverify === '' || this.password !== this.passwordverify)
       },
       register () {
+        console.log(this)
         if (!this.isValid()) {
+          this.error = true
           return
         }
 
-        // let data = {
-        //   email: this.email,
-        //   password: this.password,
-        //   remember: this.remember
-        // }
-
+        this.error = false
         this.loading = true
 
-        // auth.login(this.email, this.password, (loggedIn) => {
+        // auth.login(this.data, (loggedIn) => {
         //   this.loading = false
 
         //   if (loggedIn) {
