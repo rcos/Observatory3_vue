@@ -1,7 +1,8 @@
 
 <template>
-  <div class="container">
-    <Urp/>
+  <div class="container pt-3 pb-3">
+    <h2>Curent Semester: Fall 2017</h2>
+    <Buttons/>
   </div>
 </template>
 
@@ -9,12 +10,12 @@
 
 <script>
 
-import Urp from './urp.vue'
+import Buttons from './buttons.vue'
 
 export default {
   name: 'layout',
   components: {
-    Urp
+    Buttons
   }
 }
 </script>
