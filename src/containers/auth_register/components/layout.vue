@@ -12,7 +12,7 @@
 
                               <FormInput v-model="name" name='name' label='Name' placeholder='Name'/>
                               <FormInput v-model="email" name='email' label='Email' placeholder='Email'/>
-                              <FormInput v-model="github" name='github'  label='GitHub Username' placeholder='GitHub Username'/>
+                              <FormInput v-model="github.login" name='github'  label='GitHub Username' placeholder='GitHub Username'/>
                               <FormInput v-model="password" name='password' label='Password' placeholder='Password' type='password'/>
                               <FormInput v-model="passwordverify" name='passwordverify' label='Confirm Password' placeholder='Confirm Password' type='password'/>
 
@@ -33,17 +33,19 @@
 <script>
   import FormInput from '@/components/FormInput'
   import FormSubmit from '@/components/FormSubmit'
+  import store from '@/store'
 
   export default {
     data () {
       return {
         name: 'Name Namerson',
         email: 'foo@bar.com',
-        github: 'boofar',
+        github: {
+          login: 'boofar'
+        },
         password: 'abc123',
         passwordverify: 'abc123',
-        error: false,
-        loading: false
+        error: false
       }
     },
 
@@ -52,29 +54,25 @@
       FormSubmit
     },
 
+    computed: {
+      loading () {
+        return store.getters['auth/loading']
+      }
+    },
+
     methods: {
       isValid () {
         return !(this.name === '' || this.email === '' || this.github === '' || this.password === '' || this.passwordverify === '' || this.password !== this.passwordverify)
       },
       register () {
-        console.log(this)
         if (!this.isValid()) {
           this.error = true
           return
         }
 
-        this.error = false
-        this.loading = true
-
-        // auth.login(this.data, (loggedIn) => {
-        //   this.loading = false
-
-        //   if (loggedIn) {
-        //     this.$router.replace(this.$route.query.redirect || '/')
-        //   } else {
-        //     this.error = true
-        //   }
-        // })
+        store.dispatch('auth/register')
+        // this.error = false
+        // this.loading = true
       }
     }
   }
