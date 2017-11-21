@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import achievement from './achievement'
+import auth from './auth'
 import project from './project'
 import post from './post'
 import user from './user'
@@ -12,6 +13,7 @@ Vue.use(Vuex)
 // and getters.
 export default new Vuex.Store({
   modules: {
+    auth,
     achievement,
     project,
     post,
