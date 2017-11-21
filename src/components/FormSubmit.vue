@@ -1,10 +1,11 @@
 <template>
-  <input class="btn btn-outline-success btn-block" type="submit" value="Login">
+  <input :class="'btn ' + props.css" type="submit" :value="props.label">
 </template>
 
 <script>
 export default {
-  name: 'FormSubmit'
+  name: 'FormSubmit',
+  props: ['props']
 }
 </script>
 
