@@ -1,8 +1,11 @@
 
 <template>
-  <div class="container pt-3 pb-3">
-    <h2>Curent Semester: Fall 2017</h2>
-    <Buttons/>
+  <div class="container">
+    <Semester/>
+    <hr>
+    <div class="row">
+      <Buttons/>
+    </div>
   </div>
 </template>
 
@@ -11,11 +14,13 @@
 <script>
 
 import Buttons from './buttons.vue'
+import Semester from './semester'
 
 export default {
   name: 'layout',
   components: {
-    Buttons
+    Buttons,
+    Semester
   }
 }
 </script>
