@@ -18,6 +18,7 @@ import ProjectEdit from '@/containers/project_edit'
 
 // Admin Containers
 import AdminAttendance from '@/containers/admin_attendance'
+import AdminSettings from '@/containers/admin_settings'
 import AdminUsers from '@/containers/admin_users'
 
 // Auth Containers
@@ -151,6 +152,11 @@ export default new Router({
       path: '/admin/users',
       name: 'Admin Users',
       component: AdminUsers
+    },
+    {
+      path: '/admin/settings',
+      name: 'Admin Settings',
+      component: AdminSettings
     }
   ]
 })

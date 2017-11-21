@@ -1,17 +1,21 @@
 
 <template>
   <div class="container">
-  	<h2>Blog New</h2>
-  	<hr>
-  	<p class="lead">TODO</p>
+    <Urp/>
   </div>
 </template>
 
 <!-- // // // //  -->
 
 <script>
+
+import Urp from './urp.vue'
+
 export default {
-  name: 'layout'
+  name: 'layout',
+  components: {
+    Urp
+  }
 }
 </script>
 
