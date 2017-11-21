@@ -14,9 +14,9 @@
             <td>Name</td>
             <td>Git</td>
             <td>User Role</td>
-            <td title="Full Group Attendance">Cal</td>
+            <td title="Full Group Attendance">CheckCal</td>
             <td title="Bonus Full Group Attendance">+</td>
-            <td title="Small Group Attendance">Cal</td>
+            <td title="Small Group Attendance">CheckCal</td>
             <td title="Bonus Small Group Attendance">+</td>
             <td>Events</td>
             <td>Commits</td>
@@ -41,8 +41,8 @@
           <td>0</td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
+          <td>Check</td>
+          <td>Cal</td>
         </tr>
       </tbody>
     </table>
