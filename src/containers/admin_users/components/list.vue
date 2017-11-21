@@ -11,19 +11,34 @@
             <td colspan="2">Edit</td>
         </tr>
         <tr>
-            <td text='Name'></td>
-            <td text='Git'></td>
-            <td text='User Role'></td>
-            <td text='' title="Full Group Attendance"></td>
-            <td text='+'title="Bonus Full Group Attendance"></td>
-            <td text='' title="Small Group Attendance"></td>
-            <td text='+'title="Bonus Small Group Attendance"></td>
-            <td text='Events'></td>
-            <td text='Commits'></td>
-            <td text='Active'></td>
-            <td text='Attendance'></td>
+            <td>Name</td>
+            <td>Git</td>
+            <td>User Role</td>
+            <td title="Full Group Attendance">Cal</td>
+            <td title="Bonus Full Group Attendance">+</td>
+            <td title="Small Group Attendance">Cal</td>
+            <td title="Bonus Small Group Attendance">+</td>
+            <td>Events</td>
+            <td>Commits</td>
+            <td>Active</td>
+            <td>Attendance</td>
         </tr>
       </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Aaron Gunderson</th>
+          <td>Pic</td>
+          <td></td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </template>
