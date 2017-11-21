@@ -29,10 +29,10 @@
           <th scope="row">Aaron Gunderson</th>
           <td>Pic</td>
           <td>
-            <select class="form-control" ng-model="user.role" ng-change="updateUserRole(user)">
-              <option value="user">User</option>
-              <option value="mentor">Mentor</option>
-              <option value="admin">Admin</option>
+            <select class="form-control">
+              <option>User</option>
+              <option>Mentor</option>
+              <option>Admin</option>
             </select>
           </td>
           <td>0</td>
