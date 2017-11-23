@@ -1,7 +1,7 @@
 
 <template>
   <div class="container">
-  	<h2>Blog New</h2>
+  	<h2>Current Semester: Fall 2017</h2>
   	<hr>
   	<p class="lead">TODO</p>
   </div>
