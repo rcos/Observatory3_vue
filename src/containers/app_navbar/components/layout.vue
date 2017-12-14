@@ -24,7 +24,7 @@
         </li>
 
         <li>
-          <a class="nav-link" href="/#/attend">Attend</a>
+          <a class="nav-link" href="/#/main/attend">Attend</a>
         </li>
 
         <b-nav-item-dropdown text="Mentor" right>
