@@ -20,9 +20,10 @@
                                   <input class="form-control" placeholder="Password" v-model="password" type="password" value="">
                               </div>
 
-                              <FormSubmit></FormSubmit>
+                              <FormSubmit :props="{ label: 'Login', css: 'btn-success btn-block' }"/>
 
                               <p v-if="error" class="error">Bad login information</p>
+                              <p v-else class="error">Successfully Logged In!</p>
 
                           </fieldset>
 

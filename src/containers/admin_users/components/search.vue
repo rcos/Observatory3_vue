@@ -6,7 +6,7 @@
       </form>
     </div>
     <div class="col-lg-4 text-right">
-      <a href='/#/projects/new' class="btn btn-outline-secondary w-100">
+      <a href='/#/users' class="btn btn-outline-secondary w-100">
         <i class="fa fa-fw fa-backward mr-1"></i>
         Show Past Developers
       </a>

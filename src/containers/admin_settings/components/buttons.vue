@@ -1,7 +1,7 @@
 <template>
   <div class='col-lg-12'>
     <div class="btn-group" role="group">
-      <button type="button" class="btn btn-primary">
+      <button type="button" class="btn btn-primary" @click="createNewSemester">
         <i class="fa fa-fw fa-plus mr-1"></i>
         Create New Semester
       </button>
@@ -15,6 +15,11 @@
 
 <script>
   export default {
-    name: 'buttons'
+    name: 'buttons',
+    methods: {
+      createNewSemester () {
+        console.log('createNewSemester')
+      }
+    }
   }
 </script>

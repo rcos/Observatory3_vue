@@ -19,6 +19,7 @@
                               <FormSubmit :props="{ label: 'Sign Up', css: 'btn-success btn-block' }"/>
 
                               <p v-if="error" class="error">Bad registration information</p>
+                              <p v-else class="error">Successfully Regisetered!</p>
 
                           </fieldset>
 
