@@ -4,8 +4,11 @@ import Router from 'vue-router'
 // Router Middleware
 // import Middleware from './middleware'
 
+// TODO - split this into smaller, module-specific route definitions
+
 // Main Containers
 import MainHome from '@/containers/main_home'
+import MainSponsors from '@/containers/main_sponsors'
 import MainAttend from '@/containers/main_attend'
 
 // Achievement Containers
@@ -58,6 +61,11 @@ export default new Router({
       component: MainHome
     },
     {
+      path: '/sponsors',
+      name: 'Sponsors',
+      component: MainSponsors
+    },
+    {
       path: '/achievements',
       name: 'Achievements',
       component: AchievementList
@@ -93,7 +101,7 @@ export default new Router({
     },
     {
       path: '/auth/register',
-      name: 'Login',
+      name: 'Register',
       component: AuthRegister
     },
     {

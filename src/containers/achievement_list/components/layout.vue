@@ -28,7 +28,7 @@ export default {
 
       <div class="col-lg-3">
         <ProjectPinned/>
-        <br/>
+        <br>
         <AchievementForm/>
       </div>
 

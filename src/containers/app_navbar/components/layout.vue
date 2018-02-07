@@ -23,6 +23,10 @@
           <a class="nav-link" href="/#/achievements">Achievements</a>
         </li>
 
+        <li class="nav-item">
+          <a class="nav-link" href="/#/sponsors">Sponsors</a>
+        </li>
+
         <li>
           <a class="nav-link" href="/#/main/attend">Attend</a>
         </li>
