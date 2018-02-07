@@ -18,7 +18,7 @@ export default {
     title: 'Projects' // title is now "RCOS - Projects"
   },
   computed: mapGetters({
-    collection: 'project/collection'
+    collection: 'project/filteredCollection'
   }),
   mounted () {
     return this.$store.dispatch('project/fetchCollection')

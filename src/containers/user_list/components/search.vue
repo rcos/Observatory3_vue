@@ -59,7 +59,6 @@ export default {
         return this.$store.getters['user/filter']
       },
       set (value) {
-        console.log('SET VAL')
         return this.$store.commit('user/filter', value)
       }
     }
