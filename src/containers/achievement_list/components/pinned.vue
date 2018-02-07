@@ -1,6 +1,6 @@
 <template>
-  <div class="col-lg-3">
-    <div class="row-grid">
+  <div class="row">
+    <div class="col-sm-12">
       <div class="card">
         <h6 class="card-header">About Achievements</h6>
         <div class="card-body pt-1 pb-1">

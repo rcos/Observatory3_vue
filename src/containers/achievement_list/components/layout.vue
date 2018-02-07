@@ -23,12 +23,14 @@ export default {
 
   	<div class="row">
       <div class="col-lg-9">
+        <ListView :collection="collection"/>
+      </div>
 
-  			<ListView :collection="collection"/>
-
-  		</div>
-
-      <ProjectPinned/>
+      <div class="col-lg-3">
+        <ProjectPinned/>
+        <br/>
+        <AchievementForm/>
+      </div>
 
   	</div>
   </div>
@@ -39,7 +41,8 @@ export default {
 <script>
 import store from '@/store'
 import ListView from './list.vue'
-import AboutPinned from './pinned.vue'
+import ProjectPinned from './pinned.vue'
+import AchievementForm from './AchievementForm.vue'
 
 export default {
   props: ['collection'],
@@ -50,7 +53,8 @@ export default {
   },
   components: {
     ListView,
-    AboutPinned
+    ProjectPinned,
+    AchievementForm
   }
 }
 </script>
