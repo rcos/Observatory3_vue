@@ -21,24 +21,9 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 export default {
   name: 'search',
-  methods: {
-    toggleOrder (orderBy) {
-      this.$store.commit('project/orderBy', orderBy)
-    },
-    toggleInactive (showingInactive) {
-      this.$store.commit('project/showingInactive', showingInactive)
-      return this.$store.dispatch('project/fetchCollection')
-    }
-  },
   computed: {
-    ...mapGetters({
-      orderBy: 'project/orderBy',
-      showingInactive: 'project/showingInactive'
-    }),
     filter: {
       get () {
         return this.$store.getters['project/filter']
