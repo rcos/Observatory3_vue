@@ -1,27 +1,11 @@
 
 <template>
-  <div class="container">
-  	<h2>Achievements List</h2>
-  	<hr>
-  	<p class="lead">TODO</p>
-  </div>
-</template>
-
-<!-- // // // //  -->
-
-<script>
-export default {
-  name: 'layout'
-}
-</script>
-
-<template>
   <div class="container pt-4">
 
     <h3>Achievements</h3>
 
 
-  	<div class="row">
+    <div class="row">
       <div class="col-lg-9">
         <ListView :collection="collection"/>
       </div>
@@ -32,25 +16,23 @@ export default {
         <AchievementForm/>
       </div>
 
-  	</div>
+    </div>
   </div>
 </template>
 
 <!-- // // // //  -->
 
 <script>
-import store from '@/store'
 import ListView from './list.vue'
 import ProjectPinned from './pinned.vue'
 import AchievementForm from './AchievementForm.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   props: ['collection'],
-  computed: {
-    fetching () {
-      return store.getters['achievement/fetching']
-    }
-  },
+  computed: mapGetters({
+    fetching: 'achievement/fetching'
+  }),
   components: {
     ListView,
     ProjectPinned,

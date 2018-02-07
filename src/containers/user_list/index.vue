@@ -8,7 +8,7 @@
 <script>
 
 import LayoutView from './components/layout.vue'
-import store from '@/store'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -17,13 +17,11 @@ export default {
   metaInfo: {
     title: 'Users' // title is now "RCOS - Users"
   },
-  computed: {
-    collection () {
-      return store.getters['user/collection']
-    }
-  },
+  computed: mapGetters({
+    collection: 'user/collection'
+  }),
   mounted () {
-    return store.dispatch('user/fetchCollection')
+    return this.$store.dispatch('user/fetchCollection')
   }
 }
 </script>

@@ -32,49 +32,47 @@
 </template>
 
 <script>
-  import FormInput from '@/components/FormInput'
-  import FormSubmit from '@/components/FormSubmit'
-  import store from '@/store'
+import FormInput from '@/components/FormInput'
+import FormSubmit from '@/components/FormSubmit'
+import { mapGetters } from 'vuex'
 
-  export default {
-    data () {
-      return {
-        name: 'Name Namerson',
-        email: 'foo@bar.com',
-        github: {
-          login: 'boofar'
-        },
-        password: 'abc123',
-        passwordverify: 'abc123',
-        error: false
-      }
-    },
-
-    components: {
-      FormInput,
-      FormSubmit
-    },
-
-    computed: {
-      loading () {
-        return store.getters['auth/loading']
-      }
-    },
-
-    methods: {
-      isValid () {
-        return !(this.name === '' || this.email === '' || this.github === '' || this.password === '' || this.passwordverify === '' || this.password !== this.passwordverify)
+export default {
+  data () {
+    return {
+      name: 'Name Namerson',
+      email: 'foo@bar.com',
+      github: {
+        login: 'boofar'
       },
-      register () {
-        if (!this.isValid()) {
-          this.error = true
-          return
-        }
+      password: 'abc123',
+      passwordverify: 'abc123',
+      error: false
+    }
+  },
 
-        store.dispatch('auth/register')
-        // this.error = false
-        // this.loading = true
+  components: {
+    FormInput,
+    FormSubmit
+  },
+
+  computed: mapGetters({
+    'loading': 'auth/loading'
+  }),
+
+  methods: {
+    isValid () {
+      return !(this.name === '' || this.email === '' || this.github === '' || this.password === '' || this.passwordverify === '' || this.password !== this.passwordverify)
+    },
+    register () {
+      if (!this.isValid()) {
+        this.error = true
+        return
       }
+
+      this.$store.dispatch('auth/register')
+      // this.error = false
+      // this.loading = true
     }
   }
+}
 </script>

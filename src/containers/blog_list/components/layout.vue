@@ -32,15 +32,13 @@
 
 <script>
 import ListView from './list.vue'
-import store from '@/store'
+import { mapGetters } from 'vuex'
 
 export default {
   props: ['collection'],
-  computed: {
-    fetching () {
-      return store.getters['post/fetching']
-    }
-  },
+  computed: mapGetters({
+    fetching: 'post/fetching'
+  }),
   components: {
     ListView
   }

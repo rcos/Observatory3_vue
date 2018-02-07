@@ -13,11 +13,9 @@ import NotificationChild from './notificationChild'
 import { mapGetters } from 'vuex'
 
 export default {
-  computed: {
-    ...mapGetters({
-      collection: 'achievement/collection'
-    })
-  },
+  computed: mapGetters({
+    collection: 'achievement/collection'
+  }),
   components: {
     NotificationChild
   }

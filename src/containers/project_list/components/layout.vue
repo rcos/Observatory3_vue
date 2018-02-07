@@ -28,18 +28,16 @@
 <!-- // // // //  -->
 
 <script>
-import store from '@/store'
 import ListView from './list.vue'
 import ProjectSearch from './search.vue'
 import ProjectPinned from './pinned.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   props: ['collection'],
-  computed: {
-    fetching () {
-      return store.getters['project/fetching']
-    }
-  },
+  computed: mapGetters({
+    fetching: 'project/fetching'
+  }),
   components: {
     ListView,
     ProjectSearch,

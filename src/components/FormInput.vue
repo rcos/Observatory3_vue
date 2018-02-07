@@ -10,7 +10,6 @@
 export default {
   name: 'FormInput',
   props: [ 'name', 'label', 'type', 'placeholder', 'help', 'value' ],
-  computed: {},
   methods: {
     // Propagates the input event
     updateValue (value) {
