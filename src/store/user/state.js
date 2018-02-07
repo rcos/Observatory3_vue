@@ -1,5 +1,5 @@
 
-// Project Module State
+// User Module State
 const state = {
   collection: [],
   filter: '',

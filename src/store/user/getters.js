@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-// Project Module Getters
+// User Module Getters
 const getters = {
   collection: state => {
     return state.collection

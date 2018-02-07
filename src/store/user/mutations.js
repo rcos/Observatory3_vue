@@ -1,5 +1,5 @@
 
-// Project Module mutations
+// User Module mutations
 const mutations = {
   fetching (state, isFetching) {
     state.fetching = isFetching
