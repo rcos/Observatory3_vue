@@ -2,7 +2,7 @@
   <div class="row pt-3 pb-2">
     <div class="col-lg-9">
       <form class="form-inline pb-3">
-        <input class="form-control form-control-lg w-100" type="search" placeholder="Search">
+        <input v-model="filter" class="form-control form-control-lg w-100" type="search" placeholder="Search">
       </form>
     </div>
     <div class="col-lg-3 text-right">
@@ -26,7 +26,17 @@
 </template>
 
 <script>
-  export default {
-    name: 'search'
+export default {
+  name: 'search',
+  computed: {
+    filter: {
+      get () {
+        return this.$store.state['user/filter']
+      },
+      set (value) {
+        return this.$store.commit('user/filter', value)
+      }
+    }
   }
+}
 </script>

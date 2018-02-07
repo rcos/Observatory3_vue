@@ -18,7 +18,7 @@ export default {
     title: 'Users' // title is now "RCOS - Users"
   },
   computed: mapGetters({
-    collection: 'user/collection'
+    collection: 'user/filteredCollection'
   }),
   mounted () {
     return this.$store.dispatch('user/fetchCollection')

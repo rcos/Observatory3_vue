@@ -7,7 +7,7 @@
 
 <script>
 import LayoutView from './components/layout.vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   props: ['id'],
@@ -15,16 +15,14 @@ export default {
     LayoutView
   },
   metaInfo: {
-    title: 'User Show' // title is now "RCOS - User Show..."
+    title: 'User Show'
   },
   created () {
     this.fetch()
   },
-  methods: {
-    fetch () {
-      return this.$store.dispatch('user/fetchModel', this.id)
-    }
-  },
+  methods: mapActions({
+    fetch: 'user/fetchModel'
+  }),
   computed: mapGetters({
     model: 'user/current'
   })
