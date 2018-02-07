@@ -3,7 +3,6 @@
 	  <label :v-if="label" :for="'exampleInput' + label">{{label}}</label>
 	  <input :value="value" ref="input" v-on:input="updateValue($event.target.value)" :type="type" class="form-control" :id="'exampleInput' + label" :aria-describedby="name + 'Help'" :placeholder="placeholder">
 	  <small :v-if="help" :id="name + 'Help'" class="form-text text-muted">{{ help }}</small>
-
 	</div>
 </template>
 
@@ -13,7 +12,7 @@ export default {
   props: [ 'name', 'label', 'type', 'placeholder', 'help', 'value' ],
   computed: {},
   methods: {
-    // Proxies the
+    // Propagates the input event
     updateValue (value) {
       // TODO - handle different types of inputs
       // If the value was not already normalized,
