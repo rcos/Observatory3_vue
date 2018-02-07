@@ -7,6 +7,9 @@ const mutations = {
   filter (state, filter) {
     state.filter = filter
   },
+  showingInactive (state, show) {
+    state.showingInactive = show
+  },
   sync (state, collection) {
     state.collection = collection
   },

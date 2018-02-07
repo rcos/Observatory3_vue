@@ -7,7 +7,7 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <Search :collection="collection"/>
+        <Search/>
       </div>
     </div>
 

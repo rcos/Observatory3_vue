@@ -5,7 +5,12 @@ const getters = {
     return state.collection
   },
   filteredCollection: state => {
-    return state.collection.filter(u => { return u.name.indexOf(state.filter) !== -1 })
+    return state.collection.filter(u => {
+      return u.name.toLowerCase().indexOf(state.filter.toLowerCase()) !== -1
+    })
+  },
+  showingInactive: state => {
+    return state.showingInactive
   },
   current: state => {
     return state.current

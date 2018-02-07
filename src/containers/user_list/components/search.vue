@@ -9,15 +9,20 @@
 
       <div class="btn-group w-100">
 
-        <a href='/#/' class="btn btn-outline-secondary w-100">
+        <button class="btn btn-lg btn-outline-secondary w-100">
           <i class="fa fa-fw fa-sort-alpha-asc"></i>
           Sort
-        </a>
+        </button>
 
-        <a href='/#/projects/new' class="btn btn-outline-secondary w-100">
+        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleInactive(true)" v-if="!showingInactive">
           <i class="fa fa-fw fa-backward mr-1"></i>
           Past
-        </a>
+        </button>
+
+        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleInactive(false)" v-else>
+          <i class="fa fa-fw fa-forward mr-1"></i>
+          Current
+        </button>
 
       </div>
 
@@ -26,9 +31,20 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'search',
+  methods: {
+    toggleInactive (showingInactive) {
+      this.$store.commit('user/showingInactive', showingInactive)
+      return this.$store.dispatch('user/fetchCollection')
+    }
+  },
   computed: {
+    ...mapGetters({
+      showingInactive: 'user/showingInactive'
+    }),
     filter: {
       get () {
         return this.$store.state['user/filter']
