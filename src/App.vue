@@ -2,11 +2,7 @@
 <template>
   <div id="app">
     <AppNavbar/>
-
-    <transition name="fade">
-      <router-view/>
-    </transition>
-
+    <router-view/>
     <AppFooter/>
     <Notification/>
   </div>
@@ -42,11 +38,5 @@ export default {
 <style type="text/css">
   body {
     background-color: #f3f3f3;
-  }
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .25s;
-  }
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0;
   }
 </style>

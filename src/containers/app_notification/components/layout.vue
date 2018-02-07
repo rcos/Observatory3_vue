@@ -10,12 +10,13 @@
 
 <script>
 import NotificationChild from './notificationChild'
+import { mapGetters } from 'vuex'
 
 export default {
   computed: {
-    collection () {
-      return this.$store.getters['notification/collection']
-    }
+    ...mapGetters({
+      collection: 'achievement/collection'
+    })
   },
   components: {
     NotificationChild
@@ -28,7 +29,7 @@ export default {
 <!-- QUESTION - SCOPED? -->
 <style>
   .list-enter-active, .list-leave-active {
-    transition: opacity .5s;
+    transition: opacity .1s;
   }
 
   .list-enter, .list-leave-to {
