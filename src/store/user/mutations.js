@@ -10,6 +10,9 @@ const mutations = {
   showingInactive (state, show) {
     state.showingInactive = show
   },
+  orderBy (state, orderBy) {
+    state.orderBy = orderBy
+  },
   sync (state, collection) {
     state.collection = collection
   },

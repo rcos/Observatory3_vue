@@ -9,8 +9,13 @@
 
       <div class="btn-group w-100">
 
-        <button class="btn btn-lg btn-outline-secondary w-100">
+        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleOrder('desc')" v-if="orderBy === 'asc'">
           <i class="fa fa-fw fa-sort-alpha-asc"></i>
+          Sort
+        </button>
+
+        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleOrder('asc')" v-else>
+          <i class="fa fa-fw fa-sort-alpha-desc"></i>
           Sort
         </button>
 
@@ -36,6 +41,9 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'search',
   methods: {
+    toggleOrder (orderBy) {
+      this.$store.commit('user/orderBy', orderBy)
+    },
     toggleInactive (showingInactive) {
       this.$store.commit('user/showingInactive', showingInactive)
       return this.$store.dispatch('user/fetchCollection')
@@ -43,13 +51,15 @@ export default {
   },
   computed: {
     ...mapGetters({
+      orderBy: 'user/orderBy',
       showingInactive: 'user/showingInactive'
     }),
     filter: {
       get () {
-        return this.$store.state['user/filter']
+        return this.$store.getters['user/filter']
       },
       set (value) {
+        console.log('SET VAL')
         return this.$store.commit('user/filter', value)
       }
     }
