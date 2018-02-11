@@ -56,7 +56,7 @@ export const $GET = function (url, { token }) {
 // // // //
 
 // $PUT helper function
-export const $PUT = function (url, { token }) {
+export const $PUT = function (url, opts) {
   // Defines requestHeaders object
   // TODO - abstract into getHeaders() function
   let requestHeaders = {
@@ -66,8 +66,8 @@ export const $PUT = function (url, { token }) {
   // Adds `Authorization` header to request
   // if token parameter is defined
   // TODO - abstract into getHeader() function
-  if (token) {
-    requestHeaders['Authorization'] = `Bearer ${token}`
+  if (opts.token) {
+    requestHeaders['Authorization'] = `Bearer ${opts.token}`
   }
 
   return fetch(url, {

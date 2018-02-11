@@ -1,4 +1,5 @@
 import UserFactory from './factory'
+import { $GET } from '@/store/lib/helpers'
 
 const API_ROOT = '/api/users'
 
@@ -41,7 +42,16 @@ const actions = {
     })
   },
 
-  fetchModel: (abc, id) => UserFactory.fetchModel(abc, id),
+  // fetchUser
+  // Fetches an individual user from the server
+  fetchUser ({ store, commit, rootGetters }, userID) {
+    commit('fetching', true)
+    $GET(`/api/users/${userID}`, { token: rootGetters['auth/token'] })
+    .then((user) => {
+      commit('current', user)
+      commit('fetching', false)
+    }) // TODO - error handling
+  },
 
   create: ({ commit }, attributes) => UserFactory.create({ commit }, attributes),
 
