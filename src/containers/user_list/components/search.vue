@@ -9,22 +9,22 @@
 
       <div class="btn-group w-100">
 
-        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleOrder('desc')" v-if="orderBy === 'asc'">
+        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleOrder()" v-if="orderBy === 'asc'">
           <i class="fa fa-fw fa-sort-alpha-asc"></i>
           Sort
         </button>
 
-        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleOrder('asc')" v-else>
+        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleOrder()" v-else>
           <i class="fa fa-fw fa-sort-alpha-desc"></i>
           Sort
         </button>
 
-        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleInactive(true)" v-if="!showingInactive">
+        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleInactive()" v-if="!showingInactive">
           <i class="fa fa-fw fa-backward mr-1"></i>
           Past
         </button>
 
-        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleInactive(false)" v-else>
+        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleInactive()" v-else>
           <i class="fa fa-fw fa-forward mr-1"></i>
           Current
         </button>
@@ -36,19 +36,14 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'search',
-  methods: {
-    toggleOrder (orderBy) {
-      this.$store.commit('user/orderBy', orderBy)
-    },
-    toggleInactive (showingInactive) {
-      this.$store.commit('user/showingInactive', showingInactive)
-      return this.$store.dispatch('user/fetchCollection')
-    }
-  },
+  methods: mapActions({
+    toggleOrder: 'user/toggleOrderBy',
+    toggleInactive: 'user/toggleInactive'
+  }),
   computed: {
     ...mapGetters({
       orderBy: 'user/orderBy',

@@ -47,7 +47,27 @@ const actions = {
 
   update: ({ commit }, attributes) => UserFactory.update({ commit }, attributes),
 
-  destroy: ({ commit }, id) => UserFactory.destroy({ commit }, id)
+  destroy: ({ commit }, id) => UserFactory.destroy({ commit }, id),
+
+  toggleOrderBy ({ state, commit }) {
+    const ORDER_ASC = 'asc'
+    const ORDER_DESC = 'desc'
+    if (state.orderBy === ORDER_ASC) {
+      commit('orderBy', ORDER_DESC)
+    } else {
+      commit('orderBy', ORDER_ASC)
+    }
+  },
+
+  toggleInactive ({ state, commit, dispatch }) {
+    if (state.showingInactive) {
+      commit('showingInactive', false)
+    } else {
+      commit('showingInactive', true)
+    }
+    // Re-fetches the collection
+    dispatch('fetchCollection')
+  }
 }
 
 // // // //
