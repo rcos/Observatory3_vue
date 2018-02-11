@@ -28,15 +28,15 @@
         </li>
 
         <li>
-          <a class="nav-link" href="#/main/attend">Attend</a>
+          <a class="nav-link" href="#/main/attend" v-if="isAuthenticated">Attend</a>
         </li>
 
-        <b-nav-item-dropdown text="Mentor" right>
+        <b-nav-item-dropdown text="Mentor" right v-if="isAuthenticated">
           <b-dropdown-item href="#/mentor/verify">Verify</b-dropdown-item>
           <b-dropdown-item href="#/mentor/small_group">Small Group</b-dropdown-item>
         </b-nav-item-dropdown>
 
-        <b-nav-item-dropdown text="Admin" right>
+        <b-nav-item-dropdown text="Admin" right v-if="isAuthenticated">
           <b-dropdown-item href="#/admin/attendance">Attendance</b-dropdown-item>
           <b-dropdown-item href="#/admin/users">Users</b-dropdown-item>
           <b-dropdown-item href="#/admin/settings">Settings</b-dropdown-item>
