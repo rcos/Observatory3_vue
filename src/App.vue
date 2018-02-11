@@ -31,7 +31,16 @@ export default {
 </script>
 
 <style type="text/css">
+  html {
+    height: 100%;
+  }
+
   body {
+    height: 100%;
     background-color: #f3f3f3;
+  }
+
+  #app {
+    height: 100%;
   }
 </style>
