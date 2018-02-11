@@ -1,6 +1,6 @@
 
 <template>
-  <div class="container mt-2">
+  <div class="container">
 
     <!-- TODO - abstract into common header component -->
     <div class="row">

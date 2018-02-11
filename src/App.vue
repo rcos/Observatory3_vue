@@ -3,7 +3,9 @@
   <div id="app">
     <Notification/>
     <AppNavbar/>
-    <router-view/>
+    <div class="router-wrapper">
+      <router-view/>
+    </div>
     <AppFooter/>
   </div>
 </template>
@@ -38,6 +40,12 @@ export default {
   body {
     height: 100%;
     background-color: #f3f3f3;
+  }
+
+  .router-wrapper {
+    width: 100%;
+    height: 100%;
+    margin-top: 4.5rem;
   }
 
   #app {
