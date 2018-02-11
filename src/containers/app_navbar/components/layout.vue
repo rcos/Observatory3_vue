@@ -1,51 +1,39 @@
 <template>
-	<nav class="navbar navbar-expand-lg navbar-light">
-	  <a class="navbar-brand" href="#/">RCOS</a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
+  <b-navbar toggleable="md" type="light">
+    <b-navbar-brand href="#/">RCOS</b-navbar-brand>
+    <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+    <b-collapse is-nav id="nav_collapse">
 
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    <ul class="navbar-nav mr-auto">
-	      <li class="nav-item">
-          <a class="nav-link" href="#/projects">Projects</a>
-        </li>
+      <!-- Navbar Links -->
+      <b-navbar-nav class="mr-auto">
 
-        <li class="nav-item">
-          <a class="nav-link" href="#/users">Developers</a>
-        </li>
+        <!-- Public links -->
+        <b-nav-item href="#/projects">Projects</b-nav-item>
+        <b-nav-item href="#/users">Developers</b-nav-item>
+        <b-nav-item href="#/blogs">Blog</b-nav-item>
+        <b-nav-item href="#/achievements">Achievements</b-nav-item>
+        <b-nav-item href="#/Sponsors">Sponsors</b-nav-item>
 
-        <li>
-          <a class="nav-link" href="#/blogs">Blogs</a>
-        </li>
+        <!-- Authenticated links -->
+        <b-nav-item href="#/Sponsors" v-if="isAuthenticated">Attend</b-nav-item>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#/achievements">Achievements</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#/sponsors">Sponsors</a>
-        </li>
-
-        <li>
-          <a class="nav-link" href="#/main/attend" v-if="isAuthenticated">Attend</a>
-        </li>
-
+        <!-- Mentor Dropdown -->
         <b-nav-item-dropdown text="Mentor" right v-if="isAuthenticated">
           <b-dropdown-item href="#/mentor/verify">Verify</b-dropdown-item>
           <b-dropdown-item href="#/mentor/small_group">Small Group</b-dropdown-item>
         </b-nav-item-dropdown>
 
+        <!-- Admin Dropdown -->
         <b-nav-item-dropdown text="Admin" right v-if="isAuthenticated">
           <b-dropdown-item href="#/admin/attendance">Attendance</b-dropdown-item>
           <b-dropdown-item href="#/admin/users">Users</b-dropdown-item>
           <b-dropdown-item href="#/admin/settings">Settings</b-dropdown-item>
         </b-nav-item-dropdown>
 
-	    </ul>
+      </b-navbar-nav>
 
+      <!-- User Dropdown -->
       <b-navbar-nav class="ml-auto" v-if="isAuthenticated">
-
         <b-nav-item-dropdown right>
           <template slot="button-content">
             {{ currentUser.email }}
@@ -54,26 +42,21 @@
           <b-dropdown-item href="#/settings">Settings</b-dropdown-item>
           <b-dropdown-item @click="logout()">Logout</b-dropdown-item>
         </b-nav-item-dropdown>
-
       </b-navbar-nav>
 
       <!-- Register / Login -->
-      <ul class="navbar-nav ml-auto" v-else>
-        <li class="nav-item">
-          <a class="nav-link" href="#/auth/register">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#/auth/login">Login</a>
-        </li>
-      </ul>
+      <b-navbar-nav v-else>
+        <b-nav-item href="#/auth/register">Register</b-nav-item>
+        <b-nav-item href="#/auth/login">Login</b-nav-item>
+      </b-navbar-nav>
 
-	  </div>
-	</nav>
+	  </b-collapse>
+	</b-navbar>
 </template>
 
 <script>
-// TODO - this file should be split into a series of smaller components
 import { mapGetters, mapActions } from 'vuex'
+
 export default {
   name: 'Navbar',
   computed: mapGetters({
