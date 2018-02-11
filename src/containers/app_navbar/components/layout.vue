@@ -44,12 +44,18 @@
 
 	    </ul>
 
-      <!-- TODO - build this out as a dropdown menu for the user -->
-      <ul class="navbar-nav ml-auto" v-if="isAuthenticated">
-        <li class="nav-item">
-          <a class="nav-link" href="#/profile">{{ currentUser.email }}</a>
-        </li>
-	    </ul>
+      <b-navbar-nav class="ml-auto" v-if="isAuthenticated">
+
+        <b-nav-item-dropdown right>
+          <template slot="button-content">
+            {{ currentUser.email }}
+          </template>
+          <b-dropdown-item href="#/profile">Profile</b-dropdown-item>
+          <b-dropdown-item href="#/settings">Settings</b-dropdown-item>
+          <b-dropdown-item @click="logout()">Logout</b-dropdown-item>
+        </b-nav-item-dropdown>
+
+      </b-navbar-nav>
 
       <!-- Register / Login -->
       <ul class="navbar-nav ml-auto" v-else>
@@ -67,12 +73,15 @@
 
 <script>
 // TODO - this file should be split into a series of smaller components
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'Navbar',
   computed: mapGetters({
     isAuthenticated: 'auth/is_authenticated',
     currentUser: 'auth/current_user'
+  }),
+  methods: mapActions({
+    logout: 'auth/logout'
   })
 }
 </script>
