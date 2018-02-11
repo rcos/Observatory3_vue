@@ -37,11 +37,13 @@
         <div class="card-body pt-1 pb-1">
           <p class="card-text">
             <dl class="dl-horizontal">
-              <dd>
-                <a href="/#/">Observatory</a>
+              <!-- My Projects - List -->
+              <dd v-for="project in myProjects">
+                <a href="/#/">{{ project }}</a>
               </dd>
-              <dd>
-                <a href="/#/">YACS</a>
+              <!-- My Projects - Empty -->
+              <dd v-if="!myProjects[0]">
+                <a>None Available</a>
               </dd>
             </dl>
           </p>
@@ -57,8 +59,13 @@
         <div class="card-body pt-1 pb-1">
           <p class="card-text">
             <dl class="dl-horizontal">
-              <dd>
-                <a href="/#/">Observatory</a>
+              <!-- My Projects - List -->
+              <dd v-for="project in favoriteProjects">
+                <a href="/#/">{{ project }}</a>
+              </dd>
+              <!-- My Projects - Empty -->
+              <dd v-if="!favoriteProjects[0]">
+                <a>None Available</a>
               </dd>
             </dl>
           </p>
@@ -86,8 +93,17 @@ export default {
   },
   computed: mapGetters({
     orderBy: 'project/orderBy',
-    showingInactive: 'project/showingInactive'
-  })
+    showingInactive: 'project/showingInactive',
+    myProjects: 'project/myProjects',
+    menteeProjects: 'project/menteeProjects',
+    favoriteProjects: 'project/favoriteProjects'
+  }),
+  created () {
+    this.$store.dispatch('project/fetchMyProjects')
+    // TODO - invoke following only if MENTOR
+    this.$store.dispatch('project/fetchMenteeProjects')
+    this.$store.dispatch('project/fetchFavoriteProjects')
+  }
 }
 </script>
 

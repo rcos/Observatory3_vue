@@ -7,7 +7,8 @@
         <div class="row">
           <div class="col-lg-8">
             <h4 class="card-title">
-              <i class="fa fa-fw fa-star-o"></i>
+              <i class="fa fa-fw fa-star text-warning" @click="toggleFavorite(m)" v-if="m.isFavorite"></i>
+              <i class="fa fa-fw fa-star-o" @click="toggleFavorite(m)" v-else></i>
               <a v-bind:href="'/#/projects/' + m._id">{{m.name}}</a>
             </h4>
           </div>
@@ -44,8 +45,18 @@
 <!-- // // // //  -->
 
 <script>
+// import _ from 'lodash'
+import { mapActions } from 'vuex'
+
 export default {
-  props: ['collection']
+  props: ['collection'],
+  // created () {
+  //   _.each(this.collection, (m) => { this.$store.dispatch('project/isFavorite', m) })
+  // },
+  methods: mapActions({
+    toggleFavorite: 'project/toggleFavorite',
+    isFavorite: 'project/isFavorite'
+  })
 }
 </script>
 

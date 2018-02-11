@@ -13,6 +13,15 @@ const getters = {
     .orderBy(['name'], [state.orderBy])
     .value()
   },
+  myProjects: state => {
+    return state.myProjects
+  },
+  menteeProjects: state => {
+    return state.menteeProjects
+  },
+  favoriteProjects: state => {
+    return state.favoriteProjects
+  },
   filter: state => {
     return state.filter
   },

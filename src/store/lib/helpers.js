@@ -8,7 +8,7 @@ function handleErrors (response) {
 
 // // // //
 
-// fetchPost helper function
+// $POST helper function
 export const $POST = function (url, body, token) {
   // Defines requestHeaders object
   let requestHeaders = {
@@ -47,6 +47,56 @@ export const $GET = function (url, { token }) {
   }
 
   return fetch(url, {
+    headers: new Headers(requestHeaders)
+  })
+  .then(handleErrors)
+  .then((response) => { return response.json() })
+}
+
+// // // //
+
+// $PUT helper function
+export const $PUT = function (url, { token }) {
+  // Defines requestHeaders object
+  // TODO - abstract into getHeaders() function
+  let requestHeaders = {
+    'Content-Type': 'application/json'
+  }
+
+  // Adds `Authorization` header to request
+  // if token parameter is defined
+  // TODO - abstract into getHeader() function
+  if (token) {
+    requestHeaders['Authorization'] = `Bearer ${token}`
+  }
+
+  return fetch(url, {
+    method: 'put',
+    headers: new Headers(requestHeaders)
+  })
+  .then(handleErrors)
+  .then((response) => { return response.json() })
+}
+
+// // // //
+
+// $DEL helper function
+export const $DEL = function (url, { token }) {
+  // Defines requestHeaders object
+  // TODO - abstract into getHeaders() function
+  let requestHeaders = {
+    'Content-Type': 'application/json'
+  }
+
+  // Adds `Authorization` header to request
+  // if token parameter is defined
+  // TODO - abstract into getHeader() function
+  if (token) {
+    requestHeaders['Authorization'] = `Bearer ${token}`
+  }
+
+  return fetch(url, {
+    method: 'delete',
     headers: new Headers(requestHeaders)
   })
   .then(handleErrors)
