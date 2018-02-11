@@ -26,10 +26,6 @@ export default {
     htmlAttrs: {
       lang: 'en'
     }
-  },
-  created () {
-    // Authenticates on application start
-    this.$store.dispatch('auth/fetchUserProfile')
   }
 }
 </script>

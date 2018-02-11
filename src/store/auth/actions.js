@@ -15,14 +15,18 @@ const actions = {
   // fetchUserProfile
   // Fetches a user's profiles form the server
   fetchUserProfile ({ state, commit }) {
-    $GET(PROFILE_ROUTE, { token: state.token })
-    .then((json) => {
-      commit('current_user', json)
-    })
-    .catch((err) => {
-      commit('clear_token')
-      commit('clear_current_user')
-      throw err
+    return new Promise((resolve, reject) => {
+      $GET(PROFILE_ROUTE, { token: state.token })
+      .then((json) => {
+        commit('current_user', json)
+        return resolve(json)
+      })
+      .catch((err) => {
+        commit('clear_token')
+        commit('clear_current_user')
+        // throw err
+        return reject(err)
+      })
     })
   },
 

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // Router Middleware
-// import Middleware from './middleware'
+import Middleware from './middleware'
 
 // TODO - split this into smaller, module-specific route definitions
 
@@ -53,7 +53,7 @@ import BlogShow from '@/containers/blog_show'
 Vue.use(Router)
 
 // TODO - can we use multiple routers?
-export default new Router({
+let router = new Router({
   routes: [
     {
       path: '/',
@@ -74,6 +74,7 @@ export default new Router({
       path: '/projects',
       name: 'Project List',
       component: ProjectList
+      // beforeEnter: Middleware.ensureAuthenticated
     },
     {
       path: '/projects/new',
@@ -175,3 +176,7 @@ export default new Router({
 
   ]
 })
+
+router.beforeEach(Middleware.ensureAuthenticated)
+
+export default router
