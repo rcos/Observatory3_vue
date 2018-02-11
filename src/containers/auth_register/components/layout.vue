@@ -5,20 +5,19 @@
 
                 <div class="card card-body">
                     <h4 class="card-title">Register</h4>
-                    <p class="card-text" v-if="$route.query.redirect">You need to login first.</p>
 
                       <form @submit.prevent="register">
                           <fieldset>
 
-                              <FormInput v-model="name" name='name' label='Name' placeholder='Name'/>
-                              <FormInput v-model="email" name='email' label='Email' placeholder='Email'/>
-                              <FormInput v-model="github.login" name='github'  label='GitHub Username' placeholder='GitHub Username'/>
-                              <FormInput v-model="password" name='password' label='Password' placeholder='Password' type='password'/>
-                              <FormInput v-model="passwordverify" name='passwordverify' label='Confirm Password' placeholder='Confirm Password' type='password'/>
+                              <FormInput v-model="register_user.name" name='name' label='Name' placeholder='Name'/>
+                              <FormInput v-model="register_user.email" name='email' label='Email' placeholder='Email'/>
+                              <FormInput v-model="register_user.github.login" name='github'  label='GitHub Username' placeholder='GitHub Username'/>
+                              <FormInput v-model="register_user.password" name='password' label='Password' placeholder='Password' type='password'/>
+                              <FormInput v-model="register_user.passwordverify" name='passwordverify' label='Confirm Password' placeholder='Confirm Password' type='password'/>
 
                               <FormSubmit :props="{ label: 'Sign Up', css: 'btn-success btn-block' }"/>
 
-                              <p v-if="error" class="error">Bad registration information</p>
+                              <p v-if="register_user.error" class="error">Bad registration information</p>
                               <p v-else class="error">Successfully Regisetered!</p>
 
                           </fieldset>
@@ -34,45 +33,19 @@
 <script>
 import FormInput from '@/components/FormInput'
 import FormSubmit from '@/components/FormSubmit'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  data () {
-    return {
-      name: 'Name Namerson',
-      email: 'foo@bar.com',
-      github: {
-        login: 'boofar'
-      },
-      password: 'abc123',
-      passwordverify: 'abc123',
-      error: false
-    }
-  },
-
   components: {
     FormInput,
     FormSubmit
   },
-
   computed: mapGetters({
-    'loading': 'auth/loading'
+    loading: 'auth/loading',
+    register_user: 'auth/register_user'
   }),
-
-  methods: {
-    isValid () {
-      return !(this.name === '' || this.email === '' || this.github === '' || this.password === '' || this.passwordverify === '' || this.password !== this.passwordverify)
-    },
-    register () {
-      if (!this.isValid()) {
-        this.error = true
-        return
-      }
-
-      this.$store.dispatch('auth/register')
-      // this.error = false
-      // this.loading = true
-    }
-  }
+  methods: mapActions({
+    register: 'auth/register'
+  })
 }
 </script>
