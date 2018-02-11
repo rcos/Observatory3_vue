@@ -2,8 +2,12 @@
 <template>
   <div class="container pt-2">
 
-    <h3>Developers</h3>
-    <hr>
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Developers</h3>
+        <hr>
+      </div>
+    </div>
 
     <div class="row">
       <div class="col-lg-12">
