@@ -14,6 +14,12 @@ const getters = {
       return false
     }
   },
+  isMentor: state => {
+    return state.current_user.role === 'mentor'
+  },
+  isAdmin: state => {
+    return state.current_user.role === 'admin'
+  },
   current_user: state => {
     return state.current_user
   },
