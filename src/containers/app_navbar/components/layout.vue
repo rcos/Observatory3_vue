@@ -12,10 +12,10 @@
         <b-nav-item href="#/users">Developers</b-nav-item>
         <b-nav-item href="#/blogs">Blog</b-nav-item>
         <b-nav-item href="#/achievements">Achievements</b-nav-item>
-        <b-nav-item href="#/Sponsors">Sponsors</b-nav-item>
+        <b-nav-item href="#/sponsors">Sponsors</b-nav-item>
 
         <!-- Authenticated links -->
-        <b-nav-item href="#/Sponsors" v-if="isAuthenticated">Attend</b-nav-item>
+        <b-nav-item href="#/main/attend" v-if="isAuthenticated">Attend</b-nav-item>
 
         <!-- Mentor Dropdown -->
         <b-nav-item-dropdown text="Mentor" right v-if="isAuthenticated">

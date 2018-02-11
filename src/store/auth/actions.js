@@ -25,6 +25,7 @@ const actions = {
       throw err
     })
   },
+
   // register
   // Handles user registration state management
   register ({ state, dispatch, commit }) {
