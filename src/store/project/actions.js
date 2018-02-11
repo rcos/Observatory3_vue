@@ -47,7 +47,28 @@ const actions = {
 
   update: ({ commit }, attributes) => ProjectFactory.update({ commit }, attributes),
 
-  destroy: ({ commit }, id) => ProjectFactory.destroy({ commit }, id)
+  destroy: ({ commit }, id) => ProjectFactory.destroy({ commit }, id),
+
+  toggleOrderBy ({ state, commit }) {
+    // TODO - abstract into project/constants.js
+    const ORDER_ASC = 'asc'
+    const ORDER_DESC = 'desc'
+    if (state.orderBy === ORDER_ASC) {
+      commit('orderBy', ORDER_DESC)
+    } else {
+      commit('orderBy', ORDER_ASC)
+    }
+  },
+
+  toggleInactive ({ state, commit, dispatch }) {
+    if (state.showingInactive) {
+      commit('showingInactive', false)
+    } else {
+      commit('showingInactive', true)
+    }
+    // Re-fetches the collection
+    dispatch('fetchCollection')
+  }
 }
 
 // // // //

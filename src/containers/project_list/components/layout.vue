@@ -2,9 +2,13 @@
 <template>
   <div class="container mt-2">
 
-    <h3>Projects</h3>
-
-    <hr>
+    <!-- TODO - abstract into common header component -->
+    <div class="row">
+      <div class="col-sm-12">
+        <h3>Projects</h3>
+        <hr>
+      </div>
+    </div>
 
     <div class="row">
       <div class="col-lg-12">

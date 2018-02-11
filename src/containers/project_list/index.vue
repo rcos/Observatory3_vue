@@ -1,6 +1,6 @@
 
 <template>
-    <LayoutView :collection="collection"/>
+    <LayoutView :collection="collection" />
 </template>
 
 <!-- // // // //  -->

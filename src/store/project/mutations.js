@@ -1,4 +1,3 @@
-
 // Project Module mutations
 const mutations = {
   fetching (state, isFetching) {

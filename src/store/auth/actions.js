@@ -18,7 +18,6 @@ const actions = {
     $GET(PROFILE_ROUTE, { token: state.token })
     .then((json) => {
       commit('current_user', json)
-      Router.push('/profile')
     })
     .catch((err) => {
       commit('clear_token')
@@ -51,7 +50,7 @@ const actions = {
       commit('notification/add', REGISTER_SUCCESS_NOTIFICATION, { root: true })
 
       // Redirects to home route
-      // Router.push('/')
+      Router.push('/')
     })
     .catch((err) => {
       // Shows REGISTER_ERROR_NOTIFICATION message
@@ -86,8 +85,9 @@ const actions = {
 
       // Fetches user profile
       dispatch('fetchUserProfile')
+
       // Redirects to home route
-      // Router.push('/')
+      Router.push('/')
     })
     .catch((err) => {
       // Shows LOGIN_ERROR_NOTIFICATION message
