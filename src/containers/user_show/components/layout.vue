@@ -1,4 +1,3 @@
-
 <template>
   <div class="container">
     <h3>{{model.name}}</h3>
