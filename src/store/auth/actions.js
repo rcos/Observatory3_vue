@@ -94,6 +94,14 @@ const actions = {
       commit('notification/add', LOGIN_ERROR_NOTIFICATION, { root: true })
       throw err
     })
+  },
+
+  // logout
+  // Handles user logout
+  logout ({ commit }) {
+    commit('clear_token')
+    commit('clear_current_user')
+    Router.push('/auth/login')
   }
 }
 
