@@ -23,6 +23,7 @@ export default {
   props: ['item'],
   methods: {
     dismiss () {
+      // TODO - this should be 'dispatch', not 'commit'
       return this.$store.commit('notification/remove', this.item.id)
     }
   }
