@@ -2,7 +2,7 @@
   <div class="container">
   	<h2>User Settings</h2>
   	<hr>
-  	<p class="lead">{{ currentUser }}</p>
+    <pre class="bg-dark text-light">{{ currentUser }}</pre>
   </div>
 </template>
 

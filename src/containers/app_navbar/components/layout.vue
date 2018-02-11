@@ -18,13 +18,13 @@
         <b-nav-item href="#/main/attend" v-if="isAuthenticated">Attend</b-nav-item>
 
         <!-- Mentor Dropdown -->
-        <b-nav-item-dropdown text="Mentor" right v-if="isAuthenticated">
+        <b-nav-item-dropdown text="Mentor" right v-if="isMentor || isAdmin">
           <b-dropdown-item href="#/mentor/verify">Verify</b-dropdown-item>
           <b-dropdown-item href="#/mentor/small_group">Small Group</b-dropdown-item>
         </b-nav-item-dropdown>
 
         <!-- Admin Dropdown -->
-        <b-nav-item-dropdown text="Admin" right v-if="isAuthenticated">
+        <b-nav-item-dropdown text="Admin" right v-if="isAdmin">
           <b-dropdown-item href="#/admin/attendance">Attendance</b-dropdown-item>
           <b-dropdown-item href="#/admin/users">Users</b-dropdown-item>
           <b-dropdown-item href="#/admin/settings">Settings</b-dropdown-item>
@@ -38,7 +38,7 @@
           <template slot="button-content">
             {{ currentUser.email }}
           </template>
-          <b-dropdown-item href="#/profile">Profile</b-dropdown-item>
+          <b-dropdown-item :href="'#/users/' + currentUser._id">Profile</b-dropdown-item>
           <b-dropdown-item href="#/settings">Settings</b-dropdown-item>
           <b-dropdown-item @click="logout()">Logout</b-dropdown-item>
         </b-nav-item-dropdown>
@@ -61,6 +61,8 @@ export default {
   name: 'Navbar',
   computed: mapGetters({
     isAuthenticated: 'auth/is_authenticated',
+    isMentor: 'auth/isMentor',
+    isAdmin: 'auth/isAdmin',
     currentUser: 'auth/current_user'
   }),
   methods: mapActions({

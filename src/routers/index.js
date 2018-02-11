@@ -117,7 +117,7 @@ let router = new Router({
       props: true
     },
     {
-      path: '/profile',
+      path: '/settings',
       name: 'User Settings',
       component: UserSettings
     },
