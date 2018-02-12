@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <h3>{{model.name}}</h3>
-    <hr>
+    <PageHeader :title="model.name" />
+
     <div class="row">
 
       <div class="col-lg-3">

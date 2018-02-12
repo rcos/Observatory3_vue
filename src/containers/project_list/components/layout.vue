@@ -1,15 +1,7 @@
 
 <template>
   <div class="container">
-
-    <!-- TODO - abstract into common header component -->
-    <div class="row">
-      <div class="col-sm-12">
-        <h3>{{ headerText }}</h3>
-        <hr>
-      </div>
-    </div>
-
+    <PageHeader :title="headerText" />
     <ProjectSearch/>
 
   	<div class="row">

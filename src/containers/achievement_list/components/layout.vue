@@ -1,9 +1,7 @@
 
 <template>
-  <div class="container pt-4">
-
-    <h3>Achievements</h3>
-
+  <div class="container">
+    <PageHeader title="Achievements" />
 
     <div class="row">
       <div class="col-lg-9">

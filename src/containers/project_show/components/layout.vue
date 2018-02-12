@@ -1,13 +1,7 @@
 
 <template>
   <div class="container">
-    <!-- TOOD - abstract into PageHeader component -->
-    <div class="row">
-      <div class="col-sm-12">
-      	<h3>{{ project.name }}</h3>
-      	<hr>
-      </div>
-    </div>
+    <PageHeader :title="project.name" />
 
     <!-- TODO - abstract into ProjectControls component -->
     <ProjectControls :project="project"/>

@@ -1,13 +1,7 @@
 
 <template>
-  <div class="container pt-2">
-
-    <div class="row">
-      <div class="col-lg-12">
-        <h3>Developers</h3>
-        <hr>
-      </div>
-    </div>
+  <div class="container">
+    <PageHeader title="Developers" />
 
     <div class="row">
       <div class="col-lg-12">
