@@ -42,7 +42,16 @@ const actions = {
     })
   },
 
-  fetchModel: ({ commit }, id) => ProjectFactory.fetchModel({ commit }, id),
+  // fetchProject
+  // Fetches an individual project from the server
+  fetchProject ({ store, commit, rootGetters }, projectId) {
+    commit('fetching', true)
+    $GET(`/api/projects/${projectId}`, { token: rootGetters['auth/token'] })
+    .then((project) => {
+      commit('current', project)
+      commit('fetching', false)
+    }) // TODO - error handling
+  },
 
   create: ({ commit }, attributes) => ProjectFactory.create({ commit }, attributes),
 

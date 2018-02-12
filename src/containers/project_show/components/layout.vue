@@ -1,10 +1,26 @@
 
 <template>
   <div class="container">
-    <a href="/#/projects">Back</a>
-  	<h2>Project Show</h2>
-  	<hr>
-  	<p class="lead">Project Title</p>
+    <!-- TOOD - abstract into PageHeader component -->
+    <div class="row">
+      <div class="col-sm-12">
+      	<h3>{{ project.name }}</h3>
+      	<hr>
+      </div>
+    </div>
+
+    <!-- TODO - abstract into ProjectControls component -->
+    <ProjectControls :project="project"/>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <p class="lead">TODO - 'Tech Tags' go here</p>
+      </div>
+    </div>
+
+  	<p class="lead">{{ project.name }}</p>
   	<a class='btn btn-secondary' href="/#/projects/1/edit">Edit Project</a>
   </div>
 </template>
@@ -12,9 +28,13 @@
 <!-- // // // //  -->
 
 <script>
+import ProjectControls from './ProjectControls'
 
 export default {
-  name: 'layout'
+  props: ['project'],
+  components: {
+    ProjectControls
+  }
 }
 </script>
 
