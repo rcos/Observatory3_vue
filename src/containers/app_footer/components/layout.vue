@@ -1,6 +1,6 @@
 <template>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light footer">
-	  <small>RCOS 2017</small>
+	  <small>RCOS 2018</small>
 	</nav>
 </template>
 

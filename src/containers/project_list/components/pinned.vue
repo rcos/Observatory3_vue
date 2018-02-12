@@ -1,28 +1,13 @@
 <template>
   <div class="row">
 
-    <!-- TODO - abstract into separate component -->
+    <!-- 'New Project' Button -->
     <div class="col-sm-12">
       <div class="btn-group w-100">
-        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleOrder()" v-if="orderBy === 'asc'">
-          <i class="fa fa-fw fa-sort-alpha-asc"></i>
-          Sort
-        </button>
-
-        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleOrder()" v-else>
-          <i class="fa fa-fw fa-sort-alpha-desc"></i>
-          Sort
-        </button>
-
-        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleInactive()" v-if="!showingInactive">
-          <i class="fa fa-fw fa-backward mr-1"></i>
-          Past
-        </button>
-
-        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleInactive()" v-else>
-          <i class="fa fa-fw fa-forward mr-1"></i>
-          Current
-        </button>
+        <a href='/#/projects/new' class="btn btn-lg btn-primary btn-block">
+          <i class="fa fa-fw fa-plus mr-1"></i>
+          Add Project
+        </a>
       </div>
     </div>
 
@@ -72,33 +57,21 @@
         </div>
       </div>
 
-      <button type="button" class='btn btn-outline-secondary btn-block mt-3'>
-        <i class="fa fa-fw fa-backward mr-1"></i>
-        Past Projects
-      </button>
     </div>
-
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
-  methods: {
-    ...mapActions({
-      toggleOrder: 'project/toggleOrderBy',
-      toggleInactive: 'project/toggleInactive'
-    })
-  },
   computed: mapGetters({
-    orderBy: 'project/orderBy',
-    showingInactive: 'project/showingInactive',
     myProjects: 'project/myProjects',
     menteeProjects: 'project/menteeProjects',
     favoriteProjects: 'project/favoriteProjects'
   }),
   created () {
+    // TODO - this into smaller components
     this.$store.dispatch('project/fetchMyProjects')
     // TODO - invoke following only if MENTOR
     this.$store.dispatch('project/fetchMenteeProjects')
