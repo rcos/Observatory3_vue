@@ -1,52 +1,82 @@
 <template>
-  <div class="row-grid">
+  <div class="row">
 
-
-    <div class="card">
-      <h6 class="card-header">
-        <i class="fa fa-fw fa-folder-open-o"></i>
-        My Projects
-      </h6>
-      <div class="card-body pt-1 pb-1">
-        <p class="card-text">
-          <dl class="dl-horizontal">
-            <dd>
-              <a href="/#/">Observatory</a>
-            </dd>
-            <dd>
-              <a href="/#/">YACS</a>
-            </dd>
-          </dl>
-        </p>
+    <!-- 'New Project' Button -->
+    <div class="col-sm-12">
+      <div class="btn-group w-100">
+        <a href='/#/projects/new' class="btn btn-lg btn-primary btn-block">
+          <i class="fa fa-fw fa-plus mr-1"></i>
+          Add Project
+        </a>
       </div>
     </div>
 
-    <div class="card mt-3">
-      <h6 class="card-header">
-        <i class="fa fa-fw fa-star-o"></i>
-        Starred
-      </h6>
-      <div class="card-body pt-1 pb-1">
-        <p class="card-text">
-          <dl class="dl-horizontal">
-            <dd>
-              <a href="/#/">Observatory</a>
-            </dd>
-          </dl>
-        </p>
-      </div>
-    </div>
+    <div class="col-sm-12 mt-3">
 
-    <button type="button" class='btn btn-outline-secondary btn-block mt-3'>
-      <i class="fa fa-fw fa-backward mr-1"></i>
-      Past Projects
-    </button>
+      <!-- TODO - abstract into separate component -->
+      <div class="card">
+        <h6 class="card-header">
+          <i class="fa fa-fw fa-folder-open-o"></i>
+          My Projects
+        </h6>
+        <div class="card-body pt-1 pb-1">
+          <p class="card-text">
+            <dl class="dl-horizontal">
+              <!-- My Projects - List -->
+              <dd v-for="project in myProjects">
+                <a href="/#/">{{ project }}</a>
+              </dd>
+              <!-- My Projects - Empty -->
+              <dd v-if="!myProjects[0]">
+                <a>None Available</a>
+              </dd>
+            </dl>
+          </p>
+        </div>
+      </div>
+
+      <!-- TODO - abstract into separate component -->
+      <div class="card mt-3">
+        <h6 class="card-header">
+          <i class="fa fa-fw fa-star-o"></i>
+          Starred
+        </h6>
+        <div class="card-body pt-1 pb-1">
+          <p class="card-text">
+            <dl class="dl-horizontal">
+              <!-- My Projects - List -->
+              <dd v-for="project in favoriteProjects">
+                <a href="/#/">{{ project }}</a>
+              </dd>
+              <!-- My Projects - Empty -->
+              <dd v-if="!favoriteProjects[0]">
+                <a>None Available</a>
+              </dd>
+            </dl>
+          </p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'project_pinned'
+import { mapGetters } from 'vuex'
+
+export default {
+  computed: mapGetters({
+    myProjects: 'project/myProjects',
+    menteeProjects: 'project/menteeProjects',
+    favoriteProjects: 'project/favoriteProjects'
+  }),
+  created () {
+    // TODO - this into smaller components
+    this.$store.dispatch('project/fetchMyProjects')
+    // TODO - invoke following only if MENTOR
+    this.$store.dispatch('project/fetchMenteeProjects')
+    this.$store.dispatch('project/fetchFavoriteProjects')
   }
+}
 </script>
 

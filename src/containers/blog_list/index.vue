@@ -7,7 +7,7 @@
 
 <script>
 import LayoutView from './components/layout.vue'
-import store from '@/store'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -16,13 +16,11 @@ export default {
   metaInfo: {
     title: 'Blog - List'
   },
-  computed: {
-    collection () {
-      return store.getters['post/collection']
-    }
-  },
+  computed: mapGetters({
+    collection: 'post/collection'
+  }),
   mounted () {
-    return store.dispatch('post/fetchCollection')
+    return this.$store.dispatch('post/fetchCollection')
   }
 }
 </script>

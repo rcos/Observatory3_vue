@@ -1,56 +1,40 @@
 
 <template>
   <div class="container">
-  	<h2>Achievements List</h2>
-  	<hr>
-  	<p class="lead">TODO</p>
-  </div>
-</template>
+    <PageHeader title="Achievements" />
 
-<!-- // // // //  -->
-
-<script>
-export default {
-  name: 'layout'
-}
-</script>
-
-<template>
-  <div class="container pt-4">
-
-    <h3>Achievements</h3>
-
-
-  	<div class="row">
+    <div class="row">
       <div class="col-lg-9">
+        <ListView :collection="collection"/>
+      </div>
 
-  			<ListView :collection="collection"/>
+      <div class="col-lg-3">
+        <ProjectPinned/>
+        <br>
+        <AchievementForm/>
+      </div>
 
-  		</div>
-
-      <ProjectPinned/>
-
-  	</div>
+    </div>
   </div>
 </template>
 
 <!-- // // // //  -->
 
 <script>
-import store from '@/store'
 import ListView from './list.vue'
-import AboutPinned from './pinned.vue'
+import ProjectPinned from './pinned.vue'
+import AchievementForm from './AchievementForm.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   props: ['collection'],
-  computed: {
-    fetching () {
-      return store.getters['achievement/fetching']
-    }
-  },
+  computed: mapGetters({
+    fetching: 'achievement/fetching'
+  }),
   components: {
     ListView,
-    AboutPinned
+    ProjectPinned,
+    AchievementForm
   }
 }
 </script>

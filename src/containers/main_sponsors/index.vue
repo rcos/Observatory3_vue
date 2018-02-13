@@ -1,23 +1,20 @@
-
 <template>
-  	<LayoutView :currentUser="currentUser"/>
+  <LayoutView/>
 </template>
 
 <!-- // // // //  -->
 
 <script>
 import LayoutView from './components/layout.vue'
-import { mapGetters } from 'vuex'
+
 export default {
+  name: 'main_sponsors',
   components: {
     LayoutView
   },
   metaInfo: {
-    title: 'User - Settings'
-  },
-  computed: mapGetters({
-    currentUser: 'auth/current_user'
-  })
+    title: 'Main - Sponsors'
+  }
 }
 </script>
 

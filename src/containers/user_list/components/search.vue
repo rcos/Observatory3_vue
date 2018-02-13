@@ -2,22 +2,32 @@
   <div class="row pt-3 pb-2">
     <div class="col-lg-9">
       <form class="form-inline pb-3">
-        <input class="form-control w-100" type="search" placeholder="Search">
+        <input v-model="filter" class="form-control form-control-lg w-100" type="search" placeholder="Search">
       </form>
     </div>
     <div class="col-lg-3 text-right">
 
       <div class="btn-group w-100">
 
-        <a href='/#/' class="btn btn-outline-secondary w-100">
+        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleOrder()" v-if="orderBy === 'asc'">
           <i class="fa fa-fw fa-sort-alpha-asc"></i>
           Sort
-        </a>
+        </button>
 
-        <a href='/#/projects/new' class="btn btn-outline-secondary w-100">
+        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleOrder()" v-else>
+          <i class="fa fa-fw fa-sort-alpha-desc"></i>
+          Sort
+        </button>
+
+        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleInactive()" v-if="!showingInactive">
           <i class="fa fa-fw fa-backward mr-1"></i>
           Past
-        </a>
+        </button>
+
+        <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleInactive()" v-else>
+          <i class="fa fa-fw fa-forward mr-1"></i>
+          Current
+        </button>
 
       </div>
 
@@ -26,7 +36,27 @@
 </template>
 
 <script>
-  export default {
-    name: 'search'
+import { mapGetters, mapActions } from 'vuex'
+
+export default {
+  name: 'search',
+  methods: mapActions({
+    toggleOrder: 'user/toggleOrderBy',
+    toggleInactive: 'user/toggleInactive'
+  }),
+  computed: {
+    ...mapGetters({
+      orderBy: 'user/orderBy',
+      showingInactive: 'user/showingInactive'
+    }),
+    filter: {
+      get () {
+        return this.$store.getters['user/filter']
+      },
+      set (value) {
+        return this.$store.commit('user/filter', value)
+      }
+    }
   }
+}
 </script>

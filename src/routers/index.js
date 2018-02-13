@@ -2,10 +2,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // Router Middleware
-// import Middleware from './middleware'
+import Middleware from './middleware'
+
+// TODO - split this into smaller, module-specific route definitions
 
 // Main Containers
 import MainHome from '@/containers/main_home'
+import MainSponsors from '@/containers/main_sponsors'
 import MainAttend from '@/containers/main_attend'
 
 // Achievement Containers
@@ -50,12 +53,17 @@ import BlogShow from '@/containers/blog_show'
 Vue.use(Router)
 
 // TODO - can we use multiple routers?
-export default new Router({
+let router = new Router({
   routes: [
     {
       path: '/',
       name: 'Home',
       component: MainHome
+    },
+    {
+      path: '/sponsors',
+      name: 'Sponsors',
+      component: MainSponsors
     },
     {
       path: '/achievements',
@@ -66,6 +74,7 @@ export default new Router({
       path: '/projects',
       name: 'Project List',
       component: ProjectList
+      // beforeEnter: Middleware.ensureAuthenticated
     },
     {
       path: '/projects/new',
@@ -93,7 +102,7 @@ export default new Router({
     },
     {
       path: '/auth/register',
-      name: 'Login',
+      name: 'Register',
       component: AuthRegister
     },
     {
@@ -108,7 +117,7 @@ export default new Router({
       props: true
     },
     {
-      path: '/profile',
+      path: '/settings',
       name: 'User Settings',
       component: UserSettings
     },
@@ -167,3 +176,7 @@ export default new Router({
 
   ]
 })
+
+router.beforeEach(Middleware.ensureAuthenticated)
+
+export default router

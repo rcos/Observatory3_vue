@@ -1,13 +1,11 @@
 
 <template>
-  <div class="container pt-2">
-
-    <h3>Developers</h3>
-    <hr>
+  <div class="container">
+    <PageHeader title="Developers" />
 
     <div class="row">
       <div class="col-lg-12">
-        <Search :collection="collection"/>
+        <Search/>
       </div>
     </div>
 

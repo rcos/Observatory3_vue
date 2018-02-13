@@ -1,36 +1,35 @@
-
 <template>
-  <LayoutView :model="model"/>
+  <Loading :loading="fetching">
+    <LayoutView :model="model"/>
+  </Loading>
 </template>
 
 <!-- // // // //  -->
 
 <script>
+import Loading from '@/components/Loading'
 import LayoutView from './components/layout.vue'
-import store from '@/store'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   props: ['id'],
   components: {
+    Loading,
     LayoutView
   },
   metaInfo: {
-    title: 'User Show' // title is now "RCOS - User Show..."
+    title: 'User Show'
   },
   created () {
-    this.fetch()
+    this.fetch(this.id)
   },
-  methods: {
-    fetch () {
-      return store.dispatch('user/fetchModel', this.id)
-    }
-  },
-  computed: {
-    model () {
-      return store.getters['user/current']
-    }
-  }
+  methods: mapActions({
+    fetch: 'user/fetchUser'
+  }),
+  computed: mapGetters({
+    model: 'user/current',
+    fetching: 'user/fetching'
+  })
 }
 </script>
-
 

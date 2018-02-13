@@ -19,13 +19,12 @@
 <!-- // // // //  -->
 
 <script>
-import store from '@/store'
-
 export default {
   props: ['item'],
   methods: {
-    dismiss: (id) => {
-      return store.commit('notification/remove', id)
+    dismiss () {
+      // TODO - this should be 'dispatch', not 'commit'
+      return this.$store.commit('notification/remove', this.item.id)
     }
   }
 }
