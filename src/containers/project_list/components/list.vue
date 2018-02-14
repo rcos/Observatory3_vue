@@ -5,16 +5,19 @@
       <div class="card card-body project-card mb-3" >
 
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-12">
             <h4 class="card-title">
               <i class="fa fa-fw fa-star text-warning" @click="toggleFavorite(m)" v-if="m.isFavorite"></i>
               <i class="fa fa-fw fa-star-o" @click="toggleFavorite(m)" v-else></i>
               <a v-bind:href="'/#/projects/' + m._id">{{m.name}}</a>
             </h4>
           </div>
+          <div class="col-lg-12">
+            <span v-for="t in m.tech" class="badge badge-primary mr-2">{{ t }}</span>
+          </div>
         </div>
 
-        <p class="card-text">{{m.description}}</p>
+        <p class="card-text mt-2">{{m.description}}</p>
 
         <div class="row">
           <div class="col-lg-12">
