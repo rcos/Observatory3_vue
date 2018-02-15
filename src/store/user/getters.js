@@ -6,6 +6,8 @@ const getters = {
     return state.collection
   },
   filteredCollection: state => {
+    // TASK - filter users by `tech` tags
+    // https://github.com/rcos/observatory-client/issues/31
     return _.chain(state.collection)
     .filter(u => {
       return u.name.toLowerCase().indexOf(state.filter.toLowerCase()) !== -1
