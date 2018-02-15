@@ -24,6 +24,9 @@
               <dt>Friday (4:00-5:15)</dt>
               <dd>Large group meetings in DCC 318</dd>
             </dl>
+            <a class="btn btn-sm btn-outline-primary btn-block" target='_blank' href="https://docs.google.com/spreadsheets/d/17zsTufmlryzPQGGkgfArOs1i_pWGypTY_sn1B-9gnqI/edit?usp=sharing">
+              Small Group Rooms
+            </a>
           </p>
         </div>
       </div>
