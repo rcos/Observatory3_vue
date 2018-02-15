@@ -138,6 +138,7 @@ const actions = {
     project.isFavorite = isFavorite
   },
 
+  // project/toggleOrderBy
   toggleOrderBy ({ state, commit }) {
     // TODO - abstract into project/constants.js
     const ORDER_ASC = 'asc'
@@ -149,6 +150,7 @@ const actions = {
     }
   },
 
+  // project/toggleInactive
   toggleInactive ({ state, commit, dispatch }) {
     if (state.showingInactive) {
       commit('showingInactive', false)
@@ -157,6 +159,12 @@ const actions = {
     }
     // Re-fetches the collection
     dispatch('fetchCollection')
+  },
+
+  // project/setFilter
+  // Updates the current search query, invokes the project/filter mutation
+  setFilter ({ commit }, filter) {
+    commit('filter', filter)
   }
 }
 

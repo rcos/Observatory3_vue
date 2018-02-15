@@ -2,14 +2,14 @@
 <template>
   <div class="container">
     <PageHeader :title="headerText" />
-    <ProjectSearch/>
+    <Search module="project" />
 
   	<div class="row">
       <div :class="listCss">
   			<ListView :collection="collection"/>
   		</div>
 
-      <div class="col-lg-3" v-if="isAuthenticated">
+      <div class="col-lg-3 pl-lg-0" v-if="isAuthenticated">
         <ProjectPinned/>
       </div>
 
@@ -21,7 +21,7 @@
 
 <script>
 import ListView from './list.vue'
-import ProjectSearch from './search.vue'
+import Search from '@/components/Search'
 import ProjectPinned from './pinned.vue'
 import { mapGetters } from 'vuex'
 
@@ -43,7 +43,7 @@ export default {
   },
   components: {
     ListView,
-    ProjectSearch,
+    Search,
     ProjectPinned
   }
 }

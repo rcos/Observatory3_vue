@@ -78,6 +78,12 @@ const actions = {
     // Re-fetches the collection
     dispatch('fetchCollection')
   }
+
+  // user/setFilter
+  // Updates the current search query, invokes the user/filter mutation
+  setFilter ({ commit }, filter) {
+    commit('filter', filter)
+  }
 }
 
 // // // //

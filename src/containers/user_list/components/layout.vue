@@ -5,7 +5,7 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <Search/>
+        <Search module="user" />
       </div>
     </div>
 
@@ -29,7 +29,7 @@
 
 <script>
 
-import Search from './search.vue'
+import Search from '@/components/Search'
 import Pagination from './pagination.vue'
 import List from './list.vue'
 
