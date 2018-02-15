@@ -34,16 +34,16 @@
 </template>
 
 <script>
+// TASK - abstract into generic SearchBar component
+// https://github.com/rcos/observatory-client/issues/30
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'search',
-  methods: {
-    ...mapActions({
-      toggleOrder: 'project/toggleOrderBy',
-      toggleInactive: 'project/toggleInactive'
-    })
-  },
+  methods: mapActions({
+    toggleOrder: 'project/toggleOrderBy',
+    toggleInactive: 'project/toggleInactive'
+  }),
   computed: {
     ...mapGetters({
       orderBy: 'project/orderBy',

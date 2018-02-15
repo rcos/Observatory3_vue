@@ -8,7 +8,6 @@
     <div class="col-lg-3 text-right">
 
       <div class="btn-group w-100">
-
         <button class="btn btn-lg btn-outline-secondary w-100" @click="toggleOrder()" v-if="orderBy === 'asc'">
           <i class="fa fa-fw fa-sort-alpha-asc"></i>
           Sort
@@ -28,7 +27,6 @@
           <i class="fa fa-fw fa-forward mr-1"></i>
           Current
         </button>
-
       </div>
 
     </div>
@@ -36,6 +34,8 @@
 </template>
 
 <script>
+// TASK - abstract into generic SearchBar component
+// https://github.com/rcos/observatory-client/issues/30
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
