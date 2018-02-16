@@ -2,7 +2,7 @@
   <div class="row pt-2 pb-3 pb-sm-3 pb-lg-0">
     <div class="col-lg-9">
       <form class="form-inline pb-3">
-        <input @input="setFilter($event.target.value)" class="form-control form-control-lg w-100" type="search" placeholder="Search">
+        <input @input="setFilter($event.target.value)" class="form-control form-control-lg w-100" type="search" :value="filter" placeholder="Search">
       </form>
     </div>
     <div class="col-lg-3 pl-lg-0 text-right">
