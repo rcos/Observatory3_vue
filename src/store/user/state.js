@@ -1,12 +1,10 @@
+import { COLLECTION_STATE, FILTER_STATE } from '@/store/lib/mixins'
 
 // User Module State
 const state = {
-  collection: [],
-  filter: '',
-  showingInactive: false,
-  orderBy: 'asc', // 'asc' or 'desc'
-  current: {},
-  fetching: false
+  ...COLLECTION_STATE,
+  ...FILTER_STATE,
+  current: {}
 }
 
 export default state

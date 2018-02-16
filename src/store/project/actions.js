@@ -1,63 +1,65 @@
-import ProjectFactory from './factory'
 import _ from 'lodash'
 import { $GET, $PUT, $DEL } from '@/store/lib/helpers'
+import { FILTER_ACTIONS } from '@/store/lib/mixins'
+
 const API_ROOT = '/api/projects'
 
 // // // //
 
-// actions
+// Project module actions
 // functions that causes side effects and can involve asynchronous operations.
-const actions = {
-  fetchCollection: ({ commit, state }) => {
-    // State.fetching = true
+export default {
+  ...FILTER_ACTIONS,
+  fetchCollection: ({ state, commit, rootGetters }) => {
     commit('fetching', true)
 
-    // Users API endpoint
-    let apiRoute = API_ROOT
-
     // Fetches either active or inactive users
+    let apiRoute = API_ROOT
     if (state.showingInactive) {
       apiRoute += '/past'
     }
 
     // Fetches Collection from the server
-    fetch(apiRoute)
-    // Parses response into JSON
-    .then((response) => {
-      return response.json()
-    })
+    $GET(apiRoute, { token: rootGetters['auth/token'] })
     .then((json) => {
-      // State.fetching = false
       commit('fetching', false)
-
-      // Sets state.collection
-      commit('sync', json)
+      commit('collection', json)
     })
     .catch((err) => {
-      // State.fetching = false
       commit('fetching', false)
-
-      // TODO - better error handling
-      throw err
+      throw err // TODO - better error handling
     })
   },
 
   // fetchProject
   // Fetches an individual project from the server
-  fetchProject ({ store, commit, rootGetters }, projectId) {
+  fetchProject ({ commit, rootGetters }, projectId) {
     commit('fetching', true)
     $GET(`/api/projects/${projectId}`, { token: rootGetters['auth/token'] })
     .then((project) => {
       commit('current', project)
       commit('fetching', false)
-    }) // TODO - error handling
+    })
+    .catch((err) => {
+      commit('fetching', false)
+      throw err // TODO - better error handling
+    })
   },
 
-  create: ({ commit }, attributes) => ProjectFactory.create({ commit }, attributes),
+  // createProject
+  createProject ({ commit }, attributes) {
+    // TASK - integrate POST /api/projects
+  },
 
-  update: ({ commit }, attributes) => ProjectFactory.update({ commit }, attributes),
+  // updateProject
+  updateProject ({ commit }, attributes) {
+    // TASK - integrate PUT /api/projects/:id
+  },
 
-  destroy: ({ commit }, id) => ProjectFactory.destroy({ commit }, id),
+  // destroyProject
+  destroyProject ({ commit }, id) {
+    // TASK - integrate DELETE /api/projects/:id
+  },
 
   // fetchMyProjects
   fetchMyProjects ({ commit, rootGetters }) {
@@ -66,8 +68,8 @@ const actions = {
       commit('myProjects', response)
     })
     .catch((err) => {
-      // TODO - improve error handling
-      throw err
+      // commit('fetching', false)
+      throw err // TODO - better error handling
     })
   },
 
@@ -78,12 +80,13 @@ const actions = {
       commit('menteeProjects', response)
     })
     .catch((err) => {
-      // TODO - improve error handling
-      throw err
+      // commit('fetching', false)
+      throw err // TODO - better error handling
     })
   },
 
   // fetchFavoriteProjects
+  // TODO - this should be a user action
   fetchFavoriteProjects ({ commit, rootGetters }) {
     let currentUser = rootGetters['auth/current_user']
 
@@ -136,30 +139,5 @@ const actions = {
   isFavorite ({ state }, project) {
     let isFavorite = _.find(state.favoriteProjects, { _id: project._id })
     project.isFavorite = isFavorite
-  },
-
-  toggleOrderBy ({ state, commit }) {
-    // TODO - abstract into project/constants.js
-    const ORDER_ASC = 'asc'
-    const ORDER_DESC = 'desc'
-    if (state.orderBy === ORDER_ASC) {
-      commit('orderBy', ORDER_DESC)
-    } else {
-      commit('orderBy', ORDER_ASC)
-    }
-  },
-
-  toggleInactive ({ state, commit, dispatch }) {
-    if (state.showingInactive) {
-      commit('showingInactive', false)
-    } else {
-      commit('showingInactive', true)
-    }
-    // Re-fetches the collection
-    dispatch('fetchCollection')
   }
 }
-
-// // // //
-
-export default actions

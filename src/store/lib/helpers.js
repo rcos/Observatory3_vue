@@ -1,3 +1,4 @@
+
 // TODO - this function should return the server-provided error messages
 function handleErrors (response) {
   if (!response.ok) {
@@ -34,7 +35,7 @@ export const $POST = function (url, body, token) {
 // // // //
 
 // $GET Helper function
-export const $GET = function (url, { token }) {
+export const $GET = function (url, options = {}) {
   // Defines requestHeaders object
   let requestHeaders = {
     'Content-Type': 'application/json'
@@ -42,8 +43,8 @@ export const $GET = function (url, { token }) {
 
   // Adds `Authorization` header to request
   // if token parameter is defined
-  if (token) {
-    requestHeaders['Authorization'] = `Bearer ${token}`
+  if (options.token) {
+    requestHeaders['Authorization'] = `Bearer ${options.token}`
   }
 
   return fetch(url, {

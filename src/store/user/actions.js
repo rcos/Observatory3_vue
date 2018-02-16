@@ -1,44 +1,32 @@
-import UserFactory from './factory'
 import { $GET } from '@/store/lib/helpers'
+import { FILTER_ACTIONS } from '@/store/lib/mixins'
 
 const API_ROOT = '/api/users'
 
 // // // //
 
-// actions
+// User module actions
 // functions that causes side effects and can involve asynchronous operations.
-const actions = {
-  fetchCollection: ({ commit, state }) => {
-    // State.fetching = true
+export default {
+  ...FILTER_ACTIONS,
+  fetchCollection: ({ commit, state, rootGetters }) => {
     commit('fetching', true)
 
-    // Users API endpoint
-    let apiRoute = API_ROOT
-
     // Fetches either active or inactive users
+    let apiRoute = API_ROOT
     if (state.showingInactive) {
       apiRoute += '/past'
     }
 
     // Fetches Collection from the server
-    fetch(apiRoute)
-    // Parses response into JSON
-    .then((response) => {
-      return response.json()
-    })
+    $GET(apiRoute, { token: rootGetters['auth/token'] })
     .then((json) => {
-      // State.fetching = false
       commit('fetching', false)
-
-      // Sets state.collection
-      commit('sync', json)
+      commit('collection', json)
     })
     .catch((err) => {
-      // State.fetching = false
       commit('fetching', false)
-
-      // TODO - better error handling
-      throw err
+      throw err // TODO - better error handling
     })
   },
 
@@ -50,36 +38,10 @@ const actions = {
     .then((user) => {
       commit('current', user)
       commit('fetching', false)
-    }) // TODO - error handling
-  },
-
-  create: ({ commit }, attributes) => UserFactory.create({ commit }, attributes),
-
-  update: ({ commit }, attributes) => UserFactory.update({ commit }, attributes),
-
-  destroy: ({ commit }, id) => UserFactory.destroy({ commit }, id),
-
-  toggleOrderBy ({ state, commit }) {
-    const ORDER_ASC = 'asc'
-    const ORDER_DESC = 'desc'
-    if (state.orderBy === ORDER_ASC) {
-      commit('orderBy', ORDER_DESC)
-    } else {
-      commit('orderBy', ORDER_ASC)
-    }
-  },
-
-  toggleInactive ({ state, commit, dispatch }) {
-    if (state.showingInactive) {
-      commit('showingInactive', false)
-    } else {
-      commit('showingInactive', true)
-    }
-    // Re-fetches the collection
-    dispatch('fetchCollection')
+    })
+    .catch((err) => {
+      commit('fetching', false)
+      throw err // TODO - better error handling
+    })
   }
 }
-
-// // // //
-
-export default actions
