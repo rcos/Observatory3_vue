@@ -31,9 +31,9 @@ export default {
     })
   },
 
-  // fetchProject
-  // Fetches an individual project from the server
-  fetchProject ({ commit, rootGetters }, projectId) {
+  // fetchModel
+  // Fetches an individual model from the server
+  fetchModel ({ commit, rootGetters }, projectId) {
     commit('fetching', true)
     $GET(`/api/projects/${projectId}`, { token: rootGetters['auth/token'] })
     .then((project) => {
@@ -47,17 +47,17 @@ export default {
   },
 
   // createProject
-  createProject ({ commit }, attributes) {
+  create ({ commit }, attributes) {
     // Vuex - Project Action - POST /api/projects
   },
 
   // updateProject
-  updateProject ({ commit }, attributes) {
+  update ({ commit }, attributes) {
     // Vuex - Project Action - PUT /api/projects/:id
   },
 
   // destroyProject
-  destroyProject ({ commit }, id) {
+  destroy ({ commit }, id) {
     // Vuex - Project Action - DELETE /api/projects/:id
   },
 
