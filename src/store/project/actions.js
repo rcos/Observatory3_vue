@@ -1,4 +1,3 @@
-import ProjectFactory from './factory'
 import _ from 'lodash'
 import { $GET, $PUT, $DEL } from '@/store/lib/helpers'
 import { FILTER_ACTIONS } from '@/store/lib/mixins'
@@ -9,7 +8,7 @@ const API_ROOT = '/api/projects'
 
 // Project module actions
 // functions that causes side effects and can involve asynchronous operations.
-const actions = {
+export default {
   ...FILTER_ACTIONS,
   fetchCollection: ({ state, commit, rootGetters }) => {
     commit('fetching', true)
@@ -23,7 +22,9 @@ const actions = {
     // Fetches Collection from the server
     $GET(apiRoute, { token: rootGetters['auth/token'] })
     .then((json) => {
-      commit('fetching', false)
+      setTimeout(() => {
+        commit('fetching', false)
+      }, 250)
       commit('collection', json)
     })
     .catch((err) => {
@@ -47,10 +48,20 @@ const actions = {
     })
   },
 
-  // TODO - replace ProjectFactory
-  create: ({ commit }, attributes) => ProjectFactory.create({ commit }, attributes),
-  update: ({ commit }, attributes) => ProjectFactory.update({ commit }, attributes),
-  destroy: ({ commit }, id) => ProjectFactory.destroy({ commit }, id),
+  // createProject
+  createProject ({ commit }, attributes) {
+    // TASK - integrate POST /api/projects
+  },
+
+  // updateProject
+  updateProject ({ commit }, attributes) {
+    // TASK - integrate PUT /api/projects/:id
+  },
+
+  // destroyProject
+  destroyProject ({ commit }, id) {
+    // TASK - integrate DELETE /api/projects/:id
+  },
 
   // fetchMyProjects
   fetchMyProjects ({ commit, rootGetters }) {
@@ -132,7 +143,3 @@ const actions = {
     project.isFavorite = isFavorite
   }
 }
-
-// // // //
-
-export default actions
