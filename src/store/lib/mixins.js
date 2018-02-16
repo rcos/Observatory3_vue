@@ -57,3 +57,33 @@ export const FILTER_STATE = {
   showingInactive: false,
   orderBy: 'asc' // 'asc' or 'desc'
 }
+
+export const FILTER_ACTIONS = {
+  // module/toggleOrderBy
+  toggleOrderBy ({ state, commit }) {
+    const ORDER_ASC = 'asc'
+    const ORDER_DESC = 'desc'
+    if (state.orderBy === ORDER_ASC) {
+      commit('orderBy', ORDER_DESC)
+    } else {
+      commit('orderBy', ORDER_ASC)
+    }
+  },
+
+  // module/toggleInactive
+  toggleInactive ({ state, commit, dispatch }) {
+    if (state.showingInactive) {
+      commit('showingInactive', false)
+    } else {
+      commit('showingInactive', true)
+    }
+    // Re-fetches the collection
+    dispatch('fetchCollection')
+  },
+
+  // module/setFilter
+  // Updates the current search query, invokes the module/filter mutation
+  setFilter ({ commit }, filter) {
+    commit('filter', filter)
+  }
+}
