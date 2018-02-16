@@ -6,7 +6,9 @@
 
   	<div class="row">
       <div :class="listCss">
-  			<ListView :collection="collection"/>
+        <Loading :loading="fetching">
+    			<ListView :collection="collection"/>
+        </Loading>
   		</div>
 
       <div class="col-lg-3 pl-lg-0" v-if="isAuthenticated">
@@ -21,6 +23,7 @@
 
 <script>
 import ListView from './list.vue'
+import Loading from '@/components/Loading'
 import Search from '@/components/Search'
 import ProjectPinned from './pinned.vue'
 import { mapGetters } from 'vuex'
@@ -44,6 +47,7 @@ export default {
   components: {
     ListView,
     Search,
+    Loading,
     ProjectPinned
   }
 }
