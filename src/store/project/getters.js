@@ -1,10 +1,10 @@
 import _ from 'lodash'
+import { COLLECTION_GETTERS, FILTER_GETTERS } from '@/store/lib/mixins'
 
 // Project Module Getters
 const getters = {
-  collection: state => {
-    return state.collection
-  },
+  ...COLLECTION_GETTERS,
+  ...FILTER_GETTERS,
   filteredCollection: state => {
     return _.chain(state.collection)
     .filter(u => {
@@ -22,20 +22,8 @@ const getters = {
   favoriteProjects: state => {
     return state.favoriteProjects
   },
-  filter: state => {
-    return state.filter
-  },
-  showingInactive: state => {
-    return state.showingInactive
-  },
-  orderBy: state => {
-    return state.orderBy
-  },
   current: state => {
     return state.current
-  },
-  fetching: state => {
-    return state.fetching
   }
 }
 
