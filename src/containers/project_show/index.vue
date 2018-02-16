@@ -24,7 +24,7 @@ export default {
     this.fetch(this.id)
   },
   methods: mapActions({
-    fetch: 'project/fetchProject'
+    fetch: 'project/fetchModel'
   }),
   computed: mapGetters({
     model: 'project/current',
