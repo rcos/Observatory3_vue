@@ -22,9 +22,7 @@ export default {
     // Fetches Collection from the server
     $GET(apiRoute, { token: rootGetters['auth/token'] })
     .then((json) => {
-      setTimeout(() => {
-        commit('fetching', false)
-      }, 250)
+      commit('fetching', false)
       commit('collection', json)
     })
     .catch((err) => {

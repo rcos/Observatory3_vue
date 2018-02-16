@@ -73,9 +73,9 @@ export default {
   created () {
     // TODO - this into smaller components
     this.$store.dispatch('project/fetchMyProjects')
-    // TODO - invoke following only if MENTOR
-    this.$store.dispatch('project/fetchMenteeProjects')
     this.$store.dispatch('project/fetchFavoriteProjects')
+    // TODO - invoke following only if MENTOR
+    // this.$store.dispatch('project/fetchMenteeProjects')
   }
 }
 </script>
