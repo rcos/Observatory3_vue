@@ -48,17 +48,17 @@ export default {
 
   // createProject
   createProject ({ commit }, attributes) {
-    // TASK - integrate POST /api/projects
+    // Vuex - Project Action - POST /api/projects
   },
 
   // updateProject
   updateProject ({ commit }, attributes) {
-    // TASK - integrate PUT /api/projects/:id
+    // Vuex - Project Action - PUT /api/projects/:id
   },
 
   // destroyProject
   destroyProject ({ commit }, id) {
-    // TASK - integrate DELETE /api/projects/:id
+    // Vuex - Project Action - DELETE /api/projects/:id
   },
 
   // fetchMyProjects

@@ -40,7 +40,7 @@ const actions = {
     let { email, password } = state.register_user
 
     // Sends registration data to server
-    $POST(REGISTER_ROUTE, { email, password })
+    $POST(REGISTER_ROUTE, { body: { email, password } })
     .then((json) => {
       commit('clear_register_user')
       commit('logging_in', false)
@@ -74,7 +74,7 @@ const actions = {
     let { email, password } = state.login_user
 
     // Sends login data to server
-    $POST(LOGIN_ROUTE, { email, password })
+    $POST(LOGIN_ROUTE, { body: { email, password } })
     .then((json) => {
       // Changes loading state
       commit('logging_in', false)
