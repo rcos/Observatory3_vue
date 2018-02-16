@@ -1,29 +1,30 @@
-
 <template>
+  <Loading :loading="fetching">
     <LayoutView :collection="collection"/>
+  </Loading>
 </template>
 
 <!-- // // // //  -->
 
 <script>
-
+import Loading from '@/components/Loading'
 import LayoutView from './components/layout.vue'
-import store from '@/store'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
+    Loading,
     LayoutView
   },
   metaInfo: {
     title: 'Users' // title is now "RCOS - Users"
   },
-  computed: {
-    collection () {
-      return store.getters['user/collection']
-    }
-  },
-  mounted () {
-    return store.dispatch('user/fetchCollection')
+  computed: mapGetters({
+    fetching: 'user/fetching',
+    collection: 'user/filteredCollection'
+  }),
+  created () {
+    return this.$store.dispatch('user/fetchCollection')
   }
 }
 </script>

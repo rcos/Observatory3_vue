@@ -5,16 +5,20 @@
 
                 <div class="card card-body">
                     <h4 class="card-title">Register</h4>
-                    <p class="card-text" v-if="$route.query.redirect">You need to login first.</p>
 
-                      <form @submit.prevent="login">
+                      <form @submit.prevent="register">
                           <fieldset>
 
-                              <FormInput></FormInput>
+                              <FormInput v-model="register_user.name" name='name' label='Name' placeholder='Name'/>
+                              <FormInput v-model="register_user.email" name='email' label='Email' placeholder='Email'/>
+                              <FormInput v-model="register_user.github.login" name='github'  label='GitHub Username' placeholder='GitHub Username'/>
+                              <FormInput v-model="register_user.password" name='password' label='Password' placeholder='Password' type='password'/>
+                              <FormInput v-model="register_user.passwordverify" name='passwordverify' label='Confirm Password' placeholder='Confirm Password' type='password'/>
 
-                              <FormSubmit></FormSubmit>
+                              <FormSubmit :props="{ label: 'Sign Up', css: 'btn-success btn-block' }"/>
 
-                              <p v-if="error" class="error">Bad registration information</p>
+                              <p v-if="register_user.error" class="error">Bad registration information</p>
+                              <p v-else class="error">Successfully Regisetered!</p>
 
                           </fieldset>
 
@@ -27,50 +31,21 @@
 </template>
 
 <script>
-  // import auth from '../../../services/auth.js'
-  import FormInput from '@/components/FormInput'
-  import FormSubmit from '@/components/FormSubmit'
+import FormInput from '@/components/FormInput'
+import FormSubmit from '@/components/FormSubmit'
+import { mapGetters, mapActions } from 'vuex'
 
-  export default {
-    data () {
-      return {
-        loading: false,
-        error: false
-      }
-    },
-
-    components: {
-      FormInput,
-      FormSubmit
-    },
-
-    methods: {
-      isValid () {
-        return !(this.email === '' || this.password === '')
-      },
-      register () {
-        if (!this.isValid()) {
-          return
-        }
-
-        // let data = {
-        //   email: this.email,
-        //   password: this.password,
-        //   remember: this.remember
-        // }
-
-        this.loading = true
-
-        // auth.login(this.email, this.password, (loggedIn) => {
-        //   this.loading = false
-
-        //   if (loggedIn) {
-        //     this.$router.replace(this.$route.query.redirect || '/')
-        //   } else {
-        //     this.error = true
-        //   }
-        // })
-      }
-    }
-  }
+export default {
+  components: {
+    FormInput,
+    FormSubmit
+  },
+  computed: mapGetters({
+    loading: 'auth/loading',
+    register_user: 'auth/register_user'
+  }),
+  methods: mapActions({
+    register: 'auth/register'
+  })
+}
 </script>

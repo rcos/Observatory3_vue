@@ -1,14 +1,22 @@
+import _ from 'lodash'
+import { COLLECTION_GETTERS, FILTER_GETTERS } from '../lib/mixins'
 
-// Project Module Getters
+// User Module Getters
 const getters = {
-  collection: state => {
-    return state.collection
+  ...COLLECTION_GETTERS,
+  ...FILTER_GETTERS,
+  filteredCollection: state => {
+    // TASK - filter users by `tech` tags
+    // https://github.com/rcos/observatory-client/issues/31
+    return _.chain(state.collection)
+    .filter(u => {
+      return u.name.toLowerCase().indexOf(state.filter.toLowerCase()) !== -1
+    })
+    .orderBy(['name'], [state.orderBy])
+    .value()
   },
   current: state => {
     return state.current
-  },
-  fetching: state => {
-    return state.fetching
   }
 }
 

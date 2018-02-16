@@ -1,10 +1,10 @@
+
 <template>
-  <div class="container pt-3">
-  	<h4>Attendance</h4>
-      <div class="col-lg-8">
-        <CodeInput/>
-      </div>
-    <h4>Previoud Attendance:</h4>
+  <div class="container">
+    <PageHeader title="Attendance" />
+
+    <CodeInput/>
+    <h4>Previous Attendance:</h4>
     <TableHeader/>
     <Explore/>
   </div>

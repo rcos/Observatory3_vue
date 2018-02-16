@@ -1,13 +1,11 @@
 
 <template>
-  <div class="container pt-2">
-
-    <h3>Developers</h3>
-    <hr>
+  <div class="container">
+    <PageHeader title="Developers" />
 
     <div class="row">
       <div class="col-lg-12">
-        <Search :collection="collection"/>
+        <Search module="user" />
       </div>
     </div>
 
@@ -31,7 +29,7 @@
 
 <script>
 
-import Search from './search.vue'
+import Search from '@/components/Search'
 import Pagination from './pagination.vue'
 import List from './list.vue'
 

@@ -3,15 +3,21 @@
   <div class="container">
   	<h2>Mentor - Verify</h2>
   	<hr>
-  	<p class="lead">TODO</p>
+  	<List/>
   </div>
 </template>
 
 <!-- // // // //  -->
 
 <script>
+
+import List from './list.vue'
+
 export default {
-  name: 'layout'
+  name: 'layout',
+  components: {
+    List
+  }
 }
 </script>
 

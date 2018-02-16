@@ -5,9 +5,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './routers'
 import store from '@/store'
+import PageHeader from '@/components/PageHeader'
 
 // QUESTION - ??
 Vue.config.productionTip = false
+
+// Bootstraps Global Components
+Vue.component('PageHeader', PageHeader)
 
 /* eslint-disable no-new */
 new Vue({

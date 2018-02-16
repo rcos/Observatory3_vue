@@ -1,9 +1,10 @@
+import { COLLECTION_STATE, FILTER_STATE } from '@/store/lib/mixins'
 
-// Project Module State
+// User Module State
 const state = {
-  collection: [],
-  current: {},
-  fetching: false
+  ...COLLECTION_STATE,
+  ...FILTER_STATE,
+  current: {}
 }
 
 export default state

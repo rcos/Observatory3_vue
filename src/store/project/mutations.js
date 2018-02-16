@@ -1,15 +1,19 @@
+import { COLLECTION_MUTATIONS, FILTER_MUTATIONS } from '@/store/lib/mixins'
 
 // Project Module mutations
-const mutations = {
-  fetching (state, isFetching) {
-    state.fetching = isFetching
-  },
-  sync (state, collection) {
-    state.collection = collection
-  },
+export default {
+  ...COLLECTION_MUTATIONS,
+  ...FILTER_MUTATIONS,
   current (state, attributes) {
     state.current = attributes
+  },
+  myProjects (state, projects) {
+    state.myProjects = projects
+  },
+  menteeProjects (state, projects) {
+    state.menteeProjects = projects
+  },
+  favoriteProjects (state, projects) {
+    state.favoriteProjects = projects
   }
 }
-
-export default mutations

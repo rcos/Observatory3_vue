@@ -1,22 +1,15 @@
+
 <template>
-  <div class="container mt-2">
-
-    <h3>Projects</h3>
-
-    <hr>
-
-    <div class="row">
-      <div class="col-lg-12">
-        <ProjectSearch/>
-      </div>
-    </div>
+  <div class="container">
+    <PageHeader :title="headerText" />
+    <Search module="project" />
 
   	<div class="row">
-      <div class="col-lg-9">
+      <div :class="listCss">
   			<ListView :collection="collection"/>
   		</div>
 
-      <div class="col-lg-3">
+      <div class="col-lg-3 pl-lg-0" v-if="isAuthenticated">
         <ProjectPinned/>
       </div>
 
@@ -27,21 +20,30 @@
 <!-- // // // //  -->
 
 <script>
-import store from '@/store'
 import ListView from './list.vue'
-import ProjectSearch from './search.vue'
+import Search from '@/components/Search'
 import ProjectPinned from './pinned.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   props: ['collection'],
   computed: {
-    fetching () {
-      return store.getters['project/fetching']
+    ...mapGetters({
+      fetching: 'project/fetching',
+      isAuthenticated: 'auth/is_authenticated'
+    }),
+    headerText () {
+      if (this.$store.getters['project/showingInactive']) return 'Past Projects'
+      return 'Current Projects'
+    },
+    listCss () {
+      if (this.$store.getters['auth/is_authenticated']) return 'col-lg-9'
+      return 'col-lg-12'
     }
   },
   components: {
     ListView,
-    ProjectSearch,
+    Search,
     ProjectPinned
   }
 }

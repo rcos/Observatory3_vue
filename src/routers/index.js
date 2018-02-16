@@ -2,10 +2,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // Router Middleware
-// import Middleware from './middleware'
+import Middleware from './middleware'
+
+// TODO - split this into smaller, module-specific route definitions
 
 // Main Containers
 import MainHome from '@/containers/main_home'
+import MainSponsors from '@/containers/main_sponsors'
 import MainAttend from '@/containers/main_attend'
 
 // Achievement Containers
@@ -16,6 +19,11 @@ import ProjectList from '@/containers/project_list'
 import ProjectNew from '@/containers/project_new'
 import ProjectShow from '@/containers/project_show'
 import ProjectEdit from '@/containers/project_edit'
+
+// Admin Containers
+import AdminAttendance from '@/containers/admin_attendance'
+import AdminSettings from '@/containers/admin_settings'
+import AdminUsers from '@/containers/admin_users'
 
 // Auth Containers
 import AuthLogin from '@/containers/auth_login'
@@ -45,7 +53,7 @@ import BlogShow from '@/containers/blog_show'
 Vue.use(Router)
 
 // TODO - can we use multiple routers?
-export default new Router({
+let router = new Router({
   routes: [
     {
       path: '/',
@@ -53,9 +61,9 @@ export default new Router({
       component: MainHome
     },
     {
-      path: '/attend',
-      name: 'Main Verify',
-      component: MainAttend
+      path: '/sponsors',
+      name: 'Sponsors',
+      component: MainSponsors
     },
     {
       path: '/achievements',
@@ -66,6 +74,7 @@ export default new Router({
       path: '/projects',
       name: 'Project List',
       component: ProjectList
+      // beforeEnter: Middleware.ensureAuthenticated
     },
     {
       path: '/projects/new',
@@ -93,7 +102,7 @@ export default new Router({
     },
     {
       path: '/auth/register',
-      name: 'Login',
+      name: 'Register',
       component: AuthRegister
     },
     {
@@ -108,7 +117,7 @@ export default new Router({
       props: true
     },
     {
-      path: '/profile',
+      path: '/settings',
       name: 'User Settings',
       component: UserSettings
     },
@@ -143,6 +152,31 @@ export default new Router({
       name: 'Blog Show',
       component: BlogShow,
       props: true
+    },
+    {
+      path: '/admin/attendance',
+      name: 'Admin Attendance',
+      component: AdminAttendance
+    },
+    {
+      path: '/admin/users',
+      name: 'Admin Users',
+      component: AdminUsers
+    },
+    {
+      path: '/admin/settings',
+      name: 'Admin Settings',
+      component: AdminSettings
+    },
+    {
+      path: '/main/attend',
+      name: 'Main Attendance',
+      component: MainAttend
     }
+
   ]
 })
+
+router.beforeEach(Middleware.ensureAuthenticated)
+
+export default router

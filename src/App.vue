@@ -1,42 +1,54 @@
 
 <template>
   <div id="app">
-    <Navbar/>
-    <router-view/>
-    <Footer/>
     <Notification/>
+    <AppNavbar/>
+    <div class="router-wrapper">
+      <router-view/>
+    </div>
+    <AppFooter/>
   </div>
 </template>
 
 <script>
-import Navbar from './containers/app_navbar'
-import Footer from './containers/app_footer'
-import Notification from './containers/app_notification'
+import AppNavbar from '@/containers/app_navbar'
+import AppFooter from '@/containers/app_footer'
+import Notification from '@/containers/app_notification'
 
 export default {
   name: 'app',
-
-  // Top-Level Application Components
   components: {
-    Navbar,
-    Notification,
-    Footer
+    AppNavbar,
+    AppFooter,
+    Notification
   },
-
-  // Top-Level page Meta
   metaInfo: {
-    title: 'Home', // set a title
+    title: 'Lodaing...',
     titleTemplate: 'RCOS - %s', // title will always be "RCOS - ..."
     htmlAttrs: {
       lang: 'en'
     }
   }
-
 }
 </script>
 
 <style type="text/css">
+  html {
+    height: 100%;
+  }
+
   body {
+    height: 100%;
     background-color: #f3f3f3;
+  }
+
+  .router-wrapper {
+    width: 100%;
+    height: 100%;
+    margin-top: 4.5rem;
+  }
+
+  #app {
+    height: 100%;
   }
 </style>
