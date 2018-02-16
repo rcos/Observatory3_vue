@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import { $GET, $PUT, $DEL } from '@/store/lib/helpers'
-import { FILTER_ACTIONS } from '@/store/lib/mixins'
+import { FILTER_ACTIONS, PAGINATION_ACTIONS } from '@/store/lib/mixins'
 
 const API_ROOT = '/api/projects'
 
@@ -10,6 +10,7 @@ const API_ROOT = '/api/projects'
 // functions that causes side effects and can involve asynchronous operations.
 export default {
   ...FILTER_ACTIONS,
+  ...PAGINATION_ACTIONS,
   fetchCollection: ({ state, commit, rootGetters }) => {
     commit('fetching', true)
 
