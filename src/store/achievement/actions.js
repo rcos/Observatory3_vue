@@ -1,17 +1,22 @@
-import Factory from './factory'
+// import { $GET, $POST, $PUT, $DEL } from '@/store/lib/helpers'
 
-// // // //
+// const API_ROOT = '/api/achievements'
 
-// actions
-// functions that causes side effects and can involve asynchronous operations.
-const actions = {
-  fetchCollection: ({ commit }) => Factory.fetchCollection({ commit }),
+// Achievement actions
+export default {
+  fetchCollection ({ commit }) {
 
-  create: ({ commit }, attributes) => Factory.create({ commit }, attributes),
+  },
+  fetchModel ({ commit }) {
 
-  update: ({ commit }, attributes) => Factory.update({ commit }, attributes)
+  },
+  create ({ commit }) {
+
+  },
+  Update ({ commit }) {
+
+  },
+  destroy ({ commit }) {
+
+  }
 }
-
-// // // //
-
-export default actions

@@ -1,15 +1,6 @@
+import { COLLECTION_MUTATIONS } from '@/store/lib/mixins'
 
-// Project Module mutations
-const mutations = {
-  fetching (state, isFetching) {
-    state.fetching = isFetching
-  },
-  sync (state, collection) {
-    state.collection = collection
-  },
-  current (state, attributes) {
-    state.current = attributes
-  }
+// Post Module mutations
+export default {
+  ...COLLECTION_MUTATIONS
 }
-
-export default mutations

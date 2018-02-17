@@ -1,9 +1,6 @@
+import { COLLECTION_STATE } from '@/store/lib/mixins'
 
-// Project Module State
-const state = {
-  collection: [],
-  current: {},
-  fetching: false
+// Post Module State
+export default {
+  ...COLLECTION_STATE
 }
-
-export default state

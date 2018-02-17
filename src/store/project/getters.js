@@ -2,7 +2,7 @@ import _ from 'lodash'
 import { COLLECTION_GETTERS, PAGINATION_GETTERS, FILTER_GETTERS } from '@/store/lib/mixins'
 
 // Project Module Getters
-const getters = {
+export default {
   ...COLLECTION_GETTERS,
   ...PAGINATION_GETTERS,
   ...FILTER_GETTERS,
@@ -29,5 +29,3 @@ const getters = {
     return state.current
   }
 }
-
-export default getters
