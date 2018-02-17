@@ -2,7 +2,7 @@
 
 // const API_ROOT = '/api/posts'
 
-// Post actions
+// Blog actions
 export default {
   fetchCollection ({ commit }) {
 

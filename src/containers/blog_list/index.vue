@@ -17,10 +17,10 @@ export default {
     title: 'Blog - List'
   },
   computed: mapGetters({
-    collection: 'post/collection'
+    collection: 'blog/collection'
   }),
   mounted () {
-    return this.$store.dispatch('post/fetchCollection')
+    return this.$store.dispatch('blog/fetchCollection')
   }
 }
 </script>

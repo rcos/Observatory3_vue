@@ -1,6 +1,6 @@
 import { COLLECTION_STATE } from '@/store/lib/mixins'
 
-// Post Module State
+// Blog Module State
 export default {
   ...COLLECTION_STATE
 }
