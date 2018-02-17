@@ -4,8 +4,6 @@ import Router from 'vue-router'
 // Router Middleware
 import Middleware from './middleware'
 
-// TODO - split this into smaller, module-specific route definitions
-
 // Main Containers
 import MainHome from '@/containers/main_home'
 import MainSponsors from '@/containers/main_sponsors'
@@ -44,15 +42,9 @@ import BlogNew from '@/containers/blog_new'
 import BlogEdit from '@/containers/blog_edit'
 import BlogShow from '@/containers/blog_show'
 
-// TODO - Achievements
-// TODO - User List
-// TODO - User Show
-// TODO - Developer Edit (Profile?)
-// TODO - Developer Edit (Profile?)
-
 Vue.use(Router)
 
-// TODO - can we use multiple routers?
+// TODO - split this into smaller, module-specific route definitions
 let router = new Router({
   routes: [
     {
@@ -177,6 +169,7 @@ let router = new Router({
   ]
 })
 
+// Ensures user authentication before each route
 router.beforeEach(Middleware.ensureAuthenticated)
 
 export default router
