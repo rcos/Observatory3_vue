@@ -27,7 +27,26 @@ export const COLLECTION_STATE = {
 }
 
 // // // //
-// Adds a Collection filtering to a Vuex module
+// Adds a Model to a Vuex module
+export const MODEL_GETTERS = {
+  model: state => {
+    return state.model
+  }
+}
+
+export const MODEL_MUTATIONS = {
+  model (state, model) {
+    state.model = model
+  }
+}
+
+export const MODEL_STATE = {
+  model: {}
+}
+
+// // // //
+// Adds Collection filtering to a Vuex module
+// TODO - abstract `showingInactive` into a separate mixin
 
 export const FILTER_GETTERS = {
   filter: state => {
