@@ -6,6 +6,8 @@ export default {
   ...MODEL_STATE,
   ...FILTER_STATE,
   newModel: {},
+  contributors: [],
+  fetchingContributors: false,
   myProjects: [],
   menteeProjects: [],
   favoriteProjects: []

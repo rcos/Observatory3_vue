@@ -18,5 +18,11 @@ export default {
   },
   favoriteProjects (state, projects) {
     state.favoriteProjects = projects
+  },
+  contributors (state, contributors) {
+    state.contributors = contributors
+  },
+  fetchingContributors (state, fetching) {
+    state.fetchingContributors = fetching
   }
 }

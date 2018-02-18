@@ -6,9 +6,6 @@ export default {
   ...COLLECTION_GETTERS,
   ...MODEL_GETTERS,
   ...FILTER_GETTERS,
-  newModel: state => {
-    return state.newModel
-  },
   filteredCollection: state => {
     return _.chain(state.collection)
     .filter(u => {
@@ -19,6 +16,9 @@ export default {
     // .take(state.pageSize)
     .value()
   },
+  newModel: state => {
+    return state.newModel
+  },
   myProjects: state => {
     return state.myProjects
   },
@@ -27,5 +27,11 @@ export default {
   },
   favoriteProjects: state => {
     return state.favoriteProjects
+  },
+  contributors: state => {
+    return state.contributors
+  },
+  fetchingContributors: state => {
+    return state.fetchingContributors
   }
 }

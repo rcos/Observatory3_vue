@@ -53,6 +53,22 @@ export default {
     })
   },
 
+  // fetchContributors
+  // Fetches the contributors to a specific project
+  fetchContributors ({ state, commit, rootGetters }) {
+    let projectId = state.model._id
+    commit('fetchingContributors', true)
+    $GET(`/api/projects/${projectId}/authors`, { token: rootGetters['auth/token'] })
+    .then((project) => {
+      commit('contributors', project)
+      commit('fetchingContributors', false)
+    })
+    .catch((err) => {
+      commit('fetchingContributors', false)
+      throw err // TODO - better error handling
+    })
+  },
+
   // createProject
   create ({ state, commit, rootGetters }) {
     // Assembles body for new Project API request
