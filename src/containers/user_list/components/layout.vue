@@ -3,24 +3,24 @@
   <div class="container">
     <PageHeader title="Developers" />
     <Search module="user" />
-    <Pagination module="user" />
-    <List :collection="collection"/>
+    <Loading :loading="fetching">
+      <List :collection="collection"/>
+    </Loading>
   </div>
 </template>
 
 <!-- // // // //  -->
 
 <script>
-
+import Loading from '@/components/Loading'
 import Search from '@/components/Search'
-import Pagination from '@/components/Pagination'
 import List from './list.vue'
 
 export default {
   props: ['collection'],
   components: {
+    Loading,
     Search,
-    Pagination,
     List
   }
 }

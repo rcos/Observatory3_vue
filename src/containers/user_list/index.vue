@@ -1,19 +1,15 @@
 <template>
-  <Loading :loading="fetching">
-    <LayoutView :collection="collection"/>
-  </Loading>
+  <LayoutView :collection="collection"/>
 </template>
 
 <!-- // // // //  -->
 
 <script>
-import Loading from '@/components/Loading'
 import LayoutView from './components/layout.vue'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    Loading,
     LayoutView
   },
   metaInfo: {
