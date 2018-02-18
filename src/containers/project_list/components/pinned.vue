@@ -46,7 +46,7 @@
             <dl class="dl-horizontal">
               <!-- My Projects - List -->
               <dd v-for="project in favoriteProjects">
-                <a href="/#/">{{ project }}</a>
+                <a :href=" '#/projects/' + project._id ">{{ project.name }}</a>
               </dd>
               <!-- My Projects - Empty -->
               <dd v-if="!favoriteProjects[0]">
