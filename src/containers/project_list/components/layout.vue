@@ -3,7 +3,6 @@
   <div class="container">
     <PageHeader :title="headerText" />
     <Search module="project" />
-    <Pagination module="project" />
 
   	<div class="row">
       <div :class="listCss">
@@ -26,7 +25,6 @@
 import ListView from './list.vue'
 import Loading from '@/components/Loading'
 import Search from '@/components/Search'
-import Pagination from '@/components/Pagination'
 import ProjectPinned from './pinned.vue'
 import { mapGetters } from 'vuex'
 
@@ -49,7 +47,6 @@ export default {
   components: {
     ListView,
     Search,
-    Pagination,
     Loading,
     ProjectPinned
   }
