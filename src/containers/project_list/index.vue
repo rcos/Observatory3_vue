@@ -6,7 +6,7 @@
 
 <script>
 import LayoutView from './components/layout.vue'
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -15,14 +15,14 @@ export default {
   metaInfo: {
     title: 'Projects'
   },
-  computed: mapGetters({
-    fetching: 'project/fetching',
-    collection: 'project/filteredCollection'
-  }),
   created () {
-    return this.$store.dispatch('project/fetchCollection')
-  }
+    return this.fetch()
+  },
+  methods: mapActions({
+    fetch: 'project/fetchCollection'
+  }),
+  computed: mapGetters({
+    collection: 'project/filteredCollection'
+  })
 }
 </script>
-
-
