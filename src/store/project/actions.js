@@ -1,8 +1,8 @@
 import _ from 'lodash'
-import { $GET, $PUT, $DEL } from '@/store/lib/helpers'
+import Router from '@/routers'
+import { API_ROOT } from './constants'
+import { $GET, $POST, $PUT, $DEL } from '@/store/lib/helpers'
 import { FILTER_ACTIONS, PAGINATION_ACTIONS } from '@/store/lib/mixins'
-
-const API_ROOT = '/api/projects'
 
 // // // //
 
@@ -32,13 +32,19 @@ export default {
     })
   },
 
+  // resetNewModel
+  // Resets state.newModel to the default value defined in project/constants.js
+  resetNewModel ({ commit }) {
+    commit('newModel')
+  },
+
   // fetchModel
   // Fetches an individual model from the server
   fetchModel ({ commit, rootGetters }, projectId) {
     commit('fetching', true)
     $GET(`/api/projects/${projectId}`, { token: rootGetters['auth/token'] })
     .then((project) => {
-      commit('current', project)
+      commit('model', project)
       commit('fetching', false)
     })
     .catch((err) => {
@@ -48,8 +54,22 @@ export default {
   },
 
   // createProject
-  create ({ commit }, attributes) {
-    // Vuex - Project Action - POST /api/projects
+  create ({ state, commit, rootGetters }) {
+    // Assembles body for new Project API request
+    let { name, description, githubUsername, githubProjectName, tech, active, repositories, repositoryType, photos } = state.newModel
+    let body = { name, description, githubUsername, githubProjectName, tech, active, repositories, repositoryType, photos }
+
+    commit('fetching', true)
+    $POST(`/api/projects`, { token: rootGetters['auth/token'], body: body })
+    .then((project) => {
+      commit('fetching', false)
+      Router.push('/projects')
+    })
+    .catch((err) => {
+      commit('fetching', false)
+      console.log(err) // TODO - update state.newModel with errors: {}
+      throw err // TODO - better error handling
+    })
   },
 
   // updateProject
