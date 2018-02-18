@@ -1,9 +1,10 @@
 import _ from 'lodash'
-import { COLLECTION_GETTERS, FILTER_GETTERS } from '../lib/mixins'
+import { COLLECTION_GETTERS, MODEL_GETTERS, FILTER_GETTERS } from '../lib/mixins'
 
 // User Module Getters
 const getters = {
   ...COLLECTION_GETTERS,
+  ...MODEL_GETTERS,
   ...FILTER_GETTERS,
   filteredCollection: state => {
     // TASK - filter users by `tech` tags
@@ -16,9 +17,6 @@ const getters = {
     // .drop(state.start)
     // .take(state.pageSize)
     .value()
-  },
-  current: state => {
-    return state.current
   }
 }
 

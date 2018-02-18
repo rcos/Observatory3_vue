@@ -1,5 +1,5 @@
 <template>
-  <LayoutView :collection="collection"/>
+  <LayoutView :collection="collection" :fetching="fetching"/>
 </template>
 
 <!-- // // // //  -->

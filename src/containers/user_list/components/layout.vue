@@ -17,7 +17,7 @@ import Search from '@/components/Search'
 import List from './list.vue'
 
 export default {
-  props: ['collection'],
+  props: ['fetching', 'collection'],
   components: {
     Loading,
     Search,

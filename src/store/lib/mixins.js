@@ -27,21 +27,28 @@ export const COLLECTION_STATE = {
 }
 
 // // // //
-// Adds a Model to a Vuex module
+// Adds a Model definition to a Vuex module
 export const MODEL_GETTERS = {
   model: state => {
     return state.model
+  },
+  modelEditable: state => {
+    return state.modelEditable
   }
 }
 
 export const MODEL_MUTATIONS = {
   model (state, model) {
     state.model = model
+  },
+  modelEditable (state, editable) {
+    state.modelEditable = editable
   }
 }
 
 export const MODEL_STATE = {
-  model: {}
+  model: {},
+  modelEditable: false
 }
 
 // // // //
