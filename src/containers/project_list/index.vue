@@ -1,32 +1,28 @@
 <template>
-  <Loading :loading="fetching">
-    <LayoutView :collection="collection"/>
-  </Loading>
+  <LayoutView :collection="collection"/>
 </template>
 
 <!-- // // // //  -->
 
 <script>
-import Loading from '@/components/Loading'
 import LayoutView from './components/layout.vue'
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   components: {
-    Loading,
     LayoutView
   },
   metaInfo: {
-    title: 'Projects' // title is now "RCOS - Projects"
+    title: 'Projects'
   },
-  computed: mapGetters({
-    fetching: 'project/fetching',
-    collection: 'project/filteredCollection'
-  }),
   created () {
-    return this.$store.dispatch('project/fetchCollection')
-  }
+    return this.fetch()
+  },
+  methods: mapActions({
+    fetch: 'project/fetchCollection'
+  }),
+  computed: mapGetters({
+    collection: 'project/filteredCollection'
+  })
 }
 </script>
-
-

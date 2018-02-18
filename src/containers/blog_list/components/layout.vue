@@ -35,7 +35,7 @@ import { mapGetters } from 'vuex'
 export default {
   props: ['collection'],
   computed: mapGetters({
-    fetching: 'post/fetching'
+    fetching: 'blog/fetching'
   }),
   components: {
     ListView

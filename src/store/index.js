@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import achievement from './achievement'
 import auth from './auth'
 import project from './project'
-import post from './post'
+import blog from './blog'
 import user from './user'
 import notification from './notification'
 
@@ -16,7 +16,7 @@ export default new Vuex.Store({
     auth,
     achievement,
     project,
-    post,
+    blog,
     user,
     notification
   }

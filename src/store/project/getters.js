@@ -1,9 +1,10 @@
 import _ from 'lodash'
-import { COLLECTION_GETTERS, FILTER_GETTERS } from '@/store/lib/mixins'
+import { COLLECTION_GETTERS, PAGINATION_GETTERS, FILTER_GETTERS } from '@/store/lib/mixins'
 
 // Project Module Getters
-const getters = {
+export default {
   ...COLLECTION_GETTERS,
+  ...PAGINATION_GETTERS,
   ...FILTER_GETTERS,
   filteredCollection: state => {
     return _.chain(state.collection)
@@ -11,6 +12,8 @@ const getters = {
       return u.name.toLowerCase().indexOf(state.filter.toLowerCase()) !== -1
     })
     .orderBy(['name'], [state.orderBy])
+    .drop(state.start)
+    .take(state.pageSize)
     .value()
   },
   myProjects: state => {
@@ -26,5 +29,3 @@ const getters = {
     return state.current
   }
 }
-
-export default getters

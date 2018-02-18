@@ -1,6 +1,6 @@
 import { COLLECTION_GETTERS } from '@/store/lib/mixins'
 
-// Achievement Module Getters
+// Blog Module Getters
 export default {
   ...COLLECTION_GETTERS
 }
