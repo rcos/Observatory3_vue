@@ -1,21 +1,35 @@
 
 <template>
-  	<LayoutView></LayoutView>
+  <div class="container">
+    <PageHeader title="New Project" />
+    <ProjectForm :model="model" :onSubmit="create" />
+  </div>
 </template>
 
 <!-- // // // //  -->
 
 <script>
-import LayoutView from './components/layout.vue'
+import ProjectForm from '@/components/ProjectForm'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'project_new',
   components: {
-    LayoutView
+    ProjectForm
   },
   metaInfo: {
-    title: 'Projects - New' // title is now "RCOS - Loading..."
-  }
+    title: 'New Project'
+  },
+  created () {
+    return this.resetNewModel()
+  },
+  methods: mapActions({
+    create: 'project/create',
+    resetNewModel: 'project/resetNewModel'
+  }),
+  computed: mapGetters({
+    model: 'project/newModel'
+  })
 }
 </script>
 
