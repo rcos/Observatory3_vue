@@ -1,10 +1,9 @@
 import _ from 'lodash'
-import { COLLECTION_GETTERS, PAGINATION_GETTERS, FILTER_GETTERS } from '../lib/mixins'
+import { COLLECTION_GETTERS, FILTER_GETTERS } from '../lib/mixins'
 
 // User Module Getters
 const getters = {
   ...COLLECTION_GETTERS,
-  ...PAGINATION_GETTERS,
   ...FILTER_GETTERS,
   filteredCollection: state => {
     // TASK - filter users by `tech` tags
@@ -14,8 +13,8 @@ const getters = {
       return u.name.toLowerCase().indexOf(state.filter.toLowerCase()) !== -1
     })
     .orderBy(['name'], [state.orderBy])
-    .drop(state.start)
-    .take(state.pageSize)
+    // .drop(state.start)
+    // .take(state.pageSize)
     .value()
   },
   current: state => {
