@@ -7,7 +7,7 @@
     </div>
 
     <ul class="list-group list-group-flush">
-      <a class='list-group-item' :href=" 'https://github.com/' + model.githubProfile ">
+      <a class='list-group-item' target="_blank" :href=" 'https://github.com/' + model.githubProfile ">
         <i class="fa fa-fw fa-github"></i>
         {{model.githubProfile}}
       </a>
