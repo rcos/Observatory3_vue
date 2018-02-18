@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-body">
       <img class="profile-img w-100" :src="model.avatar"/>
-      <h4 class='card-title text-center pt-3 mb-0'>{{model.name}}</h4>
+      <!-- <h4 class='card-title text-center pt-3 mb-0'>{{model.name}}</h4> -->
     </div>
 
     <ul class="list-group list-group-flush">
