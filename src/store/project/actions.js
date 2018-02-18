@@ -69,6 +69,14 @@ export default {
     })
   },
 
+  // fetchCommits
+  // Fetches recent commits for this project
+  fetchCommits ({ state, commit }) {
+    // TODO - fetch commits using the URL below
+    // TODO - add state, getter, setter for `commits`
+    // let url = "https://api.github.com/repos/" + user + "/" + repo + "/commits?sha=" + branch
+  },
+
   // createProject
   create ({ state, commit, rootGetters }) {
     // Assembles body for new Project API request
