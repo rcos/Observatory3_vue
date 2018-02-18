@@ -1,9 +1,7 @@
-
 <template>
   <div class="card">
-
     <div class="card-body">
-      <h4 class="card-title mb-0">
+      <h4 class="card-title">
         Tech
       </h4>
       <input-tag placeholder="Vue.js" :tags="model.tech"></input-tag>
