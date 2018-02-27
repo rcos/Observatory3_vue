@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import { $GET, $PUT, $DEL } from '@/store/lib/helpers'
-import { FILTER_ACTIONS } from '@/store/lib/mixins'
+import { FILTER_ACTIONS, PAGINATION_ACTIONS } from '@/store/lib/mixins'
 
 const API_ROOT = '/api/projects'
 
@@ -10,6 +10,7 @@ const API_ROOT = '/api/projects'
 // functions that causes side effects and can involve asynchronous operations.
 export default {
   ...FILTER_ACTIONS,
+  ...PAGINATION_ACTIONS,
   fetchCollection: ({ state, commit, rootGetters }) => {
     commit('fetching', true)
 
@@ -31,9 +32,9 @@ export default {
     })
   },
 
-  // fetchProject
-  // Fetches an individual project from the server
-  fetchProject ({ commit, rootGetters }, projectId) {
+  // fetchModel
+  // Fetches an individual model from the server
+  fetchModel ({ commit, rootGetters }, projectId) {
     commit('fetching', true)
     $GET(`/api/projects/${projectId}`, { token: rootGetters['auth/token'] })
     .then((project) => {
@@ -47,18 +48,18 @@ export default {
   },
 
   // createProject
-  createProject ({ commit }, attributes) {
-    // TASK - integrate POST /api/projects
+  create ({ commit }, attributes) {
+    // Vuex - Project Action - POST /api/projects
   },
 
   // updateProject
-  updateProject ({ commit }, attributes) {
-    // TASK - integrate PUT /api/projects/:id
+  update ({ commit }, attributes) {
+    // Vuex - Project Action - PUT /api/projects/:id
   },
 
   // destroyProject
-  destroyProject ({ commit }, id) {
-    // TASK - integrate DELETE /api/projects/:id
+  destroy ({ commit }, id) {
+    // Vuex - Project Action - DELETE /api/projects/:id
   },
 
   // fetchMyProjects

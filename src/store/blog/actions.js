@@ -1,8 +1,8 @@
 // import { $GET, $POST, $PUT, $DEL } from '@/store/lib/helpers'
 
-// const API_ROOT = '/api/achievements'
+// const API_ROOT = '/api/posts'
 
-// Achievement actions
+// Blog actions
 export default {
   fetchCollection ({ commit }) {
 
