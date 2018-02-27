@@ -4,7 +4,7 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <p class="lead">TODO - implement sponsors page</p>
+        <p class="lead">TODO - implement sponsors page, add sponsors, logo, description, and donation link</p>
       </div>
     </div>
   </div>
@@ -15,5 +15,18 @@
 // https://github.com/rcos/observatory-client/issues/28
 export default {
   name: 'main_sponsors'
+  data () {
+    return {
+      sponsors: [
+        { name: 'RedHat', logo: '', description: ''},
+        { name: 'OSI', logo: '', description: ''},
+        { name: 'NSF HFOSS', logo: '', description: ''},
+        { name: 'Microsoft', logo: '', description: ''},
+        { name: 'Google', logo: '', description: ''}
+      ]
+    }
+  }
 }
 </script>
+
+
