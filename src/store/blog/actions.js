@@ -19,10 +19,10 @@ export default {
     })
   },
   // Fetches Model from the server
-  fetchModel ({ commit }, projectId) {
+  fetchModel ({ commit }, blogId) {
     commit('fetching', true)
 
-    $GET(`/api/projects/${projectId}`)
+    $GET(`${API_ROOT}/${blogId}`)
     .then((project) => {
       commit('current', project)
       commit('fetching', false)
