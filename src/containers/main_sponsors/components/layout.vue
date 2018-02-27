@@ -4,8 +4,15 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <p class="lead">WAT</p>
-      </div>
+      	<p class="lead"> Hello </p>
+
+      	<ul class="list-group">
+      		<li class="list-group-item" v-for="item in sponsors">
+      			{{ item.name }}
+      		</li>
+      	</ul>
+    
+     </div>
     </div>
   </div>
 </template>
