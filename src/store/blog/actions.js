@@ -23,8 +23,8 @@ export default {
     commit('fetching', true)
 
     $GET(`${API_ROOT}/${blogId}`)
-    .then((project) => {
-      commit('current', project)
+    .then((blog) => {
+      commit('current', blog)
       commit('fetching', false)
     })
     .catch((err) => {
