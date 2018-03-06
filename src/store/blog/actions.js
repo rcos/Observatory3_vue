@@ -5,18 +5,13 @@
 // Blog actions
 export default {
   fetchCollection ({ commit }) {
-
   },
   fetchModel ({ commit }) {
-
   },
   create ({ commit }) {
-
   },
-  Update ({ commit }) {
-
+  update ({ commit }) {
   },
   destroy ({ commit }) {
-
   }
 }

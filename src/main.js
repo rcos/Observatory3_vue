@@ -6,7 +6,7 @@ import App from './App'
 import router from './routers'
 import store from '@/store'
 import PageHeader from '@/components/PageHeader'
-
+window.store = store // TODO - remove this at some point...
 // QUESTION - ??
 Vue.config.productionTip = false
 
