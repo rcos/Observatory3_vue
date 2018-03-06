@@ -1,9 +1,7 @@
 
 <template>
   <div class="container">
-    <h2>Current Semester: Fall 2017</h2>
-    <hr>
-    <p class="lead">New Blog Post</p>
+    <PageHeader title="New Blog Post"/>
 
     <form>
       <div class="form-group">
@@ -39,6 +37,7 @@
         Submit
       </button>
     </form>
+
   </div>
 </template>
 
@@ -46,12 +45,14 @@
 
 <script>
 import InputTag from 'vue-input-tag'
+import PageHeader from '@/components/PageHeader'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'layout',
   components: {
-    InputTag
+    InputTag,
+    PageHeader
   },
   created () {
     return this.fetch()
