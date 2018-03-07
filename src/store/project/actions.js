@@ -23,8 +23,8 @@ export default {
     // Fetches Collection from the server
     $GET(apiRoute, { token: rootGetters['auth/token'] })
     .then((json) => {
-      commit('fetching', false)
       commit('collection', json)
+      commit('fetching', false)
     })
     .catch((err) => {
       commit('fetching', false)
@@ -42,7 +42,7 @@ export default {
   // Fetches an individual model from the server
   fetchModel ({ commit, rootGetters }, projectId) {
     commit('fetching', true)
-    $GET(`/api/projects/${projectId}`, { token: rootGetters['auth/token'] })
+    $GET(`${API_ROOT}/${projectId}`, { token: rootGetters['auth/token'] })
     .then((project) => {
       commit('model', project)
       commit('fetching', false)

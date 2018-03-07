@@ -7,12 +7,12 @@
   	<div class="row">
       <div :class="listCss">
         <Loading :loading="fetching">
-    			<ListView :collection="collection"/>
+          <ListView :collection="collection"/>
         </Loading>
-  		</div>
+      </div>
 
       <div class="col-lg-3 pl-lg-0" v-if="isAuthenticated">
-        <ProjectPinned/>
+        <Sidebar/>
       </div>
 
   	</div>
@@ -25,13 +25,19 @@
 import ListView from './list.vue'
 import Loading from '@/components/Loading'
 import Search from '@/components/Search'
-import ProjectPinned from './pinned.vue'
-import { mapGetters } from 'vuex'
+import Sidebar from './pinned.vue'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  props: ['collection'],
+  created () {
+    return this.fetch()
+  },
+  methods: mapActions({
+    fetch: 'project/fetchCollection'
+  }),
   computed: {
     ...mapGetters({
+      collection: 'project/filteredCollection',
       fetching: 'project/fetching',
       isAuthenticated: 'auth/is_authenticated'
     }),
@@ -48,7 +54,7 @@ export default {
     ListView,
     Search,
     Loading,
-    ProjectPinned
+    Sidebar
   }
 }
 </script>
