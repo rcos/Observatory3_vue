@@ -4,11 +4,17 @@
 
     <div class="row">
 
-      <div class="col-lg-3">
+      <div class="col-sm-12 col-lg-3">
         <Sidebar :model="model"/>
+
+        <a class="btn btn-block btn-warning mt-3" :href=" '#/users/' + model._id + '/edit' ">
+          <i class="fa fa-pencil mr-2"></i>
+          Edit Profile
+        </a>
+
       </div>
 
-      <div class="col-lg-9">
+      <div class="col-sm-12 col-lg-9 pl-lg-0 mt-3 mt-lg-0">
         <Tech :model="model"/>
         <Bio :model="model"/>
         <Projects :model="model"/>

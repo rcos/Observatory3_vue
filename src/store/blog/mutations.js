@@ -2,5 +2,8 @@ import { COLLECTION_MUTATIONS } from '@/store/lib/mixins'
 
 // Blog Module mutations
 export default {
-  ...COLLECTION_MUTATIONS
+  ...COLLECTION_MUTATIONS,
+  destroying (state, destroying) {
+    state.destroying = destroying
+  }
 }

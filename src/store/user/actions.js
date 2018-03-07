@@ -37,7 +37,7 @@ export default {
     commit('fetching', true)
     $GET(`/api/users/${userID}`, { token: rootGetters['auth/token'] })
     .then((user) => {
-      commit('current', user)
+      commit('model', user)
       commit('fetching', false)
     })
     .catch((err) => {
