@@ -1,9 +1,9 @@
 <template>
-	<div class="form-group">
-	  <label :v-if="label" :for="'exampleInput' + label">{{label}}</label>
-	  <input :value="value" ref="input" v-on:input="updateValue($event.target.value)" :type="type" class="form-control" :id="'exampleInput' + label" :aria-describedby="name + 'Help'" :placeholder="placeholder">
-	  <small :v-if="help" :id="name + 'Help'" class="form-text text-muted">{{ help }}</small>
-	</div>
+  <div class="form-group">
+    <label class='mb-0' :v-if="label" :for="'exampleInput' + label">{{label}}</label>
+    <small :v-if="help" :id="name + 'Help'" class="mb-2 form-text text-muted">{{ help }}</small>
+    <input :value="value" ref="input" v-on:input="updateValue($event.target.value)" :type="type" class="form-control" :id="'exampleInput' + label" :aria-describedby="name + 'Help'" :placeholder="placeholder">
+  </div>
 </template>
 
 <script>
