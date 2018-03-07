@@ -1,12 +1,13 @@
 import _ from 'lodash'
 import { NEW_PROJECT } from './constants'
-import { COLLECTION_MUTATIONS, MODEL_MUTATIONS, FILTER_MUTATIONS } from '@/store/lib/mixins'
+import { COLLECTION_MUTATIONS, MODEL_MUTATIONS, FILTER_MUTATIONS, PAGINATION_MUTATIONS } from '@/store/lib/mixins'
 
 // Project Module mutations
 export default {
   ...COLLECTION_MUTATIONS,
   ...MODEL_MUTATIONS,
   ...FILTER_MUTATIONS,
+  ...PAGINATION_MUTATIONS,
   newModel (state) {
     state.newModel = _.cloneDeep(NEW_PROJECT)
   },

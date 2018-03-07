@@ -11,7 +11,17 @@ import { FILTER_ACTIONS, PAGINATION_ACTIONS } from '@/store/lib/mixins'
 export default {
   ...FILTER_ACTIONS,
   ...PAGINATION_ACTIONS,
-  fetchCollection: ({ state, commit, rootGetters }) => {
+  filteredCollection: ({ state, commit, dispatch }) => {
+    let filteredCollection = _.chain(state.collection)
+    .filter(u => {
+      return u.name.toLowerCase().indexOf(state.filter.toLowerCase()) !== -1
+    })
+    .orderBy(['name'], [state.orderBy])
+    .value()
+    commit('filteredCollection', filteredCollection)
+    dispatch('paginatedCollection')
+  },
+  fetchCollection: ({ state, commit, dispatch, rootGetters }) => {
     commit('fetching', true)
 
     // Fetches either active or inactive users
@@ -24,6 +34,7 @@ export default {
     $GET(apiRoute, { token: rootGetters['auth/token'] })
     .then((json) => {
       commit('collection', json)
+      dispatch('filteredCollection')
       commit('fetching', false)
     })
     .catch((err) => {
