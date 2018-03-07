@@ -33,12 +33,9 @@ export default {
     })
   },
   create ({ commit }) {
-
   },
   update ({ commit }) {
-
   },
   destroy ({ commit }) {
-
   }
 }
