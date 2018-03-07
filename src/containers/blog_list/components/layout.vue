@@ -18,6 +18,10 @@
           EMPTY
         </p>
 
+        <a class="btn btn-primary" href='#/blogs/new'>
+          New Blog
+        </a>
+
         <!-- ListView -->
         <ListView :collection="collection"/>
 
