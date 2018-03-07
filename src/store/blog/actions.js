@@ -1,22 +1,49 @@
-// import { $GET, $POST, $PUT, $DEL } from '@/store/lib/helpers'
-
-// const API_ROOT = '/api/posts'
+import { $GET, $DEL } from '@/store/lib/helpers'
+const API_ROOT = '/api/posts'
 
 // Blog actions
 export default {
-  fetchCollection ({ commit }) {
+  // Fetches Collection from the server
+  fetchCollection: ({ commit }) => {
+    commit('fetching', true)
 
+    $GET(API_ROOT)
+    .then((json) => {
+      commit('fetching', false)
+      commit('collection', json)
+    })
+    .catch((err) => {
+      commit('fetching', false)
+      throw err
+    })
   },
-  fetchModel ({ commit }) {
+  // Fetches Model from the server
+  fetchModel ({ commit }, blogId) {
+    commit('fetching', true)
 
+    $GET(`${API_ROOT}/${blogId}`)
+    .then((blog) => {
+      commit('current', blog)
+      commit('fetching', false)
+    })
+    .catch((err) => {
+      commit('fetching', false)
+      throw err
+    })
   },
   create ({ commit }) {
-
   },
-  Update ({ commit }) {
-
+  update ({ commit }) {
   },
-  destroy ({ commit }) {
-
+  destroy ({ commit, rootGetters }, postID) {
+    commit('destroying', true)
+    $DEL(`${API_ROOT}/${postID}`, { token: rootGetters['auth/token'] })
+    .then((project) => {
+      commit('destroying', false)
+    })
+    .catch((err) => {
+      commit('destroying', false)
+      throw err // TODO - better error handling
+    })
   }
 }

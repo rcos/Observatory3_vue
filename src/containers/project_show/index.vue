@@ -27,10 +27,8 @@ export default {
     fetch: 'project/fetchModel'
   }),
   computed: mapGetters({
-    model: 'project/current',
+    model: 'project/model',
     fetching: 'project/fetching'
   })
 }
 </script>
-
-
