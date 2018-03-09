@@ -22,12 +22,10 @@
        <label>Tags: </label>
        <input-tag placeholder="Project Tech" :tags="tags" />
        <ul class="list-group">
-          <li v-for="each in listTags" :key="each.tag">
-            {{ each.label }}
+          <li v-for="each in tags" :key="each.tag">
+            {{ each }}
           </li>
         </ul>
-        <!-- <input v-bind:addTags="add"/> -->
-
       </div>
       <div class="form-group">
         <label>Body: </label>
@@ -61,10 +59,6 @@ export default {
     return {
       tags: [
         'HTML', 'JS', 'Bootstrap'
-      ],
-      listTags: [
-        { label: 'HTML' },
-        { label: 'CSS' }
       ]
     }
   },
@@ -75,10 +69,6 @@ export default {
   computed: mapGetters({
     projectCollection: 'project/collection'
   })
-  // add (newTag) {
-  //   this.listTags.push({ label: newTag })
-  //   this.newTag = ''
-  // }
 }
 </script>
 
