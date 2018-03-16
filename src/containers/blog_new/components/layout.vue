@@ -21,12 +21,9 @@
       <div class="form-group">
        <label>Tags: </label>
        <input-tag placeholder="Project Tech" :tags="tags" />
-       <ul class="list-group">
-          <li v-for="each in tags" :key="each.tag">
-            {{ each }}
-          </li>
-        </ul>
+       <ul class="list-group"></ul>
       </div>
+
       <div class="form-group">
         <label>Body: </label>
         <textarea class="form-control" id="blogFormControlBody" rows="5"></textarea>
