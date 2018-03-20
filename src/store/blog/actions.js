@@ -1,5 +1,5 @@
 import { $GET, $DEL } from '@/store/lib/helpers'
-const API_ROOT = '/api/posts'
+import { API_ROOT } from './constants'
 
 // Blog actions
 export default {
