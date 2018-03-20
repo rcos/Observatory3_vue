@@ -3,20 +3,20 @@
 
     <div class="form-group">
       <label>Title: </label>
-      <input type="title" class = "form-control" id="blogFormControlTitle">
+      <input type="title" class = "form-control" v-model="model.title" id="blogFormControlTitle">
     </div>
 
     <ProjectSelect />
 
     <div class="form-group">
      <label>Tags: </label>
-     <input-tag placeholder="Project Tech" :tags="tags" />
+     <input-tag placeholder="Project Tech" :tags="model.tags" />
      <ul class="list-group"></ul>
     </div>
 
     <div class="form-group">
       <label>Body: </label>
-      <MarkdownInput />
+      <MarkdownInput v-model="model.body" />
     </div>
 
     <div class="col-lg-6">
@@ -34,6 +34,7 @@ import PageHeader from '@/components/PageHeader'
 import FormSubmit from '@/components/FormSubmit'
 import ProjectSelect from '@/components/ProjectSelect'
 import MarkdownInput from '@/components/MarkdownInput'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'BlogForm',
@@ -45,6 +46,9 @@ export default {
     ProjectSelect,
     MarkdownInput
   },
+  computed: mapGetters({
+    model: 'blog/model'
+  }),
   data () {
     return {
       tags: [

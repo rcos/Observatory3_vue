@@ -1,5 +1,5 @@
 <template>
-  <mavon-editor style="height: 100%" language="en"></mavon-editor>
+  <mavon-editor style="height: 100%" language="en" v-model="value" />
 </template>
 
 <!-- // // // //  -->
