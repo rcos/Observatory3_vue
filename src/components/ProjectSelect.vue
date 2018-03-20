@@ -18,8 +18,7 @@ export default {
     return this.fetch()
   },
   methods: mapActions({
-    fetch: 'project/fetchCollection',
-    submit: 'project/create'
+    fetch: 'project/fetchCollection'
   }),
   computed: mapGetters({
     projectCollection: 'project/collection'
