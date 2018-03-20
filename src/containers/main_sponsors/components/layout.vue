@@ -12,23 +12,28 @@
 
         <br><br>
 
-      	<ul class="list-group">
-      		<li class="list-group-item" v-for="item in sponsors">
-            <div class='container' style="max-width: 500px; max-height: 200px;">
-              <a :href="item.url" target="_blank"><img class="img-thumbnail center" :src="item.logo" :alt="item.alt" style="max-height: 50%; max-width: 100%"></a>
-              <br>
-            </div>
-            <div>
-              <h1>
-                {{ item.name }}
-              </h1>
-              <p>
-                {{ item.description }}
-              </p>
-            </div>
-      			
-      		</li>
-      	</ul>
+
+ 
+          <div class="row"> 
+              <div class="col-lg-4 d-flex flex-column align-items-center justify-content-center" v-for="sponsor in sponsors">
+                
+                <a :href="sponsor.url" target="_blank">
+                  <img class="img-thumbnail" :src="sponsor.logo" :alt="sponsor.alt">
+                </a>
+                
+                <p class="lead mt-4">
+                  {{ sponsor.name }}
+                </p>
+
+                <p class='text-center'>
+                  {{ sponsor.description }}
+                </p>
+
+              </div>
+          </div>
+      
+
+
     
      </div>
     </div>
@@ -56,6 +61,10 @@ export default {
 </script>
 
 <style>
+
+.img-thumbnail {
+  max-height: 10rem;
+}
 
 .btn-primary.gradient {
   background: -moz-linear-gradient(top,  #33a6cc 50%, #0099cc 50%); /* FF3.6+ */
