@@ -1,8 +1,20 @@
-import { $POST, $DEL } from '@/store/lib/helpers'
+import { $GET, $POST, $DEL } from '@/store/lib/helpers'
 const API_ROOT = '/api/achievements'
 // Achievement actions
 export default {
   fetchCollection ({ commit }) {
+    commit('fetching', true)
+
+    // Fetches Collection from the server
+    $GET(API_ROOT)
+    .then((json) => {
+      commit('collection', json)
+      commit('fetching', false)
+    })
+    .catch((err) => {
+      commit('fetching', false)
+      throw err // TODO - better error handling
+    })
   },
   fetchModel ({ commit }) {
   },
