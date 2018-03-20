@@ -9,7 +9,7 @@
 export default {
   name: 'MarkdownInput',
   data () {
-    return { value: '' }
+    return { value: 'editing...' }
   }
 }
 </script>

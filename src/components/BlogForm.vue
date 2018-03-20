@@ -16,7 +16,7 @@
 
     <div class="form-group">
       <label>Body: </label>
-      <textarea class="form-control" id="blogFormControlBody" rows="5"></textarea>
+      <MarkdownInput />
     </div>
 
     <div class="col-lg-6">
@@ -33,6 +33,7 @@ import InputTag from 'vue-input-tag'
 import PageHeader from '@/components/PageHeader'
 import FormSubmit from '@/components/FormSubmit'
 import ProjectSelect from '@/components/ProjectSelect'
+import MarkdownInput from '@/components/MarkdownInput'
 
 export default {
   name: 'BlogForm',
@@ -41,7 +42,8 @@ export default {
     InputTag,
     PageHeader,
     FormSubmit,
-    ProjectSelect
+    ProjectSelect,
+    MarkdownInput
   },
   data () {
     return {
