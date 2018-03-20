@@ -1,5 +1,6 @@
 <template>
   <form>
+
     <div class="form-group">
       <label>Title: </label>
       <input type="title" class = "form-control" id="blogFormControlTitle">
@@ -21,6 +22,7 @@
     <div class="col-lg-6">
       <FormSubmit class='w-100' :click="onSubmit"/>
     </div>
+
   </form>
 </template>
 
@@ -31,11 +33,10 @@ import InputTag from 'vue-input-tag'
 import PageHeader from '@/components/PageHeader'
 import FormSubmit from '@/components/FormSubmit'
 import ProjectSelect from '@/components/ProjectSelect'
-import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'BlogForm',
-  props: ['model', 'onSubmit'],
+  props: ['onSubmit'],
   components: {
     InputTag,
     PageHeader,
@@ -48,12 +49,6 @@ export default {
         'HTML', 'JS', 'Bootstrap'
       ]
     }
-  },
-  methods: mapActions({
-    onSubmit: 'project/create'
-  }),
-  computed: mapGetters({
-
-  })
+  }
 }
 </script>
