@@ -28,9 +28,10 @@
         <label>Body: </label>
         <textarea class="form-control" id="blogFormControlBody" rows="5"></textarea>
       </div>
-      <button class="btn btn-success mt-4" @click="submit()">
-        Submit
-      </button>
+
+      <div class="col-lg-6">
+        <FormSubmit class='w-100' :click="onSubmit"/>
+      </div>
     </form>
 
   </div>
@@ -41,13 +42,15 @@
 <script>
 import InputTag from 'vue-input-tag'
 import PageHeader from '@/components/PageHeader'
+import FormSubmit from '@/components/FormSubmit'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'layout',
   components: {
     InputTag,
-    PageHeader
+    PageHeader,
+    FormSubmit
   },
   created () {
     return this.fetch()
