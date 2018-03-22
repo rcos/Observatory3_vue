@@ -195,5 +195,58 @@ export default {
   isFavorite ({ state }, project) {
     let isFavorite = _.find(state.favoriteProjects, { _id: project._id })
     project.isFavorite = isFavorite
+  },
+
+  // markDefault
+  // Marks the project as a default project (requires admin status)
+  markDefault ({ state, rootGetters }) {
+    // NOTE: can use state.model for actions such as these since we are in the context of one model
+    $PUT(`api/projects/${state.model._id}/markdefault`, { token: rootGetters['auth/token'] })
+    .then((response) => {
+      // TODO - commit default here?
+      console.log('MARKED DEFAULT')
+    })
+    .catch((err) => {
+      throw err
+    })
+  },
+
+  // unmarkDefault
+  // Unmarks the project as a default project (requires admin status)
+  unmarkDefault ({ state, rootGetters }) {
+    $PUT(`api/projects/${state.model._id}/unmarkdefault`, { token: rootGetters['auth/token'] })
+    .then((response) => {
+      // TODO - commit default here?
+      console.log('MARKED DEFAULT')
+    })
+    .catch((err) => {
+      throw err
+    })
+  },
+
+  // markActive
+  // Marks the project as an active project
+  markActive ({ state, rootGetters }) {
+    $PUT(`api/projects/${state.model._id}/markActive`, { token: rootGetters['auth/token'] })
+    .then((response) => {
+      // TODO - commit active here?
+      console.log('MARKED PAST')
+    })
+    .catch((err) => {
+      throw err
+    })
+  },
+
+  // markPast
+  // Marks the project as a past project (inactive)
+  markPast ({ state, rootGetters }) {
+    $PUT(`api/projects/${state.model._id}/markPast`, { token: rootGetters['auth/token'] })
+    .then((response) => {
+      // TODO - commit past here?
+      console.log('MARKED PAST')
+    })
+    .catch((err) => {
+      throw err
+    })
   }
 }
