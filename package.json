@@ -10,7 +10,7 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-    "doc": "./node_modules/.bin/esdoc",
+    "doc": "./node_modules/.bin/esdoc"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-beta.2",
