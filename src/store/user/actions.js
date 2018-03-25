@@ -1,6 +1,6 @@
-import { $GET, $POST } from '@/store/lib/helpers'
+import { $GET, $POST, $PUT } from '@/store/lib/helpers'
 import { PAGINATION_ACTIONS, FILTER_ACTIONS } from '@/store/lib/mixins'
-import { API_ROOT, SET_ROLE_NOTIFICATIONS } from './constants'
+import { API_ROOT, SET_ROLE_NOTIFICATIONS, ACTIVATE_NOTIFICATIONS, DEACTIVATE_NOTIFICATIONS } from './constants'
 
 // // // //
 
@@ -68,13 +68,13 @@ export default {
   // setUserRole
   // Updates an individual User's role
   // @permissions Admin
-  setUserRole ({ commit, rootGetters }, { userID, role }) {
+  setUserRole ({ commit, rootGetters }, user) {
     commit('fetching', true)
 
     // POST /api/users/:id/role
-    $POST(API_ROOT + '/' + userID + '/role', {
+    $POST(API_ROOT + '/' + user._id + '/role', {
       token: rootGetters['auth/token'],
-      body: { role }
+      body: { role: user.role }
     })
     .then((json) => {
       commit('notification/add', SET_ROLE_NOTIFICATIONS.SUCCESS, { root: true })
@@ -82,6 +82,47 @@ export default {
     })
     .catch((err) => {
       commit('notification/add', SET_ROLE_NOTIFICATIONS.ERROR, { root: true })
+      commit('fetching', false)
+      throw err
+    })
+  },
+
+  // activateUser
+  // router.put('/:id/activate', auth.isAuthenticated(), controller.activate);
+  activateUser ({ commit, rootGetters }, user) {
+    commit('fetching', true)
+
+    // PUT /api/users/:id/activate
+    $PUT(API_ROOT + '/' + user._id + '/activate', {
+      token: rootGetters['auth/token']
+    })
+    .then((json) => {
+      user.active = true
+      commit('notification/add', ACTIVATE_NOTIFICATIONS.SUCCESS, { root: true })
+      commit('fetching', false)
+    })
+    .catch((err) => {
+      commit('notification/add', ACTIVATE_NOTIFICATIONS.ERROR, { root: true })
+      commit('fetching', false)
+      throw err
+    })
+  },
+
+  // deactivateUser
+  deactivateUser ({ commit, rootGetters }, user) {
+    commit('fetching', true)
+
+    // PUT /api/users/:id/activate
+    $PUT(API_ROOT + '/' + user._id + '/deactivate', {
+      token: rootGetters['auth/token']
+    })
+    .then((json) => {
+      user.active = false
+      commit('notification/add', DEACTIVATE_NOTIFICATIONS.SUCCESS, { root: true })
+      commit('fetching', false)
+    })
+    .catch((err) => {
+      commit('notification/add', DEACTIVATE_NOTIFICATIONS.ERROR, { root: true })
       commit('fetching', false)
       throw err
     })
