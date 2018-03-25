@@ -1,7 +1,7 @@
 <template>
   <button class="btn btn-outline-success" @click="click()">
     <i class="fa fa-fw fa-check mr-2"></i>
-    Submit
+    {{ label ? label : 'Submit' }}
   </button>
 </template>
 

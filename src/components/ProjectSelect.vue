@@ -1,6 +1,6 @@
 <template>
   <div class="form-group">
-    <label>Project Select: </label>
+    <label>Project</label>
     <select class="form-control" id="blogFormControlSelect">
       <option :value="project._id" v-for="project in projectCollection">
         {{ project.name }}
