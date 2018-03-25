@@ -1,12 +1,8 @@
 <template>
   <div class="container">
-    <h2>RCOS Developers</h2>
+    <PageHeader title="RCOS Developers"/>
     <Search module="user"/>
-    <div class="row">
-      <div class="col-lg-12">
-        <List/>
-      </div>
-    </div>
+    <List/>
   </div>
 </template>
 
