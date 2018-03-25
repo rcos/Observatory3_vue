@@ -2,7 +2,11 @@
   <div class="container">
     <h2>RCOS Developers</h2>
     <Search module="user"/>
-    <List/>
+    <div class="row">
+      <div class="col-lg-12">
+        <List/>
+      </div>
+    </div>
   </div>
 </template>
 

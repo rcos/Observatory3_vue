@@ -88,7 +88,7 @@ export default {
   },
 
   // activateUser
-  // router.put('/:id/activate', auth.isAuthenticated(), controller.activate);
+  // Activates an individual User
   activateUser ({ commit, rootGetters }, user) {
     commit('fetching', true)
 
@@ -109,6 +109,7 @@ export default {
   },
 
   // deactivateUser
+  // Deactivates an individual User
   deactivateUser ({ commit, rootGetters }, user) {
     commit('fetching', true)
 
