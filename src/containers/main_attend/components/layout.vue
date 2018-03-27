@@ -5,7 +5,7 @@
     <CodeInput/>
 
     <button class="btn btn-outline-success" @click="fetchCollection">
-      Fetch my attendance collection
+      Refresh
     </button>
 
     <h4>Previous Attendance:</h4>
