@@ -1,5 +1,5 @@
 import { $GET } from '@/store/lib/helpers'
-import { FILTER_ACTIONS } from '@/store/lib/mixins'
+import { PAGINATION_ACTIONS, FILTER_ACTIONS } from '@/store/lib/mixins'
 
 const API_ROOT = '/api/users'
 
@@ -8,6 +8,7 @@ const API_ROOT = '/api/users'
 // User module actions
 // functions that causes side effects and can involve asynchronous operations.
 export default {
+  ...PAGINATION_ACTIONS,
   ...FILTER_ACTIONS,
   fetchCollection: ({ commit, state, rootGetters }) => {
     commit('fetching', true)
@@ -36,7 +37,7 @@ export default {
     commit('fetching', true)
     $GET(`/api/users/${userID}`, { token: rootGetters['auth/token'] })
     .then((user) => {
-      commit('current', user)
+      commit('model', user)
       commit('fetching', false)
     })
     .catch((err) => {

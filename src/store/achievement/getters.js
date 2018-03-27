@@ -1,15 +1,6 @@
+import { COLLECTION_GETTERS } from '@/store/lib/mixins'
 
-// Project Module Getters
-const getters = {
-  collection: state => {
-    return state.collection
-  },
-  current: state => {
-    return state.current
-  },
-  fetching: state => {
-    return state.fetching
-  }
+// Achievement Module Getters
+export default {
+  ...COLLECTION_GETTERS
 }
-
-export default getters

@@ -3,14 +3,17 @@
   <div class="container">
     <PageHeader :title="headerText" />
     <Search module="project" />
+    <Pagination module="project" />
 
   	<div class="row">
       <div :class="listCss">
-  			<ListView :collection="collection"/>
-  		</div>
+        <Loading :loading="fetching">
+          <ListView :collection="collection"/>
+        </Loading>
+      </div>
 
       <div class="col-lg-3 pl-lg-0" v-if="isAuthenticated">
-        <ProjectPinned/>
+        <Sidebar/>
       </div>
 
   	</div>
@@ -21,14 +24,22 @@
 
 <script>
 import ListView from './list.vue'
+import Loading from '@/components/Loading'
 import Search from '@/components/Search'
-import ProjectPinned from './pinned.vue'
-import { mapGetters } from 'vuex'
+import Pagination from '@/components/Pagination'
+import Sidebar from './pinned.vue'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  props: ['collection'],
+  created () {
+    return this.fetch()
+  },
+  methods: mapActions({
+    fetch: 'project/fetchCollection'
+  }),
   computed: {
     ...mapGetters({
+      collection: 'project/paginatedCollection',
       fetching: 'project/fetching',
       isAuthenticated: 'auth/is_authenticated'
     }),
@@ -44,7 +55,9 @@ export default {
   components: {
     ListView,
     Search,
-    ProjectPinned
+    Loading,
+    Pagination,
+    Sidebar
   }
 }
 </script>

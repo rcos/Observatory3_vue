@@ -1,17 +1,28 @@
 
 <template>
   <div class="container">
-  	<h2>Current Semester: Fall 2017</h2>
-  	<hr>
-  	<p class="lead">TODO</p>
+    <PageHeader title="New Blog Post"/>
+    <BlogForm :onSubmit="create" />
   </div>
 </template>
 
-<!-- // // // //  -->
+ <!-- // // // //  -->
 
 <script>
+import BlogForm from '@/components/BlogForm'
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
-  name: 'layout'
+  name: 'layout',
+  components: {
+    BlogForm
+  },
+  methods: mapActions({
+    create: 'project/create'
+  }),
+  computed: mapGetters({
+
+  })
 }
 </script>
 

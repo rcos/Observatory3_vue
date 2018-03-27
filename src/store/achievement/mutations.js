@@ -1,15 +1,6 @@
+import { COLLECTION_MUTATIONS } from '@/store/lib/mixins'
 
 // Achievement Module mutations
-const mutations = {
-  fetching (state, isFetching) {
-    state.fetching = isFetching
-  },
-  sync (state, collection) {
-    state.collection = collection
-  },
-  current (state, attributes) {
-    state.current = attributes
-  }
+export default {
+  ...COLLECTION_MUTATIONS
 }
-
-export default mutations

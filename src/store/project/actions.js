@@ -1,8 +1,8 @@
 import _ from 'lodash'
-import { $GET, $PUT, $DEL } from '@/store/lib/helpers'
-import { FILTER_ACTIONS } from '@/store/lib/mixins'
-
-const API_ROOT = '/api/projects'
+import Router from '@/routers'
+import { API_ROOT } from './constants'
+import { $GET, $POST, $PUT, $DEL } from '@/store/lib/helpers'
+import { FILTER_ACTIONS, PAGINATION_ACTIONS } from '@/store/lib/mixins'
 
 // // // //
 
@@ -10,7 +10,18 @@ const API_ROOT = '/api/projects'
 // functions that causes side effects and can involve asynchronous operations.
 export default {
   ...FILTER_ACTIONS,
-  fetchCollection: ({ state, commit, rootGetters }) => {
+  ...PAGINATION_ACTIONS,
+  filteredCollection: ({ state, commit, dispatch }) => {
+    let filteredCollection = _.chain(state.collection)
+    .filter(u => {
+      return u.name.toLowerCase().indexOf(state.filter.toLowerCase()) !== -1
+    })
+    .orderBy(['name'], [state.orderBy])
+    .value()
+    commit('filteredCollection', filteredCollection)
+    dispatch('paginatedCollection')
+  },
+  fetchCollection: ({ state, commit, dispatch, rootGetters }) => {
     commit('fetching', true)
 
     // Fetches either active or inactive users
@@ -22,8 +33,9 @@ export default {
     // Fetches Collection from the server
     $GET(apiRoute, { token: rootGetters['auth/token'] })
     .then((json) => {
-      commit('fetching', false)
       commit('collection', json)
+      dispatch('filteredCollection')
+      commit('fetching', false)
     })
     .catch((err) => {
       commit('fetching', false)
@@ -31,34 +43,78 @@ export default {
     })
   },
 
-  // fetchProject
-  // Fetches an individual project from the server
-  fetchProject ({ commit, rootGetters }, projectId) {
+  // resetNewModel
+  // Resets state.newModel to the default value defined in project/constants.js
+  resetNewModel ({ commit }) {
+    commit('newModel')
+  },
+
+  // fetchModel
+  // Fetches an individual model from the server
+  fetchModel ({ commit, rootGetters }, projectId) {
     commit('fetching', true)
-    $GET(`/api/projects/${projectId}`, { token: rootGetters['auth/token'] })
+    $GET(`${API_ROOT}/${projectId}`, { token: rootGetters['auth/token'] })
     .then((project) => {
-      commit('current', project)
+      commit('model', project)
       commit('fetching', false)
     })
     .catch((err) => {
       commit('fetching', false)
       throw err // TODO - better error handling
     })
+  },
+
+  // fetchContributors
+  // Fetches the contributors to a specific project
+  fetchContributors ({ state, commit, rootGetters }) {
+    let projectId = state.model._id
+    commit('fetchingContributors', true)
+    $GET(`/api/projects/${projectId}/authors`, { token: rootGetters['auth/token'] })
+    .then((project) => {
+      commit('contributors', project)
+      commit('fetchingContributors', false)
+    })
+    .catch((err) => {
+      commit('fetchingContributors', false)
+      throw err // TODO - better error handling
+    })
+  },
+
+  // fetchCommits
+  // Fetches recent commits for this project
+  fetchCommits ({ state, commit }) {
+    // TODO - fetch commits using the URL below
+    // TODO - add state, getter, setter for `commits`
+    // let url = "https://api.github.com/repos/" + user + "/" + repo + "/commits?sha=" + branch
   },
 
   // createProject
-  createProject ({ commit }, attributes) {
-    // TASK - integrate POST /api/projects
+  create ({ state, commit, rootGetters }) {
+    // Assembles body for new Project API request
+    let { name, description, githubUsername, githubProjectName, tech, active, repositories, repositoryType, photos } = state.newModel
+    let body = { name, description, githubUsername, githubProjectName, tech, active, repositories, repositoryType, photos }
+
+    commit('fetching', true)
+    $POST(`/api/projects`, { token: rootGetters['auth/token'], body: body })
+    .then((project) => {
+      commit('fetching', false)
+      Router.push('/projects')
+    })
+    .catch((err) => {
+      commit('fetching', false)
+      console.log(err) // TODO - update state.newModel with errors: {}
+      throw err // TODO - better error handling
+    })
   },
 
   // updateProject
-  updateProject ({ commit }, attributes) {
-    // TASK - integrate PUT /api/projects/:id
+  update ({ commit }, attributes) {
+    // Vuex - Project Action - PUT /api/projects/:id
   },
 
   // destroyProject
-  destroyProject ({ commit }, id) {
-    // TASK - integrate DELETE /api/projects/:id
+  destroy ({ commit }, id) {
+    // Vuex - Project Action - DELETE /api/projects/:id
   },
 
   // fetchMyProjects
@@ -139,5 +195,58 @@ export default {
   isFavorite ({ state }, project) {
     let isFavorite = _.find(state.favoriteProjects, { _id: project._id })
     project.isFavorite = isFavorite
+  },
+
+  // markDefault
+  // Marks the project as a default project (requires admin status)
+  markDefault ({ state, rootGetters }) {
+    // NOTE: can use state.model for actions such as these since we are in the context of one model
+    $PUT(`api/projects/${state.model._id}/markdefault`, { token: rootGetters['auth/token'] })
+    .then((response) => {
+      // TODO - commit default here?
+      console.log('MARKED DEFAULT')
+    })
+    .catch((err) => {
+      throw err
+    })
+  },
+
+  // unmarkDefault
+  // Unmarks the project as a default project (requires admin status)
+  unmarkDefault ({ state, rootGetters }) {
+    $PUT(`api/projects/${state.model._id}/unmarkdefault`, { token: rootGetters['auth/token'] })
+    .then((response) => {
+      // TODO - commit default here?
+      console.log('MARKED DEFAULT')
+    })
+    .catch((err) => {
+      throw err
+    })
+  },
+
+  // markActive
+  // Marks the project as an active project
+  markActive ({ state, rootGetters }) {
+    $PUT(`api/projects/${state.model._id}/markActive`, { token: rootGetters['auth/token'] })
+    .then((response) => {
+      // TODO - commit active here?
+      console.log('MARKED PAST')
+    })
+    .catch((err) => {
+      throw err
+    })
+  },
+
+  // markPast
+  // Marks the project as a past project (inactive)
+  markPast ({ state, rootGetters }) {
+    $PUT(`api/projects/${state.model._id}/markPast`, { token: rootGetters['auth/token'] })
+    .then((response) => {
+      // TODO - commit past here?
+      console.log('MARKED PAST')
+    })
+    .catch((err) => {
+      throw err
+    })
   }
 }

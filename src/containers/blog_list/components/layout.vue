@@ -18,6 +18,10 @@
           EMPTY
         </p>
 
+        <a class="btn btn-primary" href='#/blogs/new'>
+          New Blog
+        </a>
+
         <!-- ListView -->
         <ListView :collection="collection"/>
 
@@ -35,7 +39,7 @@ import { mapGetters } from 'vuex'
 export default {
   props: ['collection'],
   computed: mapGetters({
-    fetching: 'post/fetching'
+    fetching: 'blog/fetching'
   }),
   components: {
     ListView
