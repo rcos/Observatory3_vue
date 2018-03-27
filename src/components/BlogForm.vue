@@ -35,7 +35,7 @@
         <b-tab title="Publish" >
           <div class="row mt-4 justify-content-center">
             <div class="col-lg-4">
-              <FormSelect label="Status" v-model="model.status" :options="[{ value: 'PUB', label: 'Published'}, { value: 'DRAFT', label: 'Draft'}]" />
+              <FormSelect label="Status" v-model="model.status" :options="dropdownOptions" />
 
               <FormSubmit class='w-100' :click="onSubmit" label="Publish"/>
             </div>
@@ -74,7 +74,8 @@ export default {
     FormSelect
   },
   computed: mapGetters({
-    model: 'blog/newModel'
+    model: 'blog/newModel',
+    dropdownOptions: 'blog/dropdownOptions'
   })
 }
 </script>
