@@ -35,7 +35,8 @@
         <b-tab title="Publish" >
           <div class="row mt-4 justify-content-center">
             <div class="col-lg-4">
-              <FormInput label="Status" v-model="model.status"/>
+              <FormSelect label="Status" v-model="model.status" :options="[{ value: 'PUB', label: 'Published'}, { value: 'DRAFT', label: 'Draft'}]" />
+
               <FormSubmit class='w-100' :click="onSubmit" label="Publish"/>
             </div>
           </div>
@@ -58,6 +59,7 @@ import FormSubmit from '@/components/FormSubmit'
 import ProjectSelect from '@/components/ProjectSelect'
 import MarkdownInput from '@/components/MarkdownInput'
 import { mapGetters } from 'vuex'
+import FormSelect from '@/components/FormSelect'
 
 export default {
   name: 'BlogForm',
@@ -68,7 +70,8 @@ export default {
     FormSubmit,
     FormInput,
     ProjectSelect,
-    MarkdownInput
+    MarkdownInput,
+    FormSelect
   },
   computed: mapGetters({
     model: 'blog/newModel'

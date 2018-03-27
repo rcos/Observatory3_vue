@@ -37,6 +37,7 @@ export default {
     commit('newModel')
   },
   create ({ commit, state }) {
+    // DELETE IF NEEDED: this is for testing
     console.log(state.newModel)
   },
   update ({ commit }) {
