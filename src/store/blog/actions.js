@@ -31,6 +31,11 @@ export default {
       throw err
     })
   },
+  // resetNewModel
+  // Resets state.newModel to the default value defined in blog/constants.js
+  resetNewModel ({ commit }) {
+    commit('newModel')
+  },
   create ({ commit }) {
   },
   update ({ commit }) {
