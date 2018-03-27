@@ -1,12 +1,16 @@
-
 <template>
   <div class="container">
     <PageHeader title="Attendance" />
 
     <CodeInput/>
+
+    <button class="btn btn-outline-success" @click="fetchCollection">
+      Fetch my attendance collection
+    </button>
+
     <h4>Previous Attendance:</h4>
     <TableHeader/>
-    <Explore/>
+    <Explore :collection="collection"/>
   </div>
 </template>
 
@@ -16,6 +20,7 @@
 import CodeInput from './input.vue'
 import TableHeader from './table_header'
 import Explore from './explore.vue'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'layout',
@@ -23,8 +28,14 @@ export default {
     CodeInput,
     TableHeader,
     Explore
+  },
+  methods: mapActions({
+    fetchCollection: 'attendance/fetchCollection'
+  }),
+  computed: {
+    ...mapGetters({
+      collection: 'attendance/collection'
+    })
   }
 }
 </script>
-
-
