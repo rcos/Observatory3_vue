@@ -29,6 +29,9 @@ export default {
     TableHeader,
     Explore
   },
+  created () {
+    this.fetchCollection()
+  },
   methods: mapActions({
     fetchCollection: 'attendance/fetchCollection'
   }),

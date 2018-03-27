@@ -13,11 +13,10 @@
   <div v-else>
     <table class="table table-hover">
       <tbody>
-        <exploreChild :attendElement="m"/>
       </tbody>
     </table>
   </div>
-  
+
 </template>
 
 <script>

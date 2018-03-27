@@ -11,17 +11,12 @@ export default {
   ...FILTER_ACTIONS,
   // Fetches the attendance collection for this user
   fetchCollection: ({ commit, rootGetters }) => {
-    console.log('test!')
     commit('fetching', true)
 
     let api = API_ROOT + '/present/me'
 
-    // TODO - remove
-    console.log(api)
-
     $GET(api, { token: rootGetters['auth/token'] })
     .then((json) => {
-      console.log(json)
       commit('collection', json)
       commit('fetching', false)
     })
