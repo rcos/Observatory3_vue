@@ -17,11 +17,15 @@ export default {
   components: {
     BlogForm
   },
+  created () {
+    return this.resetNewModel()
+  },
   methods: mapActions({
-    create: 'project/create'
+    create: 'blog/create',
+    resetNewModel: 'blog/resetNewModel'
   }),
   computed: mapGetters({
-
+    model: 'blog/newModel'
   })
 }
 </script>
