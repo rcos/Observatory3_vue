@@ -16,7 +16,7 @@
             <div class="col-lg-12">
               <div class="form-group">
                <label>Tags: </label>
-               <input-tag placeholder="Blog Tags" :tags="model.tags" />
+               <input-tag placeholder="Blog Tags" :tags="model.tech" />
                <ul class="list-group"></ul>
               </div>
             </div>
@@ -35,6 +35,7 @@
         <b-tab title="Publish" >
           <div class="row mt-4 justify-content-center">
             <div class="col-lg-4">
+              <FormInput label="Status" v-model="model.status"/>
               <FormSubmit class='w-100' :click="onSubmit" label="Publish"/>
             </div>
           </div>
@@ -70,14 +71,7 @@ export default {
     MarkdownInput
   },
   computed: mapGetters({
-    model: 'blog/model'
-  }),
-  data () {
-    return {
-      tags: [
-
-      ]
-    }
-  }
+    model: 'blog/newModel'
+  })
 }
 </script>

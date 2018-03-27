@@ -36,7 +36,8 @@ export default {
   resetNewModel ({ commit }) {
     commit('newModel')
   },
-  create ({ commit }) {
+  create ({ commit, state }) {
+    console.log(state.newModel)
   },
   update ({ commit }) {
   },
