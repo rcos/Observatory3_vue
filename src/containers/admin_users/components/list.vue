@@ -100,3 +100,8 @@ export default {
   })
 }
 </script>
+<style type="text/css">
+  thead: {
+    font-weight: 600
+  }
+</style>

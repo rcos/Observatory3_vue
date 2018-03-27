@@ -13,7 +13,6 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: 'ProjectSelect',
   created () {
     return this.fetch()
   },

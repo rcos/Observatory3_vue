@@ -11,4 +11,3 @@ export default {
   props: ['click', 'label', 'icon', 'context']
 }
 </script>
-
