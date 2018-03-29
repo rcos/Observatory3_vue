@@ -16,7 +16,7 @@
             <div class="col-lg-12">
               <div class="form-group">
                <label>Tags: </label>
-               <input-tag placeholder="Blog Tags" :tags="model.tags" />
+               <input-tag placeholder="Blog Tags" :tags="model.tech" />
                <ul class="list-group"></ul>
               </div>
             </div>
@@ -35,6 +35,8 @@
         <b-tab title="Publish" >
           <div class="row mt-4 justify-content-center">
             <div class="col-lg-4">
+              <FormSelect label="Status" v-model="model.status" :options="dropdownOptions" />
+
               <FormSubmit class='w-100' :click="onSubmit" label="Publish"/>
             </div>
           </div>
@@ -57,6 +59,7 @@ import FormSubmit from '@/components/FormSubmit'
 import ProjectSelect from '@/components/ProjectSelect'
 import MarkdownInput from '@/components/MarkdownInput'
 import { mapGetters } from 'vuex'
+import FormSelect from '@/components/FormSelect'
 
 export default {
   name: 'BlogForm',
@@ -67,17 +70,12 @@ export default {
     FormSubmit,
     FormInput,
     ProjectSelect,
-    MarkdownInput
+    MarkdownInput,
+    FormSelect
   },
   computed: mapGetters({
-    model: 'blog/model'
-  }),
-  data () {
-    return {
-      tags: [
-        'HTML', 'JS', 'Bootstrap'
-      ]
-    }
-  }
+    model: 'blog/newModel',
+    dropdownOptions: 'blog/dropdownOptions'
+  })
 }
 </script>
