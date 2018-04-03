@@ -14,6 +14,8 @@
       </div>
     </div>
 
+    <Contributors/>
+
   	<p class="lead">{{ project.name }}</p>
   	<a class='btn btn-secondary' href="/#/projects/1/edit">Edit Project</a>
   </div>
@@ -23,11 +25,13 @@
 
 <script>
 import ProjectControls from './ProjectControls'
+import Contributors from './Contributors'
 
 export default {
   props: ['project'],
   components: {
-    ProjectControls
+    ProjectControls,
+    Contributors
   }
 }
 </script>

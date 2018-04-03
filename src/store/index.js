@@ -5,7 +5,9 @@ import auth from './auth'
 import project from './project'
 import blog from './blog'
 import user from './user'
+import smallgroup from './smallgroup'
 import notification from './notification'
+import attendance from './attendance'
 
 Vue.use(Vuex)
 
@@ -18,6 +20,8 @@ export default new Vuex.Store({
     project,
     blog,
     user,
-    notification
+    smallgroup,
+    notification,
+    attendance
   }
 })
