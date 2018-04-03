@@ -16,7 +16,18 @@ export default {
       throw err // TODO - better error handling
     })
   },
-  fetchModel ({ commit }) {
+  fetchModel ({ commit }, modelId) {
+    commit('fetching', true)
+
+    $GET(`${API_ROOT}/${modelId}`)
+    .then((achievement) => {
+      commit('model', achievement)
+      commit('fetching', false)
+    })
+    .catch((err) => {
+      commit('fetching', false)
+      throw err // TODO - better error handling
+    })
   },
   create ({ commit, rootGetters }) {
     $POST(API_ROOT, {
