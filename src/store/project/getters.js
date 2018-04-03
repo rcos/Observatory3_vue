@@ -1,20 +1,17 @@
-import _ from 'lodash'
-import { COLLECTION_GETTERS, PAGINATION_GETTERS, FILTER_GETTERS } from '@/store/lib/mixins'
+// import _ from 'lodash'
+import { COLLECTION_GETTERS, MODEL_GETTERS, FILTER_GETTERS, PAGINATION_GETTERS } from '@/store/lib/mixins'
 
 // Project Module Getters
 export default {
   ...COLLECTION_GETTERS,
-  ...PAGINATION_GETTERS,
+  ...MODEL_GETTERS,
   ...FILTER_GETTERS,
+  ...PAGINATION_GETTERS,
   filteredCollection: state => {
-    return _.chain(state.collection)
-    .filter(u => {
-      return u.name.toLowerCase().indexOf(state.filter.toLowerCase()) !== -1
-    })
-    .orderBy(['name'], [state.orderBy])
-    .drop(state.start)
-    .take(state.pageSize)
-    .value()
+    return state.filteredCollection
+  },
+  newModel: state => {
+    return state.newModel
   },
   myProjects: state => {
     return state.myProjects
@@ -25,7 +22,10 @@ export default {
   favoriteProjects: state => {
     return state.favoriteProjects
   },
-  current: state => {
-    return state.current
+  contributors: state => {
+    return state.contributors
+  },
+  fetchingContributors: state => {
+    return state.fetchingContributors
   }
 }

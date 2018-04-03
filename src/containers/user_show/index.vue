@@ -27,7 +27,7 @@ export default {
     fetch: 'user/fetchUser'
   }),
   computed: mapGetters({
-    model: 'user/current',
+    model: 'user/model',
     fetching: 'user/fetching'
   })
 }

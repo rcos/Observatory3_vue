@@ -1,7 +1,10 @@
 
 <template>
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
+
+      <!-- TODO: Only have one button per choice at a time i.e.
+      only display join project instead of both join and leave -->
 
       <button class="btn btn-outline-success">
         Join Project
@@ -11,11 +14,19 @@
         Leave Project
       </button>
 
-      <button class="btn btn-outline-success">
+      <button class="btn btn-outline-success" @click="markDefault">
         Mark Default
       </button>
 
-      <button class="btn btn-outline-warning">
+      <button class="btn btn-outline-warning" @click="unmarkDefault">
+        Unmark Default
+      </button>
+
+      <button class="btn btn-outline-success" @click="markActive">
+        Mark Active Project
+      </button>
+
+      <button class="btn btn-outline-warning" @click="markPast">
         Mark Past Project
       </button>
 
@@ -48,9 +59,16 @@
 
 <script>
 
+import { mapActions } from 'vuex'
+
 export default {
-  props: ['project']
+  props: ['project'],
+  methods: mapActions({
+    markDefault: 'project/markDefault',
+    unmarkDefault: 'project/unmarkDefault',
+    markActive: 'project/markActive',
+    markPast: 'project/markPast',
+    resetNewModel: 'project/resetNewModel'
+  })
 }
 </script>
-
-

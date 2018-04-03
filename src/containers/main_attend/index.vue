@@ -1,6 +1,6 @@
 
 <template>
-  	<LayoutView/>
+    <LayoutView/>
 </template>
 
 <!-- // // // //  -->
@@ -17,5 +17,3 @@ export default {
   }
 }
 </script>
-
-

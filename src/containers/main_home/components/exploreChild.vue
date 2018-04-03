@@ -1,14 +1,14 @@
 <template>
   <div class='col-lg-4 text-center'>
-    <h3>Developers</h3>
-    <p class="lead">We are a group of passionate open source developers at RPI.</p>
-    <a class="btn btn-outline-primary" href='/#/users'>View Developers</a>
-</button>
+    <h3>{{ details.title }}</h3>
+    <p class="lead">{{ details.desc }}</p>
+    <a class="btn btn-outline-primary" :href='details.link'>View {{ details.title }}</a>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'main_developers'
+    name: 'main_developers',
+    props: ['details']
   }
 </script>
