@@ -1,83 +1,32 @@
 
 <template>
   <div class="container">
-    <h2>Current Semester: Fall 2017</h2>
-    <hr>
-    <p class="lead">New Blog Post</p>
-
-    <form>
-      <div class="form-group">
-        <label>Title: </label>
-        <input type="title" class = "form-control" id="blogFormControlTitle">
-      </div>
-
-      <div class="form-group">
-        <label>Project Select: </label>
-        <select class="form-control" id="blogFormControlSelect">
-          <option :value="project._id" v-for="project in projectCollection">
-            {{ project.name }}
-          </option>
-        </select>
-      </div>
-
-      <div class="form-group">
-       <label>Tags: </label>
-       <input-tag placeholder="Project Tech" :tags="tags" />
-       <ul class="list-group">
-          <li v-for="each in listTags" :key="each.tag">
-            {{ each.label }}
-          </li>
-        </ul>
-        <!-- <input v-bind:addTags="add"/> -->
-
-      </div>
-      <div class="form-group">
-        <label>Body: </label>
-        <textarea class="form-control" id="blogFormControlBody" rows="5"></textarea>
-      </div>
-      <button class="btn btn-success mt-4" @click="submit()">
-        Submit
-      </button>
-    </form>
+    <PageHeader title="New Blog Post"/>
+    <BlogForm :onSubmit="create" />
   </div>
 </template>
 
  <!-- // // // //  -->
 
 <script>
-import InputTag from 'vue-input-tag'
+import BlogForm from '@/components/BlogForm'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'layout',
   components: {
-    InputTag
+    BlogForm
   },
   created () {
-    return this.fetch()
-  },
-  data () {
-    return {
-      tags: [
-        'HTML', 'JS', 'Bootstrap'
-      ],
-      listTags: [
-        { label: 'HTML' },
-        { label: 'CSS' }
-      ]
-    }
+    return this.resetNewModel()
   },
   methods: mapActions({
-    fetch: 'project/fetchCollection',
-    submit: 'project/create'
+    create: 'blog/create',
+    resetNewModel: 'blog/resetNewModel'
   }),
   computed: mapGetters({
-    projectCollection: 'project/collection'
+    model: 'blog/newModel'
   })
-  // add (newTag) {
-  //   this.listTags.push({ label: newTag })
-  //   this.newTag = ''
-  // }
 }
 </script>
 

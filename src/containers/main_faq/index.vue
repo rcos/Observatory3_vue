@@ -1,6 +1,5 @@
-
 <template>
-    <LayoutView/>
+  <LayoutView/>
 </template>
 
 <!-- // // // //  -->
@@ -9,11 +8,14 @@
 import LayoutView from './components/layout.vue'
 
 export default {
+  name: 'main_faq',
   components: {
     LayoutView
   },
   metaInfo: {
-    title: 'Main - Attendance'
+    title: 'Main - FAQ'
   }
 }
 </script>
+
+
