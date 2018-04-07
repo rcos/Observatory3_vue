@@ -1,14 +1,14 @@
 
 <template>
   <div class="container">
-    <PageHeader title="Small Groups" />
+    <PageHeader title="New Small Group" />
     <div class="row">
       <div class="col-lg-12">
-        <Loading :loading="fetching">
-          <div class="card-deck">
-            <SmallGroupChild v-for="model in collection" :key="model._id" :model="model" />
-          </div>
-        </Loading>
+        <p class="lead">TODO - implement SmallGroup Form here</p>
+        <pre class="bg-dark text-light">{{model}}</pre>
+        <button class="btn btn-success" @click="create()">
+          Create
+        </button>
       </div>
     </div>
   </div>
@@ -28,10 +28,11 @@ export default {
     PageHeader
   },
   created () {
-    this.fetch()
+    this.resetNew()
   },
   methods: mapActions({
-    create: 'smallgroup/create'
+    create: 'smallgroup/create',
+    resetNew: 'smallgroup/resetNewModel'
   }),
   computed: mapGetters({
     model: 'smallgroup/newModel'
