@@ -1,4 +1,4 @@
-import { $GET, $DEL } from '@/store/lib/helpers'
+import { $GET, $PUT, $DEL } from '@/store/lib/helpers'
 import { API_ROOT } from './constants'
 
 // Blog actions
@@ -36,11 +36,24 @@ export default {
   resetNewModel ({ commit }) {
     commit('newModel')
   },
+  update ({ commit, rootGetters }, blogModel) {
+    console.log('UPDATE BLOG POST')
+
+    $PUT(API_ROOT + '/' + blogModel._id, {
+      body: blogModel,
+      token: rootGetters['auth/token']
+    })
+    .then((response) => {
+      console.log('RESPONSE')
+    })
+    .catch((err) => {
+      console.log('ERR!')
+      throw err
+    })
+  },
   create ({ commit, state }) {
     // DELETE IF NEEDED: this is for testing
     console.log(state.newModel)
-  },
-  update ({ commit }) {
   },
   destroy ({ commit, rootGetters }, postID) {
     commit('destroying', true)
