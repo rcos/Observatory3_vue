@@ -224,3 +224,29 @@ export const PAGINATION_GETTERS = {
     return state.paginatedCollection
   }
 }
+
+// // // //
+// New Model Mixins
+
+// NOTE - this
+export const NEW_MODEL_ACTIONS = {
+  resetNewModel: ({ commit }) => {
+    return commit('newModel', {})
+  }
+}
+
+export const NEW_MODEL_GETTERS = {
+  newModel: state => {
+    return state.newModel
+  }
+}
+
+export const NEW_MODEL_MUTATIONS = {
+  newModel (state, newModel) {
+    state.newModel = newModel
+  }
+}
+
+export const NEW_MODEL_STATE = {
+  newModel: []
+}

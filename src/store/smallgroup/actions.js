@@ -1,11 +1,13 @@
 import { API_ROOT } from './constants'
 import { $GET } from '@/store/lib/helpers'
+import { NEW_MODEL_ACTIONS } from '@/store/lib/mixins'
 
 // // // //
 
 // SmallGroup module actions
 // functions that causes side effects and can involve asynchronous operations.
 export default {
+  ...NEW_MODEL_ACTIONS,
   fetchCollection: ({ state, commit, dispatch, rootGetters }) => {
     commit('fetching', true)
 
