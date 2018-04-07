@@ -248,5 +248,5 @@ export const NEW_MODEL_MUTATIONS = {
 }
 
 export const NEW_MODEL_STATE = {
-  newModel: []
+  newModel: {}
 }
