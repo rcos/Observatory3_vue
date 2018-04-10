@@ -37,7 +37,7 @@ export default {
       body: {
         title: 'sample-blog-create',
         description: 'sample123',
-        date: new Date ()
+        date: new Date()
       }
     })
     .then((json) => {
@@ -45,7 +45,7 @@ export default {
       console.log(json)
     })
     .catch((err) => {
-      console.log("Error in blog create:\n" + err)
+      console.log('Error in blog create:\n' + err)
     })
   },
   // resetNewModel
