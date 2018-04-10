@@ -2,7 +2,9 @@
   <div class="container">
     <PageHeader title="FAQ" />
     <p class="lead">
-      If you have any questions not answered below, please contact a course coordinator.
+       <a href="https://github.com/rcos/intro" target='_blank'>RCOS Intro</a>
+    </p>
+      If you have any questions not answered below, please contact a <a href="mailto:coordinators@rcos.io">course coordinator.</a>
       <br>
     </p>
 
