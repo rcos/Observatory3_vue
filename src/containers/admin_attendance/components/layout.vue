@@ -1,7 +1,7 @@
 
 <template>
   <div class="container">
-    <h2>Full Group Attendance</h2>
+    <PageHeader title="Attendance Control Panel" />
     <GenerateAttendance/>
     <hr>
     <h3>Attendance Days:</h3>
