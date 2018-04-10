@@ -21,19 +21,30 @@
 
 <template>
   <div>
-    <button type="button" class="btn btn-primary">Generate Attendance Code</button>
+    <button type="button" class="btn btn-primary" @click="generateAttendanceCode">Generate Attendance Code</button>
+    <!-- TODO - add action to this button -->
     <button type="button" class="btn btn-primary">Generate Bonus Attendance Code</button>
-    <p v-if="error">Code Was Not Generated</p>
-    <p v-else class="error">Attedance Code Succesfully Generated!</p>
+    <p v-if="daycode"> Attedance Code Succesfully Generated: {{ daycode }} </p>
+    <p v-else> Code Was Not Generated </p>
   </div>
 </template>
 
 <script>
+  import { mapActions, mapGetters } from 'vuex'
+
   export default {
     data () {
       return {
         error: false
       }
+    },
+    methods: mapActions({
+      generateAttendanceCode: 'classyear/generateAttendanceCode'
+    }),
+    computed: {
+      ...mapGetters({
+        daycode: 'classyear/daycode'
+      })
     }
   }
 </script>

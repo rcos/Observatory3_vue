@@ -48,7 +48,7 @@
       <div class="card card-body d-flex align-items-center justify-content-center">
         <p class="lead mb-0">
           <i class="fa fa-exclamation-circle fa-lg text-warning mr-2"></i>
-          No projects found matching that query
+          No Projects found matching that query
         </p>
       </div>
     </div>

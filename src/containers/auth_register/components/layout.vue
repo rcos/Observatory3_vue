@@ -15,10 +15,10 @@
                               <FormInput v-model="register_user.password" name='password' label='Password' placeholder='Password' type='password'/>
                               <FormInput v-model="register_user.passwordverify" name='passwordverify' label='Confirm Password' placeholder='Confirm Password' type='password'/>
 
-                              <FormSubmit :props="{ label: 'Sign Up', css: 'btn-success btn-block' }"/>
+                              <FormSubmit label='Sign Up' class='btn-success btn-block w-100'/>
 
                               <p v-if="register_user.error" class="error">Bad registration information</p>
-                              <p v-else class="error">Successfully Regisetered!</p>
+                              
 
                           </fieldset>
 
