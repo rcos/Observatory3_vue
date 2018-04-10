@@ -57,11 +57,11 @@ export default {
     })
     .then((json) => {
       console.log('Successfully updated achievement ID: ' + achievementId)
-      console.log( json )
+      console.log(json)
     })
     .catch((err) => {
       console.log('Error in updating achievement ID: ' + achievementId)
-      console.log( err )
+      console.log(err)
       throw err
     })
   },
