@@ -6,18 +6,18 @@ const state = {
   logging_in: false,
   current_user: {},
   login_user: {
-    email: 'foo@bar.com',
-    password: 'abc123',
+    email: '',
+    password: '',
     errors: {}
   },
   register_user: {
-    name: 'Name Namerson',
-    email: 'foo@bar.com',
+    name: '',
+    email: '',
     github: {
-      login: 'boofar'
+      login: ''
     },
-    password: 'abc123',
-    passwordverify: 'abc123',
+    password: '',
+    passwordverify: '',
     errors: {}
   }
 }
