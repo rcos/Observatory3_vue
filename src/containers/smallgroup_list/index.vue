@@ -5,7 +5,9 @@
     <div class="row">
       <div class="col-lg-12">
         <Loading :loading="fetching">
-          <SmallGroupChild v-for="model in collection" :key="model._id" :model="model" />
+          <div class="card-deck">
+            <SmallGroupChild v-for="model in collection" :key="model._id" :model="model" />
+          </div>
         </Loading>
       </div>
     </div>
