@@ -19,7 +19,7 @@
               <input type="email" class="form-control">
             </div>
             <div class="form-group">
-              <label for="glogin">Retype Password</label>
+              <label for="glogin">Re-type Password</label>
               <input type="password" class="form-control">
             </div>
  

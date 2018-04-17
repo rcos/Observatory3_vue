@@ -51,10 +51,6 @@ export default {
 
 <style>
 
-.card {
-	box-shadow: 2px 2px 4px grey;
-}
-
 </style>
 
 
