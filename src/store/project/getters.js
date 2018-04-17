@@ -27,5 +27,11 @@ export default {
   },
   fetchingContributors: state => {
     return state.fetchingContributors
+  },
+  isActive: state => {
+    return state.projectActive
+  },
+  isDefault: state => {
+    return state.projectDefault
   }
 }

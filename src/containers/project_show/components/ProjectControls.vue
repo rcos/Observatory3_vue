@@ -3,34 +3,45 @@
   <div class="row">
     <div class="col-sm-4">
 
-      <!-- TODO: Only have one button per choice at a time i.e.
-      only display join project instead of both join and leave -->
+      <!--
+      <div v-show="!isDefault">
+        <button class="btn btn-outline-success" @click="joinProject" v-if="isAuthenticated">
+          Join Project
+        </button>
+      </div>
 
-      <button class="btn btn-outline-success">
-        Join Project
-      </button>
+      <div v-show="isDefault">
+        <button class="btn btn-outline-danger" @click="leaveProject" v-if="isAuthenticated">
+          Leave Project
+        </button>
+      </div>
+      -->
 
-      <button class="btn btn-outline-danger">
-        Leave Project
-      </button>
+      <div v-show="!isDefault">
+        <button class="btn btn-outline-success" @click="markDefault" v-if="isAuthenticated">
+          Mark Default
+        </button>
+      </div>
 
-      <button class="btn btn-outline-success" @click="markDefault">
-        Mark Default
-      </button>
+      <div v-show="isDefault">
+        <button class="btn btn-outline-warning" @click="unmarkDefault" v-if="isAuthenticated">
+          Unmark Default
+        </button>
+      </div>
 
-      <button class="btn btn-outline-warning" @click="unmarkDefault">
-        Unmark Default
-      </button>
+      <div v-show="!isActive">
+        <button class="btn btn-outline-success" @click="markActive" v-if="isAuthenticated">
+          Mark Active Project
+        </button>
+      </div>
 
-      <button class="btn btn-outline-success" @click="markActive">
-        Mark Active Project
-      </button>
+      <div v-show="isActive">
+        <button class="btn btn-outline-warning" @click="markPast" v-if="isAuthenticated">
+          Mark Past Project
+        </button>
+      </div>
 
-      <button class="btn btn-outline-warning" @click="markPast">
-        Mark Past Project
-      </button>
-
-      <button class="btn btn-outline-danger">
+      <button class="btn btn-outline-danger" v-if="isAuthenticated">
         Edit Project
       </button>
 
@@ -59,7 +70,7 @@
 
 <script>
 
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   props: ['project'],
@@ -67,8 +78,12 @@ export default {
     markDefault: 'project/markDefault',
     unmarkDefault: 'project/unmarkDefault',
     markActive: 'project/markActive',
-    markPast: 'project/markPast',
-    resetNewModel: 'project/resetNewModel'
+    markPast: 'project/markPast'
+  }),
+  computed: mapGetters({
+    isAuthenticated: 'auth/is_authenticated',
+    isActive: 'project/isActive',
+    isDefault: 'project/isDefault'
   })
 }
 </script>

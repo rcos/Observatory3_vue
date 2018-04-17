@@ -55,6 +55,7 @@ export default {
     commit('fetching', true)
     $GET(`${API_ROOT}/${projectId}`, { token: rootGetters['auth/token'] })
     .then((project) => {
+      commit('projectDefault', project.markedDefault)
       commit('model', project)
       commit('fetching', false)
     })
@@ -199,12 +200,11 @@ export default {
 
   // markDefault
   // Marks the project as a default project (requires admin status)
-  markDefault ({ state, rootGetters }) {
+  markDefault ({ state, commit, rootGetters }) {
     // NOTE: can use state.model for actions such as these since we are in the context of one model
     $PUT(`api/projects/${state.model._id}/markdefault`, { token: rootGetters['auth/token'] })
     .then((response) => {
-      // TODO - commit default here?
-      console.log('MARKED DEFAULT')
+      commit('projectDefault', true)
     })
     .catch((err) => {
       throw err
@@ -213,11 +213,10 @@ export default {
 
   // unmarkDefault
   // Unmarks the project as a default project (requires admin status)
-  unmarkDefault ({ state, rootGetters }) {
+  unmarkDefault ({ state, commit, rootGetters }) {
     $PUT(`api/projects/${state.model._id}/unmarkdefault`, { token: rootGetters['auth/token'] })
     .then((response) => {
-      // TODO - commit default here?
-      console.log('MARKED DEFAULT')
+      commit('projectDefault', false)
     })
     .catch((err) => {
       throw err
@@ -226,11 +225,10 @@ export default {
 
   // markActive
   // Marks the project as an active project
-  markActive ({ state, rootGetters }) {
+  markActive ({ state, commit, dispatch, rootGetters }) {
     $PUT(`api/projects/${state.model._id}/markActive`, { token: rootGetters['auth/token'] })
     .then((response) => {
-      // TODO - commit active here?
-      console.log('MARKED PAST')
+      commit('projectActive', true)
     })
     .catch((err) => {
       throw err
@@ -239,11 +237,10 @@ export default {
 
   // markPast
   // Marks the project as a past project (inactive)
-  markPast ({ state, rootGetters }) {
+  markPast ({ state, commit, dispatch, rootGetters }) {
     $PUT(`api/projects/${state.model._id}/markPast`, { token: rootGetters['auth/token'] })
     .then((response) => {
-      // TODO - commit past here?
-      console.log('MARKED PAST')
+      commit('projectActive', false)
     })
     .catch((err) => {
       throw err
