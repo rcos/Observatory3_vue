@@ -1,12 +1,13 @@
 <template>
   <div class="container mb-5">
   	<h2>Change Password</h2>
+  	<hr>
 
 
   	<div class="card">
   		<div class="card body">
 
-        <div class="m-2">
+        <div class="m-3">
 
           <form action="#">
             <div class="form-group">

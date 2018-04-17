@@ -1,12 +1,13 @@
 <template>
   <div class="container mb-5">
   	<h2>Edit Profile</h2>
+    <hr>
   	
 
   	<div class="card">
   		<div class="card body">
 
-        <div class="m-2">
+        <div class="m-3">
 
           <form action="#">
             <div class="form-group">
@@ -51,7 +52,7 @@ export default {
 <style>
 
 .card {
-	box-shadow: 2px 2px 5px grey;
+	box-shadow: 2px 2px 4px grey;
 }
 
 </style>
