@@ -2,12 +2,14 @@
   <div class="container">
     <PageHeader title="FAQ" />
     <p class="lead">
-      If you have any questions not answered below, please contact a course coordinator.
+       <a href="https://github.com/rcos/intro" target='_blank'>RCOS Intro</a>
+    </p>
+      If you have any questions not answered below, please contact a <a href="mailto:coordinators@rcos.io">course coordinator.</a>
       <br>
     </p>
 
     <div role="tablist">
-      <b-card no-body class="mb-1" v-for="faq in questions">
+      <b-card no-body class="mb-1" v-for="faq in questions" :key="faq.id">
         <b-card-header header-tag="header" class="p-1" role="tab">
           <b-btn block href="#" v-b-toggle="faq.id" variant="light">{{faq.label}}</b-btn>
         </b-card-header>
@@ -57,7 +59,3 @@ export default {
   }
 }
 </script>
-
-
-
-

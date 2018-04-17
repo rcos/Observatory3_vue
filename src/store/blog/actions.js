@@ -1,4 +1,4 @@
-import { $GET, $PUT, $DEL } from '@/store/lib/helpers'
+import { $POST, $GET, $PUT, $DEL } from '@/store/lib/helpers'
 import { API_ROOT } from './constants'
 
 // Blog actions
@@ -31,6 +31,23 @@ export default {
       throw err
     })
   },
+  create ({ commit, rootGetters }) {
+    $POST(API_ROOT, {
+      token: rootGetters['auth/token'],
+      body: {
+        title: 'sample-blog-create',
+        description: 'sample123',
+        date: new Date()
+      }
+    })
+    .then((json) => {
+      console.log('Blog Create [Done]')
+      console.log(json)
+    })
+    .catch((err) => {
+      console.log('Error in blog create:\n' + err)
+    })
+  },
   // resetNewModel
   // Resets state.newModel to the default value defined in blog/constants.js
   resetNewModel ({ commit }) {
@@ -50,10 +67,6 @@ export default {
       console.log('ERR!')
       throw err
     })
-  },
-  create ({ commit, state }) {
-    // DELETE IF NEEDED: this is for testing
-    console.log(state.newModel)
   },
   destroy ({ commit, rootGetters }, postID) {
     commit('destroying', true)
