@@ -1,4 +1,4 @@
-import { $GET, $POST, $DEL } from '@/store/lib/helpers'
+import { $PUT, $GET, $POST, $DEL } from '@/store/lib/helpers'
 const API_ROOT = '/api/achievements'
 // Achievement actions
 export default {
@@ -16,7 +16,18 @@ export default {
       throw err // TODO - better error handling
     })
   },
-  fetchModel ({ commit }) {
+  fetchModel ({ commit }, modelId) {
+    commit('fetching', true)
+
+    $GET(`${API_ROOT}/${modelId}`)
+    .then((achievement) => {
+      commit('model', achievement)
+      commit('fetching', false)
+    })
+    .catch((err) => {
+      commit('fetching', false)
+      throw err // TODO - better error handling
+    })
   },
   create ({ commit, rootGetters }) {
     $POST(API_ROOT, {
@@ -32,11 +43,27 @@ export default {
       console.log(json)
     })
     .catch((err) => {
-      console.log('Create in create:\n' + err)
+      console.log('Error in create:\n' + err)
       throw err
     })
   },
-  update ({ commit }) {
+  update ({ commit, rootGetters }, achievementId) {
+    $PUT(API_ROOT + '/' + achievementId, {
+      token: rootGetters['auth/token'],
+      body: {
+        title: 'achievement update',
+        description: 'sample achievement update'
+      }
+    })
+    .then((json) => {
+      console.log('Successfully updated achievement ID: ' + achievementId)
+      console.log(json)
+    })
+    .catch((err) => {
+      console.log('Error in updating achievement ID: ' + achievementId)
+      console.log(err)
+      throw err
+    })
   },
   destroy ({ commit, rootGetters }, achievementId) {
     $DEL(API_ROOT + '/' + achievementId, {

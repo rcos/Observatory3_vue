@@ -13,6 +13,7 @@
         <b-nav-item href="#/blogs">Blog</b-nav-item>
         <b-nav-item href="#/achievements">Achievements</b-nav-item>
         <b-nav-item href="#/sponsors">Sponsors</b-nav-item>
+        <b-nav-item href="#/faq">FAQ</b-nav-item>
 
         <!-- Authenticated links -->
         <b-nav-item href="#/main/attend" v-if="isAuthenticated">Attend</b-nav-item>

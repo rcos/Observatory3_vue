@@ -7,6 +7,8 @@ import blog from './blog'
 import user from './user'
 import smallgroup from './smallgroup'
 import notification from './notification'
+import attendance from './attendance'
+import classyear from './classyear'
 
 Vue.use(Vuex)
 
@@ -20,6 +22,8 @@ export default new Vuex.Store({
     blog,
     user,
     smallgroup,
-    notification
+    notification,
+    attendance,
+    classyear
   }
 })

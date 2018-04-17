@@ -2,6 +2,7 @@
 import MainHome from '@/containers/main_home'
 import MainSponsors from '@/containers/main_sponsors'
 import MainAttend from '@/containers/main_attend'
+import MainFAQ from '@/containers/main_faq'
 
 const MainHomeRoute = {
   path: '/',
@@ -21,8 +22,15 @@ const MainAttendRoute = {
   component: MainAttend
 }
 
+const MainFAQRoute = {
+  path: '/FAQ',
+  name: 'main_faq',
+  component: MainFAQ
+}
+
 export default [
   MainHomeRoute,
   MainSponsorsRoute,
-  MainAttendRoute
+  MainAttendRoute,
+  MainFAQRoute
 ]
