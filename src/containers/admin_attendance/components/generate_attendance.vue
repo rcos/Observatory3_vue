@@ -22,8 +22,7 @@
 <template>
   <div>
     <button type="button" class="btn btn-primary" @click="generateAttendanceCode">Generate Attendance Code</button>
-    <!-- TODO - add action to this button -->
-    <button type="button" class="btn btn-primary">Generate Bonus Attendance Code</button>
+    <button type="button" class="btn btn-primary" @click="generateBonusCode">Generate Bonus Attendance Code</button>
     <p v-if="daycode"> Attedance Code Succesfully Generated: {{ daycode }} </p>
     <p v-else> Code Was Not Generated </p>
   </div>
@@ -39,7 +38,8 @@
       }
     },
     methods: mapActions({
-      generateAttendanceCode: 'classyear/generateAttendanceCode'
+      generateAttendanceCode: 'classyear/generateAttendanceCode',
+      generateBonusCode: 'classyear/generateBonusCode'
     }),
     computed: {
       ...mapGetters({
