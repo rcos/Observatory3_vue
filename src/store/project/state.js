@@ -11,5 +11,7 @@ export default {
   fetchingContributors: false,
   myProjects: [],
   menteeProjects: [],
-  favoriteProjects: []
+  favoriteProjects: [],
+  projectActive: false,
+  projectDefault: false
 }
