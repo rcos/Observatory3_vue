@@ -3,7 +3,6 @@
   	<h2>Edit Profile</h2>
     <hr>
   	
-
   	<div class="card">
   		<div class="card body">
 
@@ -33,7 +32,6 @@
 
             <button type="submit" class="btn btn-default">Save changes</button>
           </form> 
-
 
         </div>
   		</div>
