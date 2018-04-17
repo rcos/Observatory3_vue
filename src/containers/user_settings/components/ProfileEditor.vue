@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container mb-5">
   	<h2>Edit Profile</h2>
   	
 
@@ -15,11 +15,11 @@
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" class="form-control" id="email">
+              <input type="email" class="form-control"placeholder="name@gmail.com">
             </div>
             <div class="form-group">
               <label for="glogin">Github Login</label>
-              <input type="password" class="form-control" id="glogin">
+              <input type="password" class="form-control" placeholder="username">
             </div>
             <div class="form-group">
               <label for="bio">Bio</label>
@@ -37,9 +37,6 @@
         </div>
   		</div>
   	</div>
-
-
-
 
 
   </div>

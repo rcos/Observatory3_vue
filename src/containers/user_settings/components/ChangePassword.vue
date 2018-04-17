@@ -1,8 +1,35 @@
 <template>
-  <div class="container">
+  <div class="container mb-5">
   	<h2>Change Password</h2>
-  	<hr>
-  	<p class="lead">content 2</p>
+
+
+  	<div class="card">
+  		<div class="card body">
+
+        <div class="m-2">
+
+          <form action="#">
+            <div class="form-group">
+              <label>Current Password</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="email">New Password</label>
+              <input type="email" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="glogin">Retype Password</label>
+              <input type="password" class="form-control">
+            </div>
+ 
+
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form> 
+
+
+        </div>
+  		</div>
+  	</div>
 
 
 
