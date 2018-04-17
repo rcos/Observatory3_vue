@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import { $GET, $POST, $PUT } from '@/store/lib/helpers'
 import { PAGINATION_ACTIONS, FILTER_ACTIONS } from '@/store/lib/mixins'
 import { API_ROOT, SET_ROLE_NOTIFICATIONS, ACTIVATE_NOTIFICATIONS, DEACTIVATE_NOTIFICATIONS } from './constants'
@@ -9,7 +10,30 @@ import { API_ROOT, SET_ROLE_NOTIFICATIONS, ACTIVATE_NOTIFICATIONS, DEACTIVATE_NO
 export default {
   ...PAGINATION_ACTIONS,
   ...FILTER_ACTIONS,
-  fetchCollection: ({ commit, state, rootGetters }) => {
+  filteredCollection: ({ state, commit, dispatch }) => {
+    let filteredCollection = _.chain(state.collection)
+    .filter(u => {
+      let tech = u.tech || []
+      let flag = u.name.toLowerCase().indexOf(state.filter.toLowerCase()) !== -1
+      // tech.indexOf(state.filter.toLowerCase()) !== -1
+      console.log(tech)
+      for (let i = 0; i < tech.length; i++) {
+        let tag = tech[i].toLowerCase()
+        console.log(tag)
+        console.log(state.filter.toLowerCase())
+        if (tag.indexOf(state.filter.toLowerCase()) !== -1) {
+          flag = true
+          break
+        }
+      }
+      return flag
+    })
+    .orderBy(['name'], [state.orderBy])
+    .value()
+
+    commit('filteredCollection', filteredCollection)
+  },
+  fetchCollection: ({ dispatch, commit, state, rootGetters }) => {
     commit('fetching', true)
 
     // Fetches either active or inactive users
@@ -23,6 +47,7 @@ export default {
     .then((json) => {
       commit('fetching', false)
       commit('collection', json)
+      dispatch('filteredCollection')
     })
     .catch((err) => {
       commit('fetching', false)
