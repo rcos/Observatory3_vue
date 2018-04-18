@@ -15,7 +15,7 @@ export default {
     .filter(u => {
       let tech = u.tech || []
       const filter = state.filter.toLowerCase()
-      // Checks filter against 
+      // Checks filter against
       let flag = u.name.toLowerCase().indexOf(filter) !== -1
       // Checks filter again the user's tech tags
       for (let i = 0; i < tech.length; i++) {
