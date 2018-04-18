@@ -14,14 +14,13 @@ export default {
     let filteredCollection = _.chain(state.collection)
     .filter(u => {
       let tech = u.tech || []
-      let flag = u.name.toLowerCase().indexOf(state.filter.toLowerCase()) !== -1
-      // tech.indexOf(state.filter.toLowerCase()) !== -1
-      console.log(tech)
+      const filter = state.filter.toLowerCase()
+      // Checks filter against 
+      let flag = u.name.toLowerCase().indexOf(filter) !== -1
+      // Checks filter again the user's tech tags
       for (let i = 0; i < tech.length; i++) {
         let tag = tech[i].toLowerCase()
-        console.log(tag)
-        console.log(state.filter.toLowerCase())
-        if (tag.indexOf(state.filter.toLowerCase()) !== -1) {
+        if (tag.indexOf(filter) !== -1) {
           flag = true
           break
         }
