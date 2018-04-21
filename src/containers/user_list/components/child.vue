@@ -1,6 +1,9 @@
 <template>
   <div class="card">
     <a :href="'/#/users/' + model._id">
+      <span class="badge user-badge badge-dark" v-if="model.role === 'admin'">Coordinator</span>
+      <span class="badge user-badge badge-dark" v-else-if="model.role === 'mentor'">Mentor</span>
+      <span class="badge user-badge badge-primary" v-else>Student</span>
       <img class="card-img-top" :src="model.avatar"/>
     </a>
 
@@ -8,10 +11,6 @@
       <a :href="'/#/users/' + model._id">
         {{model.name}}
       </a>
-      <br>
-      <span class="badge badge-dark" v-if="model.role === 'admin'">Coordinator</span>
-      <span class="badge badge-dark" v-else-if="model.role === 'mentor'">Mentor</span>
-      <span class="badge badge-primary" v-else>Student</span>
     </div>
 
   </div>
@@ -22,3 +21,12 @@ export default {
   props: ['model']
 }
 </script>
+
+<style type="text/css">
+  span.badge.user-badge {
+    position: absolute;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+</style>
