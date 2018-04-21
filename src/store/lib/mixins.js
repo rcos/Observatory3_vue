@@ -122,7 +122,7 @@ export const FILTER_ACTIONS = {
 
 export const PAGINATION_STATE = {
   start: 0,
-  pageSize: 3,
+  pageSize: 10,
   currentPage: 1,
   paginatedCollection: []
 }

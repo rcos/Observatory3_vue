@@ -10,7 +10,7 @@ export default {
     $GET(API_ROOT)
     .then((json) => {
       commit('fetching', false)
-      commit('collection', json)
+      commit('collection', json.reverse()) // TODO - remove .reverse() - instead, sort using FILTER mixins
     })
     .catch((err) => {
       commit('fetching', false)
