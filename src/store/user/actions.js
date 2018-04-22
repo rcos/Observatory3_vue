@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { $GET, $POST, $PUT } from '@/store/lib/helpers'
+import { $GET, $POST, $PUT, $DEL } from '@/store/lib/helpers'
 import { PAGINATION_ACTIONS, FILTER_ACTIONS } from '@/store/lib/mixins'
 import { API_ROOT, SET_ROLE_NOTIFICATIONS, ACTIVATE_NOTIFICATIONS, DEACTIVATE_NOTIFICATIONS } from './constants'
 
@@ -149,6 +149,50 @@ export default {
     })
     .catch((err) => {
       commit('notification/add', DEACTIVATE_NOTIFICATIONS.ERROR, { root: true })
+      commit('fetching', false)
+      throw err
+    })
+  },
+
+  // addProject
+  // Adds a project to the list of projects that a user is contributing to
+  addProject ({ commit, dispatch, rootGetters }, { userID, projectID }) {
+    commit('fetching', true)
+
+    let api = API_ROOT + '/' + userID + '/project'
+    let body = {project: projectID}
+
+    $PUT(api, {
+      token: rootGetters['auth/token'],
+      body: body
+    })
+    .then((json) => {
+      commit('fetching', false)
+      dispatch('auth/fetchUserProfile', null, { root: true })
+    })
+    .catch((err) => {
+      commit('fetching', false)
+      throw err
+    })
+  },
+
+  // removeProject
+  // Removes a project from the list of projects that a user is contributing to
+  removeProject ({ commit, dispatch, rootGetters }, { userID, projectID }) {
+    commit('fetching', true)
+
+    let api = API_ROOT + '/' + userID + '/project'
+    let body = {project: projectID}
+
+    $DEL(api, {
+      token: rootGetters['auth/token'],
+      body: body
+    })
+    .then((json) => {
+      commit('fetching', false)
+      dispatch('auth/fetchUserProfile', null, { root: true })
+    })
+    .catch((err) => {
       commit('fetching', false)
       throw err
     })

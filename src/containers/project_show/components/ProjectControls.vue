@@ -3,45 +3,31 @@
   <div class="row">
     <div class="col-sm-4">
 
-      <!--
-      <div v-show="!isDefault">
-        <button class="btn btn-outline-success" @click="joinProject" v-if="isAuthenticated">
-          Join Project
-        </button>
-      </div>
+      <button class="btn btn-outline-success" @click="addProject({ userID: currentUser._id, projectID: project._id })" v-if="isAuthenticated && !isMember">
+        Join Project
+      </button>
 
-      <div v-show="isDefault">
-        <button class="btn btn-outline-danger" @click="leaveProject" v-if="isAuthenticated">
-          Leave Project
-        </button>
-      </div>
-      -->
+      <button class="btn btn-outline-danger" @click="removeProject({ userID: currentUser._id, projectID: project._id })" v-if="isAuthenticated && isMember">
+        Leave Project
+      </button>
 
-      <div v-show="!isDefault">
-        <button class="btn btn-outline-success" @click="markDefault" v-if="isAuthenticated">
-          Mark Default
-        </button>
-      </div>
+      <button class="btn btn-outline-success" @click="markDefault" v-if="isAuthenticated && !isDefault">
+        Mark Default
+      </button>
 
-      <div v-show="isDefault">
-        <button class="btn btn-outline-warning" @click="unmarkDefault" v-if="isAuthenticated">
-          Unmark Default
-        </button>
-      </div>
+      <button class="btn btn-outline-warning" @click="unmarkDefault" v-if="isAuthenticated && isDefault">
+        Unmark Default
+      </button>
 
-      <div v-show="!isActive">
-        <button class="btn btn-outline-success" @click="markActive" v-if="isAuthenticated">
-          Mark Active Project
-        </button>
-      </div>
+      <button class="btn btn-outline-success" @click="markActive" v-if="isAuthenticated && !isActive">
+        Mark Active Project
+      </button>
 
-      <div v-show="isActive">
-        <button class="btn btn-outline-warning" @click="markPast" v-if="isAuthenticated">
-          Mark Past Project
-        </button>
-      </div>
+      <button class="btn btn-outline-warning" @click="markPast" v-if="isAuthenticated && isActive">
+        Mark Past Project
+      </button>
 
-      <button class="btn btn-outline-danger" v-if="isAuthenticated">
+      <button class="btn btn-outline-danger" v-if="isAuthenticated && isMember">
         Edit Project
       </button>
 
@@ -78,12 +64,22 @@ export default {
     markDefault: 'project/markDefault',
     unmarkDefault: 'project/unmarkDefault',
     markActive: 'project/markActive',
-    markPast: 'project/markPast'
+    markPast: 'project/markPast',
+    addProject: 'user/addProject',
+    removeProject: 'user/removeProject',
+    refreshUser: 'auth/fetchUserProfile'
   }),
-  computed: mapGetters({
-    isAuthenticated: 'auth/is_authenticated',
-    isActive: 'project/isActive',
-    isDefault: 'project/isDefault'
-  })
+  computed: {
+    isMember () {
+      return this.currentUser.projects.includes(this.project._id)
+    },
+    ...mapGetters({
+      isAuthenticated: 'auth/is_authenticated',
+      isActive: 'project/isActive',
+      isDefault: 'project/isDefault',
+      currentUser: 'auth/current_user',
+      projectID: 'project/getID'
+    })
+  }
 }
 </script>
