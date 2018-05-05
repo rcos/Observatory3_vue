@@ -19,14 +19,17 @@
         </p>
 
         <a class="btn btn-primary" href='#/blogs/new'>
-          New Blog
+          <i class="fa fa-plus mr-2"></i>
+          New Blog Post
         </a>
 
-        <!-- ListView -->
-        <ListView :collection="collection"/>
 
       </div>
     </div>
+
+    <!-- ListView -->
+    <ListView :collection="collection"/>
+
   </div>
 </template>
 

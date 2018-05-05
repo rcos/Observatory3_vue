@@ -3,34 +3,31 @@
   <div class="row">
     <div class="col-sm-4">
 
-      <!-- TODO: Only have one button per choice at a time i.e.
-      only display join project instead of both join and leave -->
-
-      <button class="btn btn-outline-success">
+      <button class="btn btn-outline-success" @click="addProject({ userID: currentUser._id, projectID: project._id })" v-if="isAuthenticated && !isMember">
         Join Project
       </button>
 
-      <button class="btn btn-outline-danger">
+      <button class="btn btn-outline-danger" @click="removeProject({ userID: currentUser._id, projectID: project._id })" v-if="isAuthenticated && isMember">
         Leave Project
       </button>
 
-      <button class="btn btn-outline-success" @click="markDefault">
+      <button class="btn btn-outline-success" @click="markDefault" v-if="isAuthenticated && !isDefault">
         Mark Default
       </button>
 
-      <button class="btn btn-outline-warning" @click="unmarkDefault">
+      <button class="btn btn-outline-warning" @click="unmarkDefault" v-if="isAuthenticated && isDefault">
         Unmark Default
       </button>
 
-      <button class="btn btn-outline-success" @click="markActive">
+      <button class="btn btn-outline-success" @click="markActive" v-if="isAuthenticated && !isActive">
         Mark Active Project
       </button>
 
-      <button class="btn btn-outline-warning" @click="markPast">
+      <button class="btn btn-outline-warning" @click="markPast" v-if="isAuthenticated && isActive">
         Mark Past Project
       </button>
 
-      <button class="btn btn-outline-danger">
+      <button class="btn btn-outline-danger" v-if="isAuthenticated && isMember">
         Edit Project
       </button>
 
@@ -59,7 +56,7 @@
 
 <script>
 
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   props: ['project'],
@@ -68,7 +65,21 @@ export default {
     unmarkDefault: 'project/unmarkDefault',
     markActive: 'project/markActive',
     markPast: 'project/markPast',
-    resetNewModel: 'project/resetNewModel'
-  })
+    addProject: 'user/addProject',
+    removeProject: 'user/removeProject',
+    refreshUser: 'auth/fetchUserProfile'
+  }),
+  computed: {
+    isMember () {
+      return this.currentUser.projects.includes(this.project._id)
+    },
+    ...mapGetters({
+      isAuthenticated: 'auth/is_authenticated',
+      isActive: 'project/isActive',
+      isDefault: 'project/isDefault',
+      currentUser: 'auth/current_user',
+      projectID: 'project/getID'
+    })
+  }
 }
 </script>

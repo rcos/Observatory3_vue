@@ -25,5 +25,11 @@ export default {
   },
   fetchingContributors (state, fetching) {
     state.fetchingContributors = fetching
+  },
+  projectActive (state, projectActive) {
+    state.projectActive = projectActive
+  },
+  projectDefault (state, projectDefault) {
+    state.projectDefault = projectDefault
   }
 }
