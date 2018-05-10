@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import achievement from './achievement'
 import auth from './auth'
 import project from './project'
 import blog from './blog'
@@ -17,7 +16,6 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   modules: {
     auth,
-    achievement,
     project,
     blog,
     user,

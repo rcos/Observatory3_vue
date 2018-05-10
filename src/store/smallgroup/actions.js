@@ -24,6 +24,11 @@ export default {
     })
   },
 
+  // fetchModel
+  // Fetch a single SmallGroup from the server
+  fetchModel ({ }) {
+  },
+
   // create SmallGroup
   create ({ commit, state, rootGetters }) {
     commit('fetching', true)
