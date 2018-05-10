@@ -1,6 +1,8 @@
 <template>
   <b-navbar toggleable="md" type="dark" variant="dark" fixed="top">
-    <b-navbar-brand href="#/">RCOS Observatory</b-navbar-brand>
+    <b-navbar-brand href="#/">
+      Observatory
+    </b-navbar-brand>
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
     <b-collapse is-nav id="nav_collapse">
 
