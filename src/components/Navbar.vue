@@ -1,6 +1,8 @@
 <template>
   <b-navbar toggleable="md" type="dark" variant="dark" fixed="top">
-    <b-navbar-brand href="#/">RCOS Observatory</b-navbar-brand>
+    <b-navbar-brand href="#/">
+      Observatory
+    </b-navbar-brand>
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
     <b-collapse is-nav id="nav_collapse">
 
@@ -10,10 +12,10 @@
         <!-- Public links -->
         <b-nav-item href="#/projects">Projects</b-nav-item>
         <b-nav-item href="#/users">Developers</b-nav-item>
-        <b-nav-item href="#/blogs">Blog</b-nav-item>
-        <b-nav-item href="#/achievements">Achievements</b-nav-item>
-        <b-nav-item href="#/sponsors">Sponsors</b-nav-item>
-        <b-nav-item href="#/faq">FAQ</b-nav-item>
+        <b-nav-item href="#/events">Events</b-nav-item>
+        <!-- <b-nav-item href="#/blogs">Blog</b-nav-item> -->
+        <!-- <b-nav-item href="#/sponsors">Sponsors</b-nav-item> -->
+        <!-- <b-nav-item href="#/faq">FAQ</b-nav-item> -->
 
         <!-- Authenticated links -->
         <b-nav-item href="#/main/attend" v-if="isAuthenticated">Attend</b-nav-item>
@@ -52,8 +54,8 @@
         <b-nav-item href="#/auth/login">Login</b-nav-item>
       </b-navbar-nav>
 
-	  </b-collapse>
-	</b-navbar>
+    </b-collapse>
+  </b-navbar>
 </template>
 
 <script>
@@ -72,9 +74,3 @@ export default {
   })
 }
 </script>
-
-<style type="text/css">
-  .navbar {
-    background-color: #f3f3f3;
-  }
-</style>

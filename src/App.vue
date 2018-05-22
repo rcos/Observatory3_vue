@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import AppNavbar from '@/containers/app_navbar'
-import AppFooter from '@/containers/app_footer'
+import AppNavbar from '@/components/Navbar'
+import AppFooter from '@/components/Footer'
 import Notification from '@/containers/app_notification'
 
 export default {

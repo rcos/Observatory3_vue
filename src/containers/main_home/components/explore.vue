@@ -1,8 +1,8 @@
 <template>
-  <div class="row pb-12">
-    <ExploreChild :details="details[0]"></ExploreChild>
-    <ExploreChild :details="details[1]"></ExploreChild>
-    <ExploreChild :details="details[2]"></ExploreChild>
+  <div class="row">
+    <ExploreChild :details="details[0]" />
+    <ExploreChild :details="details[1]" />
+    <ExploreChild :details="details[2]" />
   </div>
 </template>
 
@@ -19,7 +19,7 @@
         details: [
           {title: 'Developers', desc: 'We are a group of passionate open source developers at RPI.', link: '/#/users'},
           {title: 'Projects', desc: 'We work on a bunch of awesome open source projects.', link: '/#/projects'},
-          {title: 'Achievements', desc: 'We are not your average college students.', link: '/#/achievements'}
+          {title: 'Events', desc: 'We host all kinds of open source events.', link: '/#/events'}
         ]
       }
     }
