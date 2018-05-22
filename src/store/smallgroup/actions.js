@@ -26,7 +26,7 @@ export default {
 
   // fetchModel
   // Fetch a single SmallGroup from the server
-  fetchModel ({ }) {
+  fetchModel ({ commit }) {
   },
 
   // create SmallGroup
