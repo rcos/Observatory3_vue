@@ -3,7 +3,6 @@ import Middleware from './middleware'
 
 // Import routes
 import AdminRoutes from './admin'
-import AchievementRoutes from './achievement'
 import AuthRoutes from './auth'
 import BlogRoutes from './blog'
 import MainRoutes from './main'
@@ -16,7 +15,6 @@ import SmallGroupRoutes from './smallgroup'
 let router = new Router({
   routes: [
     ...AdminRoutes,
-    ...AchievementRoutes,
     ...AuthRoutes,
     ...BlogRoutes,
     ...MainRoutes,
