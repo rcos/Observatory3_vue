@@ -53,8 +53,8 @@
         <b-nav-item href="#/auth/login">Login</b-nav-item>
       </b-navbar-nav>
 
-	  </b-collapse>
-	</b-navbar>
+    </b-collapse>
+  </b-navbar>
 </template>
 
 <script>
