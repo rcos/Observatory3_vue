@@ -11,6 +11,8 @@ import ProjectRoutes from './project'
 import UserRoutes from './user'
 import SmallGroupRoutes from './smallgroup'
 
+import EventRoutes from '../modules/event/routes'
+
 // Instantiates new Vue-Router instance
 let router = new Router({
   routes: [
@@ -21,7 +23,8 @@ let router = new Router({
     ...MentorRoutes,
     ...ProjectRoutes,
     ...UserRoutes,
-    ...SmallGroupRoutes
+    ...SmallGroupRoutes,
+    ...EventRoutes
   ]
 })
 

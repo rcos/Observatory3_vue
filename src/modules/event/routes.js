@@ -7,26 +7,26 @@ import EventList from './containers/list'
 
 const ListRoute = {
   path: '/events',
-  name: 'blog_list',
+  name: 'event_list',
   component: EventList
 }
 
 // const NewRoute = {
 //   path: '/events/new',
-//   name: 'blog_new',
+//   name: 'event_new',
 //   component: EventNew
 // }
 
 // const EditRoute = {
 //   path: '/events/:id/edit',
-//   name: 'blog_edit',
+//   name: 'event_edit',
 //   component: EventEdit,
 //   props: true
 // }
 
 // const ShowRoute = {
 //   path: '/events/:id',
-//   name: 'blog_show',
+//   name: 'event_show',
 //   component: EventShow,
 //   props: true
 // }
