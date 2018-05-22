@@ -1,7 +1,7 @@
 
 // Event module routes
 import EventList from './containers/list'
-// import EventNew from './containers/new'
+import EventNew from './containers/new'
 // import EventEdit from './containers/edit'
 // import EventShow from './containers/show'
 
@@ -11,11 +11,11 @@ const ListRoute = {
   component: EventList
 }
 
-// const NewRoute = {
-//   path: '/events/new',
-//   name: 'event_new',
-//   component: EventNew
-// }
+const NewRoute = {
+  path: '/events/new',
+  name: 'event_new',
+  component: EventNew
+}
 
 // const EditRoute = {
 //   path: '/events/:id/edit',
@@ -32,8 +32,8 @@ const ListRoute = {
 // }
 
 export default [
-  ListRoute
-  // NewRoute,
+  ListRoute,
+  NewRoute
   // EditRoute,
   // ShowRoute
 ]
