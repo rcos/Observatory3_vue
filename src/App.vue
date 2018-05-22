@@ -2,24 +2,24 @@
 <template>
   <div id="app">
     <Notification/>
-    <AppNavbar/>
+    <Navbar/>
     <div class="router-wrapper">
       <router-view/>
     </div>
-    <AppFooter/>
+    <Footer/>
   </div>
 </template>
 
 <script>
-import AppNavbar from '@/containers/app_navbar'
-import AppFooter from '@/containers/app_footer'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 import Notification from '@/containers/app_notification'
 
 export default {
   name: 'app',
   components: {
-    AppNavbar,
-    AppFooter,
+    Navbar,
+    Footer,
     Notification
   },
   metaInfo: {
