@@ -12,7 +12,6 @@ const TYPE_EXPO = 'EXPO'
 
 // Event Type dropdown
 export const TYPE_DROPDOWN = [
-  { value: TYPE_LARGE_GROUP, label: 'Large Group' },
   { value: TYPE_CASUAL_CODING, label: 'Casual Coding Session' },
   { value: TYPE_TECH_TALK, label: 'Tech Talk' },
   { value: TYPE_CODE_JAM, label: 'Code Jam' },
@@ -22,6 +21,15 @@ export const TYPE_DROPDOWN = [
 
 export const NEW_EVENT = {
   label: '',
+  type: TYPE_CASUAL_CODING,
+  errors: {}
+}
+
+export const NEW_LARGE_GROUP = {
+  label: 'Large Group Meeting',
   type: TYPE_LARGE_GROUP,
+  start_time: '17:00',
+  end_time: '18:00',
+  location: 'DCC 318',
   errors: {}
 }

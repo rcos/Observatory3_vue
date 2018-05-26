@@ -4,5 +4,11 @@ import { TYPE_DROPDOWN } from './constants'
 export default {
   typeDropdown: state => {
     return TYPE_DROPDOWN
+  },
+  newModel: state => {
+    return state.newModel
+  },
+  newLargeGroupModel: state => {
+    return state.newLargeGroupModel
   }
 }
