@@ -22,6 +22,7 @@ export const TYPE_DROPDOWN = [
 export const NEW_EVENT = {
   label: '',
   type: TYPE_CASUAL_CODING,
+  presentations: [],
   errors: {}
 }
 
@@ -31,5 +32,6 @@ export const NEW_LARGE_GROUP = {
   start_time: '17:00',
   end_time: '18:00',
   location: 'DCC 318',
+  presentations: [],
   errors: {}
 }

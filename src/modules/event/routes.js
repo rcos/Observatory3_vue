@@ -1,9 +1,10 @@
 
 // Event module routes
-import EventList from './containers/list'
-import EventNew from './containers/new'
-// import EventEdit from './containers/edit'
-// import EventShow from './containers/show'
+import EventList from './list'
+import EventNew from './new'
+import EventNewLargeGroup from './new_large_group'
+// import EventEdit from './edit'
+// import EventShow from './show'
 
 const ListRoute = {
   path: '/events',
@@ -15,6 +16,12 @@ const NewRoute = {
   path: '/events/new',
   name: 'event_new',
   component: EventNew
+}
+
+const NewLargeGroupRoute = {
+  path: '/events/new_large_group',
+  name: 'event_new_large_group',
+  component: EventNewLargeGroup
 }
 
 // const EditRoute = {
@@ -33,7 +40,8 @@ const NewRoute = {
 
 export default [
   ListRoute,
-  NewRoute
+  NewRoute,
+  NewLargeGroupRoute
   // EditRoute,
   // ShowRoute
 ]
