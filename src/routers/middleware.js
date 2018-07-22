@@ -17,11 +17,11 @@ const ensureAuthenticated = (route, redirect, next) => {
   let token = store.getters['auth/token']
   let currentUser = store.getters['auth/current_user']
 
-  // Jumps to the next route if the user is _definitely_ not authenticated
   if (!token) {
+    // Jumps to the next route if the user is _definitely_ not authenticated
     return next()
   } else if (currentUser._id) {
-    // Routes if the currentUser exists
+    // Routes if the currentUser has been authenticated exists
     next()
   } else {
     // Requests currentUser and redirects upon Promise resolution
