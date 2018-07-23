@@ -1,7 +1,7 @@
-import { COLLECTION_GETTERS, MODEL_GETTERS, FILTER_GETTERS, PAGINATION_GETTERS } from '../lib/mixins'
+import { COLLECTION_GETTERS, MODEL_GETTERS, FILTER_GETTERS, PAGINATION_GETTERS } from '@/store/lib/mixins'
 
 // User Module Getters
-const getters = {
+export default {
   ...COLLECTION_GETTERS,
   ...MODEL_GETTERS,
   ...FILTER_GETTERS,
@@ -10,5 +10,3 @@ const getters = {
     return state.filteredCollection
   }
 }
-
-export default getters
