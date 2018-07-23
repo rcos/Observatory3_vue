@@ -4,14 +4,13 @@ import auth from '@/modules/auth/store'
 import project from '@/modules/project/store'
 import user from '@/modules/user/store'
 import smallgroup from '@/modules/smallgroup/store'
-import notification from './notification'
+import notification from '@/modules/notification/store'
 import attendance from '@/modules/attendance/store'
 import classyear from '@/modules/classyear/store'
 
 Vue.use(Vuex)
 
-// A Vuex instance is created by combining the state, mutations, actions,
-// and getters.
+// Exports new Vuex Store instance
 export default new Vuex.Store({
   modules: {
     auth,
