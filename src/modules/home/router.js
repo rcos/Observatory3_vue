@@ -1,8 +1,8 @@
 // Main Containers
-import MainHome from '@/containers/main_home'
-import MainSponsors from '@/containers/main_sponsors'
-import MainAttend from '@/containers/main_attend'
-import MainFAQ from '@/containers/main_faq'
+import MainHome from './views/main_home'
+import MainSponsors from './views/main_sponsors'
+import MainAttend from './views/main_attend'
+import MainFAQ from './views/main_faq'
 
 const MainHomeRoute = {
   path: '/',
