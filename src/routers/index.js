@@ -4,7 +4,6 @@ import Middleware from './middleware'
 // Import routes
 import AdminRoutes from './admin'
 import AuthRoutes from './auth'
-import BlogRoutes from './blog'
 import MainRoutes from './main'
 import MentorRoutes from './mentor'
 import ProjectRoutes from './project'
@@ -16,7 +15,6 @@ let router = new Router({
   routes: [
     ...AdminRoutes,
     ...AuthRoutes,
-    ...BlogRoutes,
     ...MainRoutes,
     ...MentorRoutes,
     ...ProjectRoutes,

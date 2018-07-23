@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import auth from './auth'
 import project from './project'
-import blog from './blog'
 import user from './user'
 import smallgroup from './smallgroup'
 import notification from './notification'
@@ -17,7 +16,6 @@ export default new Vuex.Store({
   modules: {
     auth,
     project,
-    blog,
     user,
     smallgroup,
     notification,
