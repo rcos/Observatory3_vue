@@ -9,7 +9,7 @@
 <!-- // // // //  -->
 
 <script>
-import ProjectForm from '@/components/ProjectForm'
+import ProjectForm from '@/modules/project/components/ProjectForm'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
