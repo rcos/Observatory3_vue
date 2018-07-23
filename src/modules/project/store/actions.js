@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import Router from '@/routers'
+import Router from '@/router'
 import { API_ROOT } from './constants'
 import { $GET, $POST, $PUT, $DEL } from '@/store/lib/helpers'
 import { FILTER_ACTIONS, PAGINATION_ACTIONS } from '@/store/lib/mixins'

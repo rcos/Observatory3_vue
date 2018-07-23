@@ -1,4 +1,4 @@
-import Router from '@/routers'
+import Router from '@/router'
 import { $GET, $POST } from '@/store/lib/helpers'
 import {
   LOGIN_ROUTE,
