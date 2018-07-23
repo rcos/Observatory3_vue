@@ -13,14 +13,14 @@
 <script>
 import AppNavbar from '@/components/Navbar'
 import AppFooter from '@/components/Footer'
-import Notification from '@/containers/app_notification'
+import Notifications from '@/modules/notification/components/Notifications'
 
 export default {
   name: 'app',
   components: {
     AppNavbar,
     AppFooter,
-    Notification
+    Notifications
   },
   metaInfo: {
     title: 'Lodaing...',
