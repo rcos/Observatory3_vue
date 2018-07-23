@@ -1,6 +1,6 @@
 // Mentor Containers
-import MentorVerify from '@/containers/mentor_verify'
-import MentorSmallGroup from '@/containers/mentor_small_group'
+import MentorVerify from './views/mentor_verify'
+import MentorSmallGroup from './views/mentor_small_group'
 
 const MentorVerifyRoute = {
   path: '/mentor/verify',
