@@ -2,7 +2,7 @@ import Router from 'vue-router'
 import Middleware from './middleware'
 
 // Import routes
-import AdminRoutes from './admin'
+import AdminRoutes from '@/modules/admin/router'
 import AuthRoutes from '@/modules/auth/router'
 import HomeRoutes from '@/modules/home/router'
 import MentorRoutes from './mentor'

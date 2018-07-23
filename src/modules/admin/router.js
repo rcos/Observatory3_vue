@@ -1,7 +1,7 @@
 // Admin Containers
-import AdminAttendance from '@/containers/admin_attendance'
-import AdminSettings from '@/containers/admin_settings'
-import AdminUsers from '@/containers/admin_users'
+import AdminAttendance from './views/admin_attendance'
+import AdminSettings from './views/admin_settings'
+import AdminUsers from './views/admin_users'
 
 const AdminAttendanceRoute = {
   path: '/admin/attendance',
