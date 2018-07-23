@@ -1,6 +1,6 @@
 // Auth Containers
-import AuthLogin from '@/containers/auth_login'
-import AuthRegister from '@/containers/auth_register'
+import AuthLogin from './views/login'
+import AuthRegister from './views/register'
 
 const AuthLoginRoute = {
   path: '/auth/login',

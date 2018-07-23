@@ -3,7 +3,7 @@ import Middleware from './middleware'
 
 // Import routes
 import AdminRoutes from './admin'
-import AuthRoutes from './auth'
+import AuthRoutes from '@/modules/auth/router'
 import MainRoutes from './main'
 import MentorRoutes from './mentor'
 import ProjectRoutes from '@/modules/project/router'

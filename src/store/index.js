@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import auth from './auth'
+import auth from '@/modules/auth/store'
 import project from '@/modules/project/store'
 import user from './user'
 import smallgroup from '@/modules/smallgroup/store'
