@@ -1,7 +1,7 @@
 // User Containers
-import UserList from '@/containers/user_list'
-import UserShow from '@/containers/user_show'
-import UserSettings from '@/containers/user_settings'
+import UserList from './views/user_list'
+import UserShow from './views/user_show'
+import UserSettings from './views/user_settings'
 
 const UserListRoute = {
   path: '/users',

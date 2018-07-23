@@ -7,7 +7,7 @@ import AuthRoutes from '@/modules/auth/router'
 import HomeRoutes from '@/modules/home/router'
 import MentorRoutes from './mentor'
 import ProjectRoutes from '@/modules/project/router'
-import UserRoutes from './user'
+import UserRoutes from '@/modules/user/router'
 import SmallGroupRoutes from '@/modules/smallgroup/router'
 
 // Instantiates new Vue-Router instance
