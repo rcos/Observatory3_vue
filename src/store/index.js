@@ -6,7 +6,7 @@ import user from './user'
 import smallgroup from '@/modules/smallgroup/store'
 import notification from './notification'
 import attendance from '@/modules/attendance/store'
-import classyear from './classyear'
+import classyear from '@/modules/classyear/store'
 
 Vue.use(Vuex)
 
