@@ -8,7 +8,6 @@ import smallgroup from './smallgroup'
 import notification from './notification'
 import attendance from './attendance'
 import classyear from './classyear'
-import event from '../modules/event/store'
 
 Vue.use(Vuex)
 
@@ -23,7 +22,6 @@ export default new Vuex.Store({
     smallgroup,
     notification,
     attendance,
-    classyear,
-    event
+    classyear
   }
 })
