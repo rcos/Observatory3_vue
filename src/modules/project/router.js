@@ -1,8 +1,8 @@
 // Project Containers
-import ProjectList from '@/containers/project_list'
-import ProjectNew from '@/containers/project_new'
-import ProjectShow from '@/containers/project_show'
-import ProjectEdit from '@/containers/project_edit'
+import ProjectList from './views/list'
+import ProjectNew from './views/new'
+import ProjectShow from './views/show'
+import ProjectEdit from './views/edit'
 
 const ProjectListRoute = {
   path: '/projects',

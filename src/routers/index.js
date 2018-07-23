@@ -6,7 +6,7 @@ import AdminRoutes from './admin'
 import AuthRoutes from './auth'
 import MainRoutes from './main'
 import MentorRoutes from './mentor'
-import ProjectRoutes from './project'
+import ProjectRoutes from '@/modules/project/router'
 import UserRoutes from './user'
 import SmallGroupRoutes from './smallgroup'
 
