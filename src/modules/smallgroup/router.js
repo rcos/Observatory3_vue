@@ -1,6 +1,6 @@
 // SmallGroup Containers
-import SmallGroupList from '@/containers/smallgroup_list'
-import SmallGroupNew from '@/containers/smallgroup_new'
+import SmallGroupList from './views/list'
+import SmallGroupNew from './views/new'
 
 const SmallGroupListRoute = {
   path: '/smallgroups',

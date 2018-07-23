@@ -8,7 +8,7 @@ import MainRoutes from './main'
 import MentorRoutes from './mentor'
 import ProjectRoutes from '@/modules/project/router'
 import UserRoutes from './user'
-import SmallGroupRoutes from './smallgroup'
+import SmallGroupRoutes from '@/modules/smallgroup/router'
 
 // Instantiates new Vue-Router instance
 let router = new Router({
