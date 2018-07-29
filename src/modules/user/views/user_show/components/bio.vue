@@ -5,9 +5,7 @@
       <h4 class="card-title">
         Bio
       </h4>
-      <p class="card-text">
-        An awesome RCOS developer!
-      </p>
+      <p class="card-text">{{ userBio }}</p>
     </div>
   </div>
 </template>
@@ -16,6 +14,11 @@
 
 <script>
 export default {
-  props: ['model']
+  props: ['model'],
+  computed: {
+    userBio () {
+      return this.model.bio || 'An awesome RCOS developer!'
+    }
+  }
 }
 </script>
