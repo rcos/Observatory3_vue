@@ -18,7 +18,7 @@ export default {
     LayoutView
   },
   metaInfo: {
-    title: 'User Show'
+    title: 'User Profile'
   },
   created () {
     this.fetch(this.id)
@@ -32,4 +32,3 @@ export default {
   })
 }
 </script>
-
