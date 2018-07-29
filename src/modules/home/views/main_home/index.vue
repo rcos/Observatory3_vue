@@ -16,7 +16,6 @@
 
 <script>
 
-import MissionStatement from './components/missionStatement.vue'
 import Explore from './components/explore.vue'
 
 export default {
@@ -25,7 +24,6 @@ export default {
     title: 'Main - Home'
   },
   components: {
-    MissionStatement,
     Explore
   }
 }

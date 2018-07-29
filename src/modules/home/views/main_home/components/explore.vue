@@ -19,7 +19,7 @@
         details: [
           {title: 'Developers', desc: 'We are a group of passionate open source developers at RPI.', link: '/#/users'},
           {title: 'Projects', desc: 'We work on a bunch of awesome open source projects.', link: '/#/projects'},
-          {title: 'Events', desc: 'We host all kinds of open source events.', link: '/#/events'}
+          {title: 'Handbook', desc: 'Learn more about our organization\'s practices', link: 'https://handbook.rcos.io'}
         ]
       }
     }
