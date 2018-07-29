@@ -15,7 +15,6 @@
 </template>
 
 <script>
-
 import Explore from './components/explore.vue'
 
 export default {
@@ -28,10 +27,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.hero {
-  /*background:#da291c;*/
-  /*color: #ffffff;*/
-}
-</style>

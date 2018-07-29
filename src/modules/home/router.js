@@ -1,7 +1,6 @@
 // Main Containers
 import MainHome from './views/main_home'
 import MainSponsors from './views/main_sponsors'
-import MainAttend from './views/main_attend'
 import MainFAQ from './views/main_faq'
 
 const MainHomeRoute = {
@@ -16,12 +15,6 @@ const MainSponsorsRoute = {
   component: MainSponsors
 }
 
-const MainAttendRoute = {
-  path: '/main/attend',
-  name: 'main_attendance',
-  component: MainAttend
-}
-
 const MainFAQRoute = {
   path: '/FAQ',
   name: 'main_faq',
@@ -31,6 +24,5 @@ const MainFAQRoute = {
 export default [
   MainHomeRoute,
   MainSponsorsRoute,
-  MainAttendRoute,
   MainFAQRoute
 ]
