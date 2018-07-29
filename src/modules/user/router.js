@@ -16,6 +16,7 @@ const UserShowRoute = {
   props: true
 }
 
+// TODO - must be authenticated
 const UserSettingsRoute = {
   path: '/settings',
   name: 'user_settings',

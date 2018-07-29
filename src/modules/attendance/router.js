@@ -1,11 +1,12 @@
 import Attend from './views/attend'
 
 const AttendRoute = {
-  path: '/main/attend',
+  path: '/attendance',
   name: 'main_attendance',
   component: Attend
 }
 
+// TODO - scope these views to be authenticated-only
 export default [
   AttendRoute
 ]

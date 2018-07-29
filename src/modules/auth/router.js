@@ -14,6 +14,7 @@ const AuthRegisterRoute = {
   component: AuthRegister
 }
 
+// TODO - scope these views to be not-authenticated-only
 export default [
   AuthLoginRoute,
   AuthRegisterRoute

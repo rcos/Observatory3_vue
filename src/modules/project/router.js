@@ -11,6 +11,7 @@ const ProjectListRoute = {
   // beforeEnter: Middleware.ensureAuthenticated
 }
 
+// TODO - must be authenticated
 const ProjectNewRoute = {
   path: '/projects/new',
   name: 'Project New',
@@ -25,6 +26,7 @@ const ProjectShowRoute = {
   props: true
 }
 
+// TODO - must be authenticated && owner of project
 const ProjectEditRoute = {
   path: '/projects/:id/edit',
   name: 'Project Edit',

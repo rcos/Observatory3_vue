@@ -13,13 +13,13 @@
 </template>
 
 <script>
-  export default {
-    name: 'main_past_attendance',
-    props: ['attendElement'],
-    computed: {
-      date: function () {
-        return this.attendElement.date.substring(0, 10)
-      }
+export default {
+  name: 'main_past_attendance',
+  props: ['attendElement'],
+  computed: {
+    date: function () {
+      return this.attendElement.date.substring(0, 10)
     }
   }
+}
 </script>

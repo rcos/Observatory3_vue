@@ -21,6 +21,7 @@ const AdminSettingsRoute = {
   component: AdminSettings
 }
 
+// TODO - scope these views to be admin-only
 export default [
   AdminAttendanceRoute,
   AdminUserRoute,

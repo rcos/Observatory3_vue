@@ -1,7 +1,7 @@
 
 <template>
   <div id="app">
-    <Notification/>
+    <Notifications/>
     <AppNavbar/>
     <div class="router-wrapper">
       <router-view/>
@@ -23,7 +23,7 @@ export default {
     Notifications
   },
   metaInfo: {
-    title: 'Lodaing...',
+    title: 'Loading...',
     titleTemplate: 'RCOS - %s', // title will always be "RCOS - ..."
     htmlAttrs: {
       lang: 'en'

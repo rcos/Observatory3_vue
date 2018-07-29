@@ -14,6 +14,7 @@ const MentorSmallGroupRoute = {
   component: MentorSmallGroup
 }
 
+// TODO - scope these views to be mentor-and-admin only
 export default [
   MentorVerifyRoute,
   MentorSmallGroupRoute
