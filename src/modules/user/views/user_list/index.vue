@@ -13,7 +13,7 @@ export default {
     LayoutView
   },
   metaInfo: {
-    title: 'Users' // title is now "RCOS - Users"
+    title: 'Developers'
   },
   computed: mapGetters({
     fetching: 'user/fetching',

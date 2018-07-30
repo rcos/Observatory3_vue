@@ -94,6 +94,7 @@ export default {
   // Fetches projects belonging to an individual user
   fetchUserProjects ({ store, commit, rootGetters }, userID) {
     commit('fetchingUserProjects', true)
+    commit('userProjects', [])
     $GET(`/api/users/${userID}/projects`, { token: rootGetters['auth/token'] })
     .then((projects) => {
       commit('userProjects', projects)

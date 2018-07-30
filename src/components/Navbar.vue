@@ -43,7 +43,7 @@
           </template>
           <b-dropdown-item :href="'#/users/' + currentUser._id">Profile</b-dropdown-item>
           <b-dropdown-item href="#/settings">Settings</b-dropdown-item>
-          <b-dropdown-item @click="logout()">Logout</b-dropdown-item>
+          <b-dropdown-item v-b-modal="'logout'">Logout</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
 
@@ -52,6 +52,17 @@
         <b-nav-item href="#/auth/register">Register</b-nav-item>
         <b-nav-item href="#/auth/login">Login</b-nav-item>
       </b-navbar-nav>
+
+      <!-- Bootstrap Modal Component -->
+      <b-modal :id="'logout'"
+        :title="'Logout?'"
+        @ok="logout()"
+        ok-variant='danger'
+        ok-title='LOGOUT'
+        cancel-title='Cancel'
+      >
+        <p class="text-left">Are you sure you want to Logout?</p>
+      </b-modal>
 
     </b-collapse>
   </b-navbar>
