@@ -33,7 +33,7 @@ export default {
     .then(this.fetchMembers(this.id))
   },
   methods: mapActions({
-    fetch: 'smallgroup/fetchSmallGroup',
+    fetch: 'smallgroup/fetchSmallGroupById',
     fetchMembers: 'smallgroup/fetchSmallGroupMembers'
   }),
   computed: mapGetters({

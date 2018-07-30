@@ -25,8 +25,24 @@ export default {
   },
 
   // fetchSmallGroup
-  // Fetch a single SmallGroup from the server
-  fetchSmallGroup ({ commit, rootGetters }, smallGroupId) {
+  // Fetch the current User's small group
+  fetchSmallgroup ({ commit, dispatch, rootGetters }) {
+    $GET(API_ROOT + '/me', {
+      token: rootGetters['auth/token']
+    })
+    .then((json) => {
+      commit('model', json)
+      commit('fetching', false)
+    })
+    .catch((err) => {
+      commit('fetching', false)
+      throw err
+    })
+  },
+
+  // fetchSmallGroupById
+  // Fetch a single SmallGroup by ID from the server
+  fetchSmallGroupById ({ commit, rootGetters }, smallGroupId) {
     commit('fetching', true)
 
     // Fetches Collection from the server
