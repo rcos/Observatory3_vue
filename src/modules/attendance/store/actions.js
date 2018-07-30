@@ -9,11 +9,26 @@ import { FILTER_ACTIONS, PAGINATION_ACTIONS } from '@/store/lib/mixins'
 export default {
   ...PAGINATION_ACTIONS,
   ...FILTER_ACTIONS,
-  // Fetches the attendance collection for this user
-  fetchCollection: ({ commit, rootGetters }) => {
+
+  // Fetches the attendance records for a semester collection for the current user
+  fetchSemesterAttendance: ({ commit, rootGetters }) => {
+    commit('fetching', true)
+    $GET(API_ROOT, { token: rootGetters['auth/token'] })
+    .then((json) => {
+      commit('collection', json)
+      commit('fetching', false)
+    })
+    .catch((err) => {
+      commit('fetching', false)
+      throw err
+    })
+  },
+
+  // Fetches the attendance collection for a single user by ID
+  fetchUserAttendance: ({ commit, rootGetters }, userId = 'me') => {
     commit('fetching', true)
 
-    let api = API_ROOT + '/present/me'
+    let api = API_ROOT + '/present/' + userId
 
     $GET(api, { token: rootGetters['auth/token'] })
     .then((json) => {
@@ -26,7 +41,7 @@ export default {
     })
   },
 
-  // create Attendance
+  // Submits Attendance code
   create ({ commit, rootGetters }, dayCode) {
     $POST(API_ROOT + '/attend', { token: rootGetters['auth/token'], body: { dayCode } })
     .then((json) => {
@@ -38,13 +53,5 @@ export default {
       // commit('fetching', false)
       throw err
     })
-  },
-
-  // update Attendance
-  update ({ commit }, attributes) {
-  },
-
-  // destroy Attendance
-  destroy ({ commit }, id) {
   }
 }

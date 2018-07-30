@@ -16,6 +16,7 @@
         <Tech :model="model"/>
         <Bio :model="model"/>
         <Projects :model="model"/>
+        <Attendance :model="model"/>
       </div>
 
     </div>
@@ -30,6 +31,7 @@ import Sidebar from './sidebar'
 import Tech from './tech'
 import Bio from './bio'
 import Projects from './projects'
+import Attendance from './attendance'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -38,7 +40,8 @@ export default {
     Sidebar,
     Tech,
     Bio,
-    Projects
+    Projects,
+    Attendance
   },
   computed: {
     ...mapGetters({

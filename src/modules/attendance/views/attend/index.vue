@@ -30,7 +30,7 @@ export default {
     this.fetchCollection()
   },
   methods: mapActions({
-    fetchCollection: 'attendance/fetchCollection'
+    fetchCollection: 'attendance/fetchUserAttendance'
   }),
   computed: mapGetters({
     collection: 'attendance/collection'
