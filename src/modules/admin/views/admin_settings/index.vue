@@ -1,16 +1,21 @@
-
 <template>
-  	<LayoutView/>
+  <div class="container">
+    <Semester/>
+    <hr>
+    <div class="row">
+      <Buttons/>
+    </div>
+  </div>
 </template>
 
-<!-- // // // //  -->
-
 <script>
-import LayoutView from './components/layout.vue'
+import Buttons from './components/buttons'
+import Semester from './components/semester'
 
 export default {
   components: {
-    LayoutView
+    Buttons,
+    Semester
   },
   metaInfo: {
     title: 'Blog - New'
