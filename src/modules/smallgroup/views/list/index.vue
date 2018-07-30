@@ -1,7 +1,12 @@
 
 <template>
   <div class="container">
-    <PageHeader title="Small Groups" />
+    <PageHeader title="Small Groups">
+      <a class="btn btn-outline-primary" href="#/small_groups/new">
+        <i class="fa fa-plus mr-2"></i>
+        New Small Group
+      </a>
+    </PageHeader>
     <div class="row">
       <div class="col-lg-12">
         <Loading :loading="fetching">

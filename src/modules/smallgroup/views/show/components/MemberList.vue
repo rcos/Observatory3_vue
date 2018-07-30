@@ -1,7 +1,7 @@
 <template>
   <div class="row">
-    <div class="col-lg-12">
-      <table class="table table-responsive table-hover table-striped">
+    <div class="col-sm-12">
+      <table class="table table-hover table-striped">
         <thead>
           <th>Name</th>
           <th>Name</th>
@@ -19,6 +19,12 @@
                 Remove
               </button>
             </td>
+          </tr>
+          <tr class='table-warning' v-if="!members[0]">
+            <td>No members in this group</td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
         </tbody>
       </table>
