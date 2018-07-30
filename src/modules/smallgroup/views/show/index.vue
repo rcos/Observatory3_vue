@@ -1,34 +1,45 @@
 <template>
-  <Loading :loading="fetching">
-    <LayoutView :model="model"/>
-  </Loading>
+  <div class="container">
+    <PageHeader title="Small Group Show" />
+    <AddMember />
+    <Loading :loading="fetching">
+      <!-- <LayoutView :model="model"/> -->
+      <!-- <pre>{{ model }}</pre> -->
+      <MemberList v-if="!fetchingMembers"/>
+    </Loading>
+  </div>
 </template>
 
 <!-- // // // //  -->
 
 <script>
 import Loading from '@/components/Loading'
-import LayoutView from './components/layout.vue'
+import AddMember from './components/AddMember'
+import MemberList from './components/MemberList'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
   props: ['id'],
   components: {
     Loading,
-    LayoutView
+    MemberList,
+    AddMember
   },
   metaInfo: {
-    title: 'User Show'
+    title: 'Small Group'
   },
   created () {
     this.fetch(this.id)
+    .then(this.fetchMembers(this.id))
   },
   methods: mapActions({
-    fetch: 'smallgroup/fetchModel'
+    fetch: 'smallgroup/fetchSmallGroup',
+    fetchMembers: 'smallgroup/fetchSmallGroupMembers'
   }),
   computed: mapGetters({
     model: 'smallgroup/model',
-    fetching: 'smallgroup/fetching'
+    fetching: 'smallgroup/fetching',
+    fetchingMembers: 'smallgroup/fetchingSmallGroupMembers'
   })
 }
 </script>

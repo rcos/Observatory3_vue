@@ -12,7 +12,7 @@ import { mapActions } from 'vuex'
 
 export default {
   name: 'AttendanceCodeInput',
-  data () {
+  data () { // TODO - move dayCode into the vuex store
     return {
       dayCode: ''
     }

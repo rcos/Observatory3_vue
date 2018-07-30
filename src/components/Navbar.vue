@@ -26,7 +26,7 @@
 
         <!-- Admin Dropdown -->
         <b-nav-item-dropdown text="Admin" right v-if="isAdmin">
-          <b-dropdown-item href="#/smallgroups">Small Groups</b-dropdown-item>
+          <b-dropdown-item href="#/small_groups">Small Groups</b-dropdown-item>
           <b-dropdown-item href="#/admin/attendance">Attendance</b-dropdown-item>
           <b-dropdown-item href="#/admin/users">Users</b-dropdown-item>
           <b-dropdown-item href="#/admin/settings">Settings</b-dropdown-item>

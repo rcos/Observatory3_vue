@@ -4,7 +4,7 @@
 
     <div class="row">
       <div class="col-lg-6">
-        <a :href="'#/smallgroups/' + model._id">
+        <a :href="'#/small_groups/' + model._id">
           {{ model.name }}
         </a>
       </div>

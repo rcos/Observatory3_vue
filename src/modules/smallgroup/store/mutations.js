@@ -1,7 +1,9 @@
-import { COLLECTION_MUTATIONS, NEW_MODEL_MUTATIONS } from '@/store/lib/mixins'
+import { BUILD_COLLECTION_MUTATIONS, COLLECTION_MUTATIONS, MODEL_MUTATIONS, NEW_MODEL_MUTATIONS } from '@/store/lib/mixins'
 
 // SmallGroup Module mutations
 export default {
   ...COLLECTION_MUTATIONS,
+  ...BUILD_COLLECTION_MUTATIONS('smallGroupMembers'),
+  ...MODEL_MUTATIONS,
   ...NEW_MODEL_MUTATIONS
 }
