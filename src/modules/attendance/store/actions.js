@@ -1,5 +1,5 @@
 import { API_ROOT } from './constants'
-import { $GET } from '@/store/lib/helpers'
+import { $GET, $POST } from '@/store/lib/helpers'
 import { FILTER_ACTIONS, PAGINATION_ACTIONS } from '@/store/lib/mixins'
 
 // // // //
@@ -27,7 +27,17 @@ export default {
   },
 
   // create Attendance
-  create ({ commit }) {
+  create ({ commit, rootGetters }, dayCode) {
+    $POST(API_ROOT + '/attend', { token: rootGetters['auth/token'], body: { dayCode } })
+    .then((json) => {
+      console.log(json)
+      // commit('collection', json)
+      // commit('fetching', false)
+    })
+    .catch((err) => {
+      // commit('fetching', false)
+      throw err
+    })
   },
 
   // update Attendance

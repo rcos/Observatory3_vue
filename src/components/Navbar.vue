@@ -12,7 +12,6 @@
         <!-- Public links -->
         <b-nav-item href="#/projects">Projects</b-nav-item>
         <b-nav-item href="#/users">Developers</b-nav-item>
-        <!-- <b-nav-item href="#/blogs">Blog</b-nav-item> -->
         <!-- <b-nav-item href="#/sponsors">Sponsors</b-nav-item> -->
         <!-- <b-nav-item href="#/faq">FAQ</b-nav-item> -->
 
