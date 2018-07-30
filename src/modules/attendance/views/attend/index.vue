@@ -2,32 +2,29 @@
   <div class="container">
     <PageHeader title="Attendance" />
 
-    <CodeInput/>
+    <AttendanceCodeInput/>
 
     <button class="btn btn-outline-success" @click="fetchCollection">
       Refresh
     </button>
 
-    <h4>Previous Attendance:</h4>
-    <TableHeader/>
-    <Explore :collection="collection"/>
+    <h4>Attendance History:</h4>
+    <AttendanceList :collection="collection"/>
   </div>
 </template>
 
 <!-- // // // //  -->
 
 <script>
-import CodeInput from './components/input.vue'
-import TableHeader from './components/table_header'
-import Explore from './components/explore.vue'
+import AttendanceCodeInput from './components/input.vue'
+import AttendanceList from './components/AttendanceList'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: 'layout',
+  name: 'AttendanceView',
   components: {
-    CodeInput,
-    TableHeader,
-    Explore
+    AttendanceCodeInput,
+    AttendanceList
   },
   created () {
     this.fetchCollection()
@@ -35,10 +32,8 @@ export default {
   methods: mapActions({
     fetchCollection: 'attendance/fetchCollection'
   }),
-  computed: {
-    ...mapGetters({
-      collection: 'attendance/collection'
-    })
-  }
+  computed: mapGetters({
+    collection: 'attendance/collection'
+  })
 }
 </script>

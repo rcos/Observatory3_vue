@@ -18,6 +18,13 @@
       <a class='list-group-item' :href="'/#/projects/' + project._id" v-for="project in projects" :key="project._id">
         {{ project.name }}
       </a>
+      <li class="list-group-item list-group-item-warning text-center" v-if="!projects[0]">
+        <i class="fa fa-2x fa-frown-o"></i>
+        <br>
+        <p class='lead mb-0'>
+          This user has no projects
+        </p>
+      </li>
     </ul>
 
   </div>
