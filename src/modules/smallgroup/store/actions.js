@@ -1,5 +1,5 @@
 import { API_ROOT, NEW_SMALL_GROUP } from './constants'
-import { $GET, $POST, $PUT } from '@/store/lib/helpers'
+import { $GET, $POST, $PUT, $DEL } from '@/store/lib/helpers'
 
 // // // //
 
@@ -78,9 +78,26 @@ export default {
     })
   },
 
+  // removeSmallGroupMember
+  // Add a user to a small group
+  removeSmallGroupMember ({ commit, dispatch, rootGetters }, { smallGroupId, userId }) {
+    commit('fetching', true)
+
+    // Fetches Collection from the server
+    $DEL(API_ROOT + '/' + smallGroupId + '/member/' + userId, {
+      token: rootGetters['auth/token']
+    })
+    .then((response) => {
+      dispatch('fetchSmallGroupMembers', smallGroupId)
+      commit('fetching', false)
+    })
+    .catch((err) => {
+      commit('fetching', false)
+      throw err // TODO - better error handling
+    })
+  },
+
   // Access / Manipulate the members of a smallgroup
-  // router.get('/:id/members', auth.isAuthenticated(), controller.getSmallGroupMembers);
-  // router.put('/:id/member', auth.hasRole('mentor'), controller.addMember);
   // router.delete('/:id/member/:memberId', auth.isAuthenticated(), controller.deleteMember);
 
   // create SmallGroup

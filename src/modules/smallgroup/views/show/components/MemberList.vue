@@ -10,12 +10,12 @@
         <tbody>
           <tr v-for="member in members" :key="member._id">
             <td>
-              <img :src="model.avatar"/>
+              <img :src="member.avatar"/>
             </td>
             <td>{{ member.name }}</td>
             <td>{{ member.projects.length }}</td>
             <td>
-              <button class="btn btn-sm btn-outline-danger">
+              <button class="btn btn-sm btn-outline-danger" @click="removeMember({ smallGroupId: model._id, userId: member._id })">
                 Remove
               </button>
             </td>
@@ -29,9 +29,12 @@
 <!-- // // // //  -->
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
+  methods: mapActions({
+    removeMember: 'smallgroup/removeSmallGroupMember'
+  }),
   computed: mapGetters({
     model: 'smallgroup/model',
     members: 'smallgroup/smallGroupMembers'
