@@ -1,6 +1,6 @@
 <template>
   <div class='col-lg-12'>
-    <button type="button" class="btn btn-primary" @click="createNewSemester">
+    <button type="button" class="btn btn-primary" @click="createNewSemester()">
       <i class="fa fa-fw fa-plus mr-1"></i>
       Create New Semester
     </button>
@@ -8,12 +8,12 @@
 </template>
 
 <script>
-  export default {
-    name: 'buttons',
-    methods: {
-      createNewSemester () {
-        console.log('createNewSemester')
-      }
-    }
-  }
+import { mapActions } from 'vuex'
+
+export default {
+  name: 'buttons',
+  methods: mapActions({
+    createNewSemester: 'classyear/create'
+  })
+}
 </script>
