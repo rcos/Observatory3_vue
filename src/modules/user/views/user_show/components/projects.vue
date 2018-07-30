@@ -8,11 +8,16 @@
       </h4>
     </div>
 
-    <ul class="list-group list-group-flush">
-      <a class='list-group-item' href="/#/projects">Project A</a>
-      <a class='list-group-item' href="/#/projects">Project B</a>
-      <a class='list-group-item' href="/#/projects">Project C</a>
-      <a class='list-group-item' href="/#/projects">Project D</a>
+    <ul class="list-group list-group-flush" v-if="fetching">
+        <li class='list-group-item text-center'>
+          <i class="fa fa-3x fa-spin fa-spinner"></i>
+        </li>
+    </ul>
+
+    <ul class="list-group list-group-flush" v-else>
+      <a class='list-group-item' :href="'/#/projects/' + project._id" v-for="project in projects" :key="project._id">
+        {{ project.name }}
+      </a>
     </ul>
 
   </div>
@@ -21,7 +26,19 @@
 <!-- // // // //  -->
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
-  props: ['model']
+  props: ['model'],
+  created () {
+    this.fetchProjects(this.model._id)
+  },
+  methods: mapActions({
+    fetchProjects: 'user/fetchUserProjects'
+  }),
+  computed: mapGetters({
+    projects: 'user/userProjects',
+    fetching: 'user/fetchingUserProjects'
+  })
 }
 </script>

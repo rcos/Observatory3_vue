@@ -6,7 +6,7 @@
     <div class="router-wrapper">
       <router-view/>
     </div>
-    <AppFooter/>
+    <!-- <AppFooter/> -->
   </div>
 </template>
 

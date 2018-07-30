@@ -5,5 +5,7 @@ export default {
   ...COLLECTION_STATE,
   ...MODEL_STATE,
   ...FILTER_STATE,
-  ...PAGINATION_STATE
+  ...PAGINATION_STATE,
+  fetchingUserProjects: false,
+  userProjects: []
 }

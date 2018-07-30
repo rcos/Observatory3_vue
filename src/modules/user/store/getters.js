@@ -8,5 +8,11 @@ export default {
   ...PAGINATION_GETTERS,
   filteredCollection: state => {
     return state.filteredCollection
+  },
+  fetchingUserProjects: state => {
+    return state.fetchingUserProjects
+  },
+  userProjects: state => {
+    return state.userProjects
   }
 }

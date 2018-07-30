@@ -90,6 +90,21 @@ export default {
     })
   },
 
+  // fetchUserProjects
+  // Fetches projects belonging to an individual user
+  fetchUserProjects ({ store, commit, rootGetters }, userID) {
+    commit('fetchingUserProjects', true)
+    $GET(`/api/users/${userID}/projects`, { token: rootGetters['auth/token'] })
+    .then((projects) => {
+      commit('userProjects', projects)
+      commit('fetchingUserProjects', false)
+    })
+    .catch((err) => {
+      commit('fetching', false)
+      throw err // TODO - better error handling
+    })
+  },
+
   // setUserRole
   // Updates an individual User's role
   // @permissions Admin
