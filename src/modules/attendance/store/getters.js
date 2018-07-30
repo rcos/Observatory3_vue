@@ -1,6 +1,7 @@
-import { COLLECTION_GETTERS } from '@/store/lib/mixins'
+import { BUILD_COLLECTION_GETTERS } from '@/store/lib/mixins'
 
 // Attendance Module Getters
 export default {
-  ...COLLECTION_GETTERS
+  ...BUILD_COLLECTION_GETTERS('collection'),
+  ...BUILD_COLLECTION_GETTERS('unverifiedAttendance')
 }

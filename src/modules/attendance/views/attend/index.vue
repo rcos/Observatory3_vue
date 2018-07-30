@@ -4,12 +4,12 @@
 
     <AttendanceCodeInput/>
 
-    <button class="btn btn-outline-success" @click="fetchCollection">
-      Refresh
-    </button>
-
-    <h4>Attendance History:</h4>
-    <AttendanceList :collection="collection"/>
+    <div class="row">
+      <div class="col-lg-12">
+        <h4>Attendance History:</h4>
+        <AttendanceList :collection="collection"/>
+      </div>
+    </div>
   </div>
 </template>
 

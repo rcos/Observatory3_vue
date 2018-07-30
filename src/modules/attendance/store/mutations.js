@@ -1,6 +1,7 @@
-import { COLLECTION_MUTATIONS } from '@/store/lib/mixins'
+import { BUILD_COLLECTION_MUTATIONS } from '@/store/lib/mixins'
 
 // Attendance Module mutations
 export default {
-  ...COLLECTION_MUTATIONS
+  ...BUILD_COLLECTION_MUTATIONS('collection'),
+  ...BUILD_COLLECTION_MUTATIONS('unverifiedAttendance')
 }

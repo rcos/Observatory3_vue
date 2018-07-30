@@ -10,8 +10,12 @@
       </tr>
     </thead>
     <tbody>
+      <!-- TODO - break this out into an individual AttendanceChild component -->
       <tr v-for="each in collection">
-        <th scope="row">{{ each.date }}</th>
+        <td scope="row">{{ each.date }}</td>
+        <td scope="row"></td>
+        <td scope="row"></td>
+        <td scope="row"></td>
       </tr>
     </tbody>
   </table>

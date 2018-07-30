@@ -1,5 +1,5 @@
 import { API_ROOT } from './constants'
-import { $GET, $POST } from '@/store/lib/helpers'
+import { $GET, $PUT, $POST } from '@/store/lib/helpers'
 import { FILTER_ACTIONS, PAGINATION_ACTIONS } from '@/store/lib/mixins'
 
 // // // //
@@ -20,6 +20,19 @@ export default {
     })
     .catch((err) => {
       commit('fetching', false)
+      throw err
+    })
+  },
+
+  fetchUnverifiedAttendance: ({ commit, rootGetters }) => {
+    commit('loadingUnverifiedAttendance', true)
+    $GET(API_ROOT + '/unverified/today', { token: rootGetters['auth/token'] })
+    .then((json) => {
+      commit('unverifiedAttendance', json)
+      commit('loadingUnverifiedAttendance', false)
+    })
+    .catch((err) => {
+      commit('loadingUnverifiedAttendance', false)
       throw err
     })
   },
@@ -51,6 +64,20 @@ export default {
     })
     .catch((err) => {
       // commit('fetching', false)
+      throw err
+    })
+  },
+
+  // verifyAttendance
+  // Verifies an individual attendance record
+  verifyAttendance ({ commit, dispatch, rootGetters }, attendanceId) {
+    $PUT(API_ROOT + '/' + attendanceId + '/verify', { token: rootGetters['auth/token'] })
+    .then((json) => {
+      console.log('VERIFIED??')
+      console.log(json)
+      dispatch('fetchUnverifiedAttendance')
+    })
+    .catch((err) => {
       throw err
     })
   }
