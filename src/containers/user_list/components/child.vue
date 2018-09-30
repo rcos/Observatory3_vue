@@ -3,7 +3,7 @@
     <a :href="'/#/users/' + model._id">
       <span class="badge user-badge badge-dark" v-if="model.role === 'admin'">Coordinator</span>
       <span class="badge user-badge badge-dark" v-else-if="model.role === 'mentor'">Mentor</span>
-      <span class="badge user-badge badge-primary" v-else>Student</span>
+      <!-- <span class="badge user-badge badge-primary" v-else>Student</span> -->
       <img class="card-img-top" :src="model.avatar"/>
     </a>
 

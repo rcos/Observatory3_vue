@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import achievement from './achievement'
 import auth from './auth'
 import project from './project'
 import blog from './blog'
@@ -9,6 +8,7 @@ import smallgroup from './smallgroup'
 import notification from './notification'
 import attendance from './attendance'
 import classyear from './classyear'
+import event from '../modules/event/store'
 
 Vue.use(Vuex)
 
@@ -17,13 +17,13 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   modules: {
     auth,
-    achievement,
     project,
     blog,
     user,
     smallgroup,
     notification,
     attendance,
-    classyear
+    classyear,
+    event
   }
 })

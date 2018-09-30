@@ -31,7 +31,7 @@ const devMiddleware = require('webpack-dev-middleware')(compiler, {
   quiet: true,
   watchOptions: {
     aggregateTimeout: 300,
-    poll: 1000
+    poll: 750
   }
 })
 
