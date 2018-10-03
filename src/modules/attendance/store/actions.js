@@ -12,14 +12,14 @@ export default {
 
   // Fetches the attendance records for a semester collection for the current user
   fetchSemesterAttendance: ({ commit, rootGetters }) => {
-    commit('fetching', true)
+    commit('loadingCollection', true)
     $GET(API_ROOT, { token: rootGetters['auth/token'] })
     .then((json) => {
       commit('collection', json)
-      commit('fetching', false)
+      commit('loadingCollection', false)
     })
     .catch((err) => {
-      commit('fetching', false)
+      commit('loadingCollection', false)
       throw err
     })
   },
@@ -39,17 +39,17 @@ export default {
 
   // Fetches the attendance collection for a single user by ID
   fetchUserAttendance: ({ commit, rootGetters }, userId = 'me') => {
-    commit('fetching', true)
+    commit('loadingCollection', true)
 
     let api = API_ROOT + '/present/' + userId
 
     $GET(api, { token: rootGetters['auth/token'] })
     .then((json) => {
       commit('collection', json)
-      commit('fetching', false)
+      commit('loadingCollection', false)
     })
     .catch((err) => {
-      commit('fetching', false)
+      commit('loadingCollection', false)
       throw err
     })
   },
