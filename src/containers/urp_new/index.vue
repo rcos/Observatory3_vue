@@ -1,32 +1,17 @@
 <template>
-  <div>
-    HELLO WORLD
-  </div>
+  <LayoutView />
 </template>
 
-<!-- // // // //  -->
-
+<!-- // // // // -->
 <script>
-import ProjectForm from '@/components/ProjectForm'
-import { mapActions, mapGetters } from 'vuex'
-
+import LayoutView from './components/layout'
 export default {
   name: 'urp_new',
   components: {
-    ProjectForm
+    LayoutView
   },
   metaInfo: {
-    title: 'New Project'
-  },
-  created () {
-    return this.resetNewModel()
-  },
-  methods: mapActions({
-    create: 'project/create',
-    resetNewModel: 'project/resetNewModel'
-  }),
-  computed: mapGetters({
-    model: 'project/newModel'
-  })
+    title: 'New URP Form'
+  }
 }
 </script>
