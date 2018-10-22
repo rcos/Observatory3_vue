@@ -9,6 +9,7 @@ import notification from './notification'
 import attendance from './attendance'
 import classyear from './classyear'
 import event from '../modules/event/store'
+import urp from './urp'
 
 Vue.use(Vuex)
 
@@ -24,6 +25,7 @@ export default new Vuex.Store({
     notification,
     attendance,
     classyear,
-    event
+    event,
+    urp
   }
 })

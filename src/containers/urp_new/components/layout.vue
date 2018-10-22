@@ -11,23 +11,23 @@
       </div>
 
       <div class="col-lg-4">
-        <FormInput label="First Name" placeholder="First Name" v-model="fields.first" required="true" help="Your first name" />
+        <FormInput label="First Name" placeholder="First Name" required="true" help="Your first name" @input="firstName" />
       </div>
 
       <div class="col-lg-4">
-        <FormInput label="Last Name" placeholder="Last Name" v-model="fields.last" required="true" help="Your last name" />
+        <FormInput label="Last Name" placeholder="Last Name" required="true" help="Your last name" @input="lastName" />
       </div>
 
       <div class="col-lg-4">
-        <FormInput name="email" type="EMAIL" label="RPI Email" placeholder="RPI Email" v-model="fields.email" required="true" help="Your RPI Email" />
+        <FormInput name="email" type="EMAIL" label="RPI Email" placeholder="RPI Email" required="true" help="Your RPI Email" @input="rpiEmail" />
       </div>
 
       <div class="col-lg-4">
-        <FormInput label="RPI RIN" placeholder="RIN" v-model="fields.rin" type="NUMBER" required="true" help="Your Rensselaer ID Number - '661000000'" />
+        <FormInput label="RPI RIN" placeholder="RIN" type="NUMBER" required="true" help="Your Rensselaer ID Number - '661000000'" @input="rin" />
       </div>
 
       <div class="col-lg-4">
-        <FormInput label="RPI Major" placeholder="Major" v-model="fields.major" required="true" help="Example: 'CSCI'" />
+        <FormInput label="RPI Major" placeholder="Major" required="true" help="Example: 'CSCI'" @input="major" />
       </div>
 
       <div class="col-lg-4">
@@ -37,7 +37,7 @@
             <span class='text-danger'>*</span>
           </label>
           <small class="form-text text-muted mb-1">Your class year at RPI</small>
-          <select class="form-control" v-model="fields.classYear">
+          <select class="form-control" @change="classYear($event.target.value)">
             <option value="FRESHMAN">Freshman</option>
             <option value="SOPHOMORE">Sophomore</option>
             <option value="JUNIOR">Junior</option>
@@ -57,7 +57,7 @@
             <span class='text-danger'>*</span>
           </label>
           <small class="form-text text-muted mb-1">Choose "CSCI 2941" if you are taking RCOS for the first time.</small>
-          <select class="form-control" v-model="fields.course">
+          <select class="form-control" @change="course($event.target.value)">
             <option value="CSCI 2941">CSCI 2941</option>
             <option value="CSCI 4941">CSCI 4941</option>
           </select>
@@ -71,7 +71,7 @@
             <span class='text-danger'>*</span>
           </label>
           <small class="form-text text-muted mb-1">The number of credits you'll be pursuing in RCOS.</small>
-          <select class="form-control" v-model="fields.credits">
+          <select class="form-control" @change="credits($event.target.value)">
             <option value="0">0 Credits (Experience)</option>
             <option value="1">1 Credit</option>
             <option value="2">2 Credits</option>
@@ -82,7 +82,7 @@
       </div>
 
       <div class="col-lg-4">
-        <FormInput label="Project Name" placeholder="Project Name" v-model="fields.project" required="true" help="The name of your RCOS project" />
+        <FormInput label="Project Name" placeholder="Project Name" required="true" help="The name of your RCOS project" @input="projectName" />
       </div>
 
       <div class="col-lg-12 text-center">
@@ -114,8 +114,10 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import SignaturePad from 'signature_pad'
 import FormInput from './FormInput'
+
 export default {
   name: 'Signature',
   components: {
@@ -127,23 +129,37 @@ export default {
     this.signaturePad = signaturePad
   },
   methods: {
+    ...mapMutations({
+      firstName: 'urp/firstName',
+      lastName: 'urp/lastName',
+      rpiEmail: 'urp/rpiEmail',
+      rin: 'urp/rin',
+      major: 'urp/major',
+      classYear: 'urp/classYear',
+      course: 'urp/course',
+      credits: 'urp/credits',
+      projectName: 'urp/projectName',
+      signature: 'urp/signature'
+    }),
     clearSignature () {
       this.signaturePad.clear()
     },
     onSubmit () {
-      const { first, last, email, rin, project, course, credits, date, major, classYear } = this.fields
-      window.fields = {
-        name: first + ' ' + last,
-        signature: this.signaturePad.toDataURL(),
-        email,
-        rin,
-        project,
-        course,
-        credits,
-        date,
-        major,
-        classYear
-      }
+      this.signature(this.signaturePad.toDataURL())
+
+      // const { first, last, email, rin, project, course, credits, date, major, classYear } = this.fields
+      // window.fields = {
+      //   name: first + ' ' + last,
+      //   signature: this.signaturePad.toDataURL(),
+      //   email,
+      //   rin,
+      //   project,
+      //   course,
+      //   credits,
+      //   date,
+      //   major,
+      //   classYear
+      // }
       window.location = '#/urp'
     }
   },
