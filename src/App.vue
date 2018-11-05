@@ -23,7 +23,7 @@ export default {
     Notification
   },
   metaInfo: {
-    title: 'Lodaing...',
+    title: 'Loading...',
     titleTemplate: 'RCOS - %s', // title will always be "RCOS - ..."
     htmlAttrs: {
       lang: 'en'

@@ -10,6 +10,7 @@ import MentorRoutes from './mentor'
 import ProjectRoutes from './project'
 import UserRoutes from './user'
 import SmallGroupRoutes from './smallgroup'
+import UrpRoutes from './urp'
 
 import EventRoutes from '../modules/event/routes'
 
@@ -24,7 +25,8 @@ let router = new Router({
     ...ProjectRoutes,
     ...UserRoutes,
     ...SmallGroupRoutes,
-    ...EventRoutes
+    ...EventRoutes,
+    ...UrpRoutes
   ]
 })
 

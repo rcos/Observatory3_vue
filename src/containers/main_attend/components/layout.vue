@@ -4,9 +4,8 @@
 
     <CodeInput/>
 
-    <button class="btn btn-outline-success" @click="fetchCollection">
-      Refresh
-    </button>
+    <div v-if="unverified">Please verify your attendance with a mentor.</div>
+    <div v-if="!unverified">Attendance code succesfully submitted.</div>
 
     <h4>Previous Attendance:</h4>
     <TableHeader/>
@@ -37,7 +36,8 @@ export default {
   }),
   computed: {
     ...mapGetters({
-      collection: 'attendance/collection'
+      collection: 'attendance/collection',
+      unverified: 'attendance/unverified'
     })
   }
 }

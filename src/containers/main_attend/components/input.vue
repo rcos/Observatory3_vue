@@ -1,16 +1,26 @@
 <template>
-  <div class="input-group pt-3 pb-4">
-    <input type="text" class="form-control" placeholder="Day Code" aria-describedby="basic-addon2">
-    <span class="input-group-addon" id="basic-addon2">Submit attendance code</span>
+  <div>
+    <b-input-group>
+      <b-form-input v-model="code"></b-form-input>
+      <b-btn variant="outline-success" @click="submitCode({ code })">Submit attendance code</b-btn>
+    </b-input-group>
   </div>
 </template>
 
 <!-- // // // //  -->
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
-  name: 'input'
+  name: 'input',
+  methods: mapActions({
+    submitCode: 'attendance/submitCode'
+  }),
+  data () {
+    return {
+      code: ''
+    }
+  }
 }
 </script>
-
-

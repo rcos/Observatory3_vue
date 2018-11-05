@@ -1,5 +1,5 @@
 import { API_ROOT } from './constants'
-import { $GET } from '@/store/lib/helpers'
+import { $GET, $POST } from '@/store/lib/helpers'
 import { FILTER_ACTIONS, PAGINATION_ACTIONS } from '@/store/lib/mixins'
 
 // // // //
@@ -22,6 +22,19 @@ export default {
     })
     .catch((err) => {
       commit('fetching', false)
+      throw err
+    })
+  },
+
+  submitCode: ({ commit, rootGetters }, { code }) => {
+    let api = API_ROOT + '/attend'
+    let body = { dayCode: code }
+
+    $POST(api, { token: rootGetters['auth/token'], body: body })
+    .then((json) => {
+      commit('unverified', json.unverified)
+    })
+    .catch((err) => {
       throw err
     })
   },

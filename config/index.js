@@ -34,8 +34,6 @@ module.exports = {
     proxyTable: {
         "/api": "http://localhost:9000",
         "/auth": "http://localhost:9000"
-        // "/api": "http://hotsheets.work/",
-        // "/auth": "http://hotsheets.work/"
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README

@@ -19,6 +19,7 @@
 
         <!-- Authenticated links -->
         <b-nav-item href="#/main/attend" v-if="isAuthenticated">Attend</b-nav-item>
+        <b-nav-item href="#/urp" v-if="isAuthenticated">URP</b-nav-item>
 
         <!-- Mentor Dropdown -->
         <b-nav-item-dropdown text="Mentor" right v-if="isMentor || isAdmin">
