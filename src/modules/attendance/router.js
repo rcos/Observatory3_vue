@@ -1,8 +1,7 @@
-import Attend from './views/attend'
+import Attend from './pages/attend'
 
 const AttendRoute = {
   path: '/attendance',
-  name: 'main_attendance',
   component: Attend
 }
 

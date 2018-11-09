@@ -1,5 +1,5 @@
 import { API_ROOT } from './constants'
-import { $GET, $PUT, $POST } from '@/store/lib/helpers'
+import { $GET, $POST, $PUT } from '@/store/lib/helpers'
 import { FILTER_ACTIONS, PAGINATION_ACTIONS } from '@/store/lib/mixins'
 
 // // // //
@@ -54,16 +54,33 @@ export default {
     })
   },
 
-  // Submits Attendance code
-  create ({ commit, rootGetters }, dayCode) {
-    $POST(API_ROOT + '/attend', { token: rootGetters['auth/token'], body: { dayCode } })
+  // Fetches the attendance collection for this user
+  fetchCollection: ({ commit, rootGetters }) => {
+    commit('fetching', true)
+
+    let api = API_ROOT + '/present/me'
+
+    $GET(api, { token: rootGetters['auth/token'] })
     .then((json) => {
-      console.log(json)
-      // commit('collection', json)
-      // commit('fetching', false)
+      commit('collection', json)
+      commit('fetching', false)
     })
     .catch((err) => {
-      // commit('fetching', false)
+      commit('fetching', false)
+      throw err
+    })
+  },
+
+  // Submits Attendance code
+  submitCode: ({ commit, rootGetters }, { code }) => {
+    let api = API_ROOT + '/attend'
+    let body = { dayCode: code }
+
+    $POST(api, { token: rootGetters['auth/token'], body: body })
+    .then((json) => {
+      commit('unverified', json.unverified)
+    })
+    .catch((err) => {
       throw err
     })
   },

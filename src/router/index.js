@@ -11,6 +11,7 @@ import MentorRoutes from '@/modules/mentor/router'
 import ProjectRoutes from '@/modules/project/router'
 import UserRoutes from '@/modules/user/router'
 import SmallGroupRoutes from '@/modules/smallgroup/router'
+import UrpFormRoutes from '@/modules/urp/router'
 
 // vue-router
 // Router library
@@ -26,7 +27,8 @@ let router = new Router({
     ...MentorRoutes,
     ...ProjectRoutes,
     ...UserRoutes,
-    ...SmallGroupRoutes
+    ...SmallGroupRoutes,
+    ...UrpFormRoutes
   ]
 })
 
