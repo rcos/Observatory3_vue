@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 // import event from '@/modules/event/store'
-// import blog from '@/modules/blog/store'
 import auth from '@/modules/auth/store'
+import blog from '@/modules/status_update/store'
 import project from '@/modules/project/store'
 import user from '@/modules/user/store'
 import smallgroup from '@/modules/smallgroup/store'
@@ -18,6 +18,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   modules: {
     auth,
+    blog,
     project,
     user,
     smallgroup,
