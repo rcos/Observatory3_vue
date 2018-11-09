@@ -2,7 +2,9 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import Meta from 'vue-meta'
+import mavonEditor from 'mavon-editor'
 import BootstrapVue from 'bootstrap-vue'
+import 'mavon-editor/dist/css/index.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
@@ -17,6 +19,10 @@ Vue.use(Meta)
 
 // BootstrapVue configuration
 Vue.use(BootstrapVue)
+
+// mavon-editor
+// Beautiful markdown editing
+Vue.use(mavonEditor)
 
 // QUESTION - ??
 Vue.config.productionTip = false
