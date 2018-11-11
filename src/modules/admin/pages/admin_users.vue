@@ -10,7 +10,7 @@
 
 <script>
 import { mapActions } from 'vuex'
-import List from './components/list'
+import List from '../components/list'
 import Search from '@/components/Search'
 
 export default {

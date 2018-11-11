@@ -11,8 +11,8 @@
 <!-- // // // //  -->
 
 <script>
-import List from './components/list'
-import GenerateAttendance from './components/generate_attendance'
+import List from '../components/attendance_list'
+import GenerateAttendance from '../components/generate_attendance'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {

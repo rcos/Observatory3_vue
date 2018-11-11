@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Buttons from './components/buttons'
-import Semester from './components/semester'
+import Buttons from '../components/buttons'
+import Semester from '../components/semester'
 
 export default {
   components: {
