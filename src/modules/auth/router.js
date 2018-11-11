@@ -1,4 +1,3 @@
-// Auth Containers
 import AuthLogin from './pages/login'
 import AuthRegister from './pages/register'
 

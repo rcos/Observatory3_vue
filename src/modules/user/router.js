@@ -1,4 +1,3 @@
-// User Containers
 import UserList from './pages/user_list'
 import UserShow from './pages/user_show'
 import UserSettings from './pages/user_settings'

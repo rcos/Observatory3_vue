@@ -1,4 +1,3 @@
-// Project Containers
 import ProjectList from './pages/list'
 import ProjectNew from './pages/new'
 import ProjectShow from './pages/show'

@@ -1,4 +1,3 @@
-// Urp Containers
 import UrpNew from '@/modules/urp/pages/new'
 import UrpShow from '@/modules/urp/pages/show'
 

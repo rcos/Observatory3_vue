@@ -1,4 +1,3 @@
-// Mentor Containers
 import MentorVerify from './pages/mentor_verify'
 import MentorSmallGroup from './pages/mentor_small_group'
 

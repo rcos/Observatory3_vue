@@ -1,4 +1,3 @@
-// Admin Containers
 import AdminAttendance from './pages/admin_attendance'
 import AdminSettings from './pages/admin_settings'
 import AdminUsers from './pages/admin_users'
