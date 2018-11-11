@@ -6,13 +6,14 @@ import Middleware from './middleware'
 import AdminRoutes from '@/modules/admin/router'
 import AuthRoutes from '@/modules/auth/router'
 import AttendanceRoutes from '@/modules/attendance/router'
-import HomeRoutes from '@/modules/home/router'
+import ProfileRoutes from '@/modules/profile/router'
 import MentorRoutes from '@/modules/mentor/router'
 import ProjectRoutes from '@/modules/project/router'
 import UserRoutes from '@/modules/user/router'
 import SmallGroupRoutes from '@/modules/smallgroup/router'
 import UrpFormRoutes from '@/modules/urp/router'
 import StatusUpdateRoutes from '@/modules/status_update/router'
+import NotificationRoutes from '@/modules/notification/router'
 
 // vue-router
 // Router library
@@ -24,13 +25,14 @@ let router = new Router({
     ...AdminRoutes,
     ...AuthRoutes,
     ...AttendanceRoutes,
-    ...HomeRoutes,
+    ...ProfileRoutes,
     ...MentorRoutes,
     ...ProjectRoutes,
     ...UserRoutes,
     ...SmallGroupRoutes,
     ...UrpFormRoutes,
-    ...StatusUpdateRoutes
+    ...StatusUpdateRoutes,
+    ...NotificationRoutes
   ]
 })
 

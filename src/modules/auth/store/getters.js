@@ -29,6 +29,9 @@ const getters = {
   token: state => {
     return state.token
   },
+  authorizationHeader: state => {
+    return 'Bearer ' + state.token
+  },
   fetching: state => {
     return state.fetching
   }

@@ -17,6 +17,7 @@
 
         <!-- Authenticated links -->
         <b-nav-item href="#/attendance" v-if="isAuthenticated">Attend</b-nav-item>
+        <b-nav-item href="#/Notifications" v-if="isAuthenticated">Notifications</b-nav-item>
         <b-nav-item href="#/urp" v-if="isAuthenticated">URP</b-nav-item>
 
         <!-- Mentor Dropdown -->
@@ -41,7 +42,7 @@
           <template slot="button-content">
             {{ currentUser.email }}
           </template>
-          <b-dropdown-item :href="'#/users/' + currentUser._id">Profile</b-dropdown-item>
+          <b-dropdown-item :href="'#/profile' + currentUser._id">Profile</b-dropdown-item>
           <b-dropdown-item href="#/settings">Settings</b-dropdown-item>
           <b-dropdown-item v-b-modal="'logout'">Logout</b-dropdown-item>
         </b-nav-item-dropdown>

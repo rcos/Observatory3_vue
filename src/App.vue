@@ -1,7 +1,6 @@
 
 <template>
   <div id="app">
-    <Notifications/>
     <AppNavbar/>
     <router-view/>
     <!-- <AppFooter/> -->
@@ -11,14 +10,12 @@
 <script>
 import AppNavbar from '@/components/Navbar'
 import AppFooter from '@/components/Footer'
-import Notifications from '@/modules/notification/components/Notifications'
 
 export default {
   name: 'app',
   components: {
     AppNavbar,
-    AppFooter,
-    Notifications
+    AppFooter
   },
   metaInfo: {
     title: 'Loading...',
