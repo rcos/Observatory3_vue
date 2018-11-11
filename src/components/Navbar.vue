@@ -12,8 +12,6 @@
         <!-- Public links -->
         <b-nav-item href="#/projects">Projects</b-nav-item>
         <b-nav-item href="#/users">Developers</b-nav-item>
-        <!-- <b-nav-item href="#/sponsors">Sponsors</b-nav-item> -->
-        <!-- <b-nav-item href="#/faq">FAQ</b-nav-item> -->
 
         <!-- Authenticated links -->
         <b-nav-item href="#/attendance" v-if="isAuthenticated">Attend</b-nav-item>
@@ -31,6 +29,7 @@
           <b-dropdown-item href="#/small_groups">Small Groups</b-dropdown-item>
           <b-dropdown-item href="#/admin/attendance">Attendance</b-dropdown-item>
           <b-dropdown-item href="#/admin/users">Users</b-dropdown-item>
+          <b-dropdown-item href="#/user_registrations">User Registrations</b-dropdown-item>
           <b-dropdown-item href="#/admin/settings">Settings</b-dropdown-item>
         </b-nav-item-dropdown>
 

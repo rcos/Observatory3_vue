@@ -11,6 +11,7 @@ import notification from '@/modules/notification/store'
 import attendance from '@/modules/attendance/store'
 import semester from '@/modules/semester/store'
 import urp from '@/modules/urp/store'
+import userRegistration from '@/modules/user_registration/store'
 
 Vue.use(Vuex)
 
@@ -25,6 +26,7 @@ export default new Vuex.Store({
     notification,
     attendance,
     semester,
-    urp
+    urp,
+    user_registration: userRegistration
   }
 })

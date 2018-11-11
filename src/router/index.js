@@ -14,6 +14,7 @@ import SmallGroupRoutes from '@/modules/smallgroup/router'
 import UrpFormRoutes from '@/modules/urp/router'
 import StatusUpdateRoutes from '@/modules/status_update/router'
 import NotificationRoutes from '@/modules/notification/router'
+import UserRegistrationRoutes from '@/modules/user_registration/router'
 
 // vue-router
 // Router library
@@ -32,7 +33,8 @@ let router = new Router({
     ...SmallGroupRoutes,
     ...UrpFormRoutes,
     ...StatusUpdateRoutes,
-    ...NotificationRoutes
+    ...NotificationRoutes,
+    ...UserRegistrationRoutes
   ]
 })
 

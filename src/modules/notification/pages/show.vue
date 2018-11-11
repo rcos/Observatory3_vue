@@ -11,7 +11,6 @@
 import { mapGetters, mapActions } from 'vuex'
 import Loading from '@/components/Loading'
 import NotificationShowWidget from '@/modules/notification/components/NotificationShowWidget'
-import User from '@/modules/notification/components/User'
 
 export default {
   props: ['id'],
@@ -20,7 +19,6 @@ export default {
     title: 'Notifications - Show'
   },
   components: {
-    User,
     NotificationShowWidget,
     Loading
   },
