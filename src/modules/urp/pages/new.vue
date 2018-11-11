@@ -116,10 +116,13 @@
 <script>
 import { mapMutations } from 'vuex'
 import SignaturePad from 'signature_pad'
-import FormInput from './FormInput'
+import FormInput from '../components/FormInput'
 
 export default {
-  name: 'Signature',
+  name: 'New URP',
+  metaInfo: {
+    title: 'New URP Form'
+  },
   components: {
     FormInput
   },
@@ -187,9 +190,6 @@ export default {
 }
 </script>
 
-<!-- // // // // -->
-
-<!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style scoped>
   canvas {
     border: 1px #000 solid;

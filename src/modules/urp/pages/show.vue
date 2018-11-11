@@ -12,15 +12,14 @@
   </div>
 </template>
 
-<!-- // // // //  -->
-
 <script>
-import Preview from './preview'
-
+import Preview from '../components/preview'
 export default {
-  name: 'urp_show',
   components: {
     Preview
+  },
+  metaInfo: {
+    title: 'URP Form'
   }
 }
 </script>
