@@ -16,8 +16,8 @@
 <!-- // // // //  -->
 
 <script>
-import AttendanceCodeInput from './components/AttendanceCodeInput'
-import AttendanceList from './components/AttendanceList'
+import AttendanceCodeInput from '../components/AttendanceCodeInput'
+import AttendanceList from '../components/AttendanceList'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
