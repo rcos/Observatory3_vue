@@ -1,16 +1,14 @@
 // Auth Containers
-import AuthLogin from './views/login'
-import AuthRegister from './views/register'
+import AuthLogin from './pages/login'
+import AuthRegister from './pages/register'
 
 const AuthLoginRoute = {
   path: '/auth/login',
-  name: 'auth_login',
   component: AuthLogin
 }
 
 const AuthRegisterRoute = {
   path: '/auth/register',
-  name: 'auth_register',
   component: AuthRegister
 }
 

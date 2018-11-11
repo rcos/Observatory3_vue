@@ -1,6 +1,7 @@
 
 <template>
-  <div class="container h-100">
+<div class="app d-flex flex-row align-items-center">
+  <div class="container">
     <div class="row d-flex justify-content-center">
       <div class="col-lg-8">
 
@@ -10,8 +11,16 @@
               <form @submit.prevent="register">
                   <fieldset>
                     <div class='row'>
+                      <div class='col-lg-6'>
+                        <FormInput v-model="register_user.first_name" name='first_name' label='First Name' placeholder='First Name'/>
+                      </div>
+
+                      <div class='col-lg-6'>
+                        <FormInput v-model="register_user.last_name" name='last_name' label='Last Name' placeholder='Last Name'/>
+                      </div>
+
                       <div class='col-lg-12'>
-                        <FormInput v-model="register_user.name" name='name' label='Name' placeholder='Name'/>
+                        <FormInput v-model="register_user.preferred_name" name='preferred_name' label='Preferred Name' placeholder='Preferred Name'/>
                       </div>
 
                       <div class='col-lg-6'>
@@ -44,6 +53,7 @@
         </div>
     </div>
   </div>
+</div>
 </template>
 
 <!-- // // // //  -->
