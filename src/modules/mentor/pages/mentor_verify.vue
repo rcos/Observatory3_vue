@@ -10,7 +10,7 @@
 <!-- // // // //  -->
 
 <script>
-import VerifyList from './components/VerifyList'
+import VerifyList from '../components/VerifyList'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
