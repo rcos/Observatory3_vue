@@ -1,36 +1,18 @@
 import _ from 'lodash'
+import { NEW_NOTIFICATION } from './constants'
+import { COLLECTION_MUTATIONS, MODEL_MUTATIONS } from '@/store/lib/mixins'
 
-// // // //
-
-// removeNotification
-// Helper function used to remove a notification from state.collection
-function removeNotification (collection, id) {
-  return _.filter(collection, (e) => { return e.id !== id })
-}
-
-// // // //
-
-// Notification Module mutations
-// TODO - these should be Notification actions
+// Notification Module Mutations
 export default {
-  // Adds a notification to state.collection
-  add (state, notification) {
-    // Assigns unique ID to notification
-    // this is used for removing the notification after a timeout
-    let uniqueId = _.uniqueId()
-    notification.id = uniqueId
-
-    // Adds the notification to state.collection
-    state.collection.push(notification)
-
-    // Removes the notification after
-    setTimeout(() => {
-      state.collection = removeNotification(state.collection, uniqueId)
-    }, notification.timeout || 2500)
+  user (state, user) {
+    state.user = user
   },
-
-  // Removes a Notification from state.collection
-  remove (state, notificationId) {
-    state.collection = removeNotification(state.collection, notificationId)
+  ...COLLECTION_MUTATIONS,
+  ...MODEL_MUTATIONS,
+  resetNewModel (state) {
+    state.newModel = _.cloneDeep(NEW_NOTIFICATION)
+  },
+  editModel (state, model) {
+    state.editModel = _.cloneDeep(model)
   }
 }

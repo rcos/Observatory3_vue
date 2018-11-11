@@ -1,8 +1,17 @@
+import { COLLECTION_GETTERS, MODEL_GETTERS } from '@/store/lib/mixins'
 
-// Project Module Getters
+// Notification Module Getters
 const getters = {
-  collection: state => {
-    return state.collection
+  user: state => {
+    return state.user
+  },
+  ...COLLECTION_GETTERS,
+  ...MODEL_GETTERS,
+  newModel: state => {
+    return state.newModel
+  },
+  editModel: state => {
+    return state.editModel
   }
 }
 
