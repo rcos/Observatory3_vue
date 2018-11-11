@@ -13,7 +13,7 @@ import { mapActions } from 'vuex'
 export default {
   name: 'buttons',
   methods: mapActions({
-    createNewSemester: 'classyear/create'
+    createNewSemester: 'semester/create'
   })
 }
 </script>

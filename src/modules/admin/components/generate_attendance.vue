@@ -30,11 +30,11 @@ export default {
     }
   },
   methods: mapActions({
-    generateAttendanceCode: 'classyear/generateAttendanceCode',
-    generateBonusCode: 'classyear/generateBonusCode'
+    generateAttendanceCode: 'semester/generateAttendanceCode',
+    generateBonusCode: 'semester/generateBonusCode'
   }),
   computed: mapGetters({
-    daycode: 'classyear/daycode'
+    daycode: 'semester/daycode'
   })
 }
 </script>
