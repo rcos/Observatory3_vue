@@ -1,12 +1,11 @@
 // Project Containers
-import ProjectList from './views/list'
-import ProjectNew from './views/new'
-import ProjectShow from './views/show'
-import ProjectEdit from './views/edit'
+import ProjectList from './pages/list'
+import ProjectNew from './pages/new'
+import ProjectShow from './pages/show'
+import ProjectEdit from './pages/edit'
 
 const ProjectListRoute = {
   path: '/projects',
-  name: 'Project List',
   component: ProjectList
   // beforeEnter: Middleware.ensureAuthenticated
 }
@@ -14,14 +13,12 @@ const ProjectListRoute = {
 // TODO - must be authenticated
 const ProjectNewRoute = {
   path: '/projects/new',
-  name: 'Project New',
   component: ProjectNew
   // beforeEnter: Middleware.requireAuth
 }
 
 const ProjectShowRoute = {
   path: '/projects/:id',
-  name: 'Project Show',
   component: ProjectShow,
   props: true
 }
@@ -29,7 +26,6 @@ const ProjectShowRoute = {
 // TODO - must be authenticated && owner of project
 const ProjectEditRoute = {
   path: '/projects/:id/edit',
-  name: 'Project Edit',
   component: ProjectEdit,
   props: true
   // beforeEnter: Middleware.requireAuth

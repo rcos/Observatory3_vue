@@ -1,22 +1,18 @@
-
 <template>
-  <LayoutView></LayoutView>
+  <div class="container">
+    <a href="/#/projects/1">Back</a>
+    <h2>Project Edit</h2>
+    <hr>
+    <p class="lead">Project Title</p>
+  </div>
 </template>
 
 <!-- // // // //  -->
 
 <script>
-import LayoutView from './components/layout.vue'
-
 export default {
-  name: 'project_edit',
-  components: {
-    LayoutView
-  },
   metaInfo: {
     title: 'Projects - Edit' // title is now "RCOS - Loading..."
   }
 }
 </script>
-
-

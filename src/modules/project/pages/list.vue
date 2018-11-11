@@ -1,11 +1,10 @@
-
 <template>
   <div class="container">
     <PageHeader :title="headerText" />
     <Search module="project" />
     <Pagination module="project" />
 
-  	<div class="row">
+    <div class="row">
       <div :class="listCss">
         <Loading :loading="fetching">
           <ListView :collection="collection"/>
@@ -16,21 +15,24 @@
         <Sidebar/>
       </div>
 
-  	</div>
+    </div>
   </div>
 </template>
 
 <!-- // // // //  -->
 
 <script>
-import ListView from './list.vue'
+import ListView from '../components/list.vue'
 import Loading from '@/components/Loading'
 import Search from '@/components/Search'
 import Pagination from '@/components/Pagination'
-import Sidebar from './pinned.vue'
+import Sidebar from '../components/pinned.vue'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
+  metaInfo: {
+    title: 'Projects'
+  },
   created () {
     return this.fetch()
   },
@@ -61,5 +63,3 @@ export default {
   }
 }
 </script>
-
-
