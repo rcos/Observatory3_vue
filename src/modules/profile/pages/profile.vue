@@ -1,5 +1,5 @@
 <template>
-  <Loading :loading="!model">
+  <Loading :loading="!model._id">
     <div class="container">
       <PageHeader title="Dashboard" />
 
@@ -15,7 +15,6 @@
 
         <div class="col-sm-12 col-lg-9 pl-lg-0 mt-3 mt-lg-0">
           <Tech :model="model"/>
-          <Bio :model="model"/>
           <!-- <Projects :model="model"/> -->
           <Attendance :model="model"/>
         </div>
@@ -48,6 +47,11 @@ export default {
     Bio,
     Projects,
     Attendance
+  },
+  mounted () {
+    if (!this.isAuthenticated) {
+      return this.$router.push('/auth/login')
+    }
   },
   computed: {
     ...mapGetters({
