@@ -1,16 +1,7 @@
 <template>
   <Loading v-if="fetching" />
   <div class="container" v-else>
-
     <NotificationShowWidget :model="model" :fetching="fetching" />
-
-    <div class="row">
-      <div class="col-lg-12">
-        <User :model="user" v-if="user._id" />
-      </div>
-
-    </div>
-
   </div>
 </template>
 
