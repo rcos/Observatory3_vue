@@ -14,8 +14,8 @@
 
 <script>
 import Loading from '@/components/Loading'
-import AddMember from './components/AddMember'
-import MemberList from './components/MemberList'
+import AddMember from '../components/AddMember'
+import MemberList from '../components/MemberList'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {

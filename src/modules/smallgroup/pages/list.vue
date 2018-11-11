@@ -24,7 +24,7 @@
 <script>
 import Loading from '@/components/Loading'
 import PageHeader from '@/components/PageHeader'
-import SmallGroupChild from './components/SmallGroupChild'
+import SmallGroupChild from '../components/SmallGroupChild'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {

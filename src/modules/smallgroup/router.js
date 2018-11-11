@@ -1,7 +1,6 @@
-// SmallGroup Containers
-import SmallGroupList from './views/list'
-import SmallGroupShow from './views/show'
-import SmallGroupNew from './views/new'
+import SmallGroupList from './pages/list'
+import SmallGroupShow from './pages/show'
+import SmallGroupNew from './pages/new'
 
 // TODO - must be authenticated
 const SmallGroupListRoute = {
