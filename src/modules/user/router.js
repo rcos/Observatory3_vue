@@ -1,17 +1,15 @@
 // User Containers
-import UserList from './views/user_list'
-import UserShow from './views/user_show'
-import UserSettings from './views/user_settings'
+import UserList from './pages/user_list'
+import UserShow from './pages/user_show'
+import UserSettings from './pages/user_settings'
 
 const UserListRoute = {
   path: '/users',
-  name: 'user_list',
   component: UserList
 }
 
 const UserShowRoute = {
   path: '/users/:id',
-  name: 'user_show',
   component: UserShow,
   props: true
 }
@@ -19,7 +17,6 @@ const UserShowRoute = {
 // TODO - must be authenticated
 const UserSettingsRoute = {
   path: '/settings',
-  name: 'user_settings',
   component: UserSettings
 }
 

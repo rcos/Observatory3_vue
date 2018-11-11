@@ -13,19 +13,21 @@ export default {
   filteredCollection: ({ state, commit, dispatch }) => {
     let filteredCollection = _.chain(state.collection)
     .filter(u => {
-      let tech = u.tech || []
-      const filter = state.filter.toLowerCase()
+      // let tech = u.tech || []
+      // const filter = state.filter.toLowerCase()
       // Checks filter against
-      let flag = u.name.toLowerCase().indexOf(filter) !== -1
+      // const userFlag = u.name || u.first_name
+      // let flag = userFlag.toLowerCase().indexOf(filter) !== -1
       // Checks filter again the user's tech tags
-      for (let i = 0; i < tech.length; i++) {
-        let tag = tech[i].toLowerCase()
-        if (tag.indexOf(filter) !== -1) {
-          flag = true
-          break
-        }
-      }
-      return flag
+      // for (let i = 0; i < tech.length; i++) {
+      //   let tag = tech[i].toLowerCase()
+      //   if (tag.indexOf(filter) !== -1) {
+      //     flag = true
+      //     break
+      //   }
+      // }
+      return true
+      // return flag
     })
     .orderBy(['name'], [state.orderBy])
     .value()
