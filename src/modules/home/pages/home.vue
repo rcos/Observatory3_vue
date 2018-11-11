@@ -8,22 +8,14 @@
         </div>
       </div>
     </div>
-
-    <Explore/>
-
   </div>
 </template>
 
 <script>
-import Explore from './components/explore.vue'
 
 export default {
-  name: 'main_home',
   metaInfo: {
-    title: 'Main - Home'
-  },
-  components: {
-    Explore
+    title: 'Home'
   }
 }
 </script>
